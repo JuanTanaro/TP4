@@ -14,12 +14,14 @@ namespace TP4
             IDictionary<int, string> Alumnos = new Dictionary<int, string>();
 
             //Creacion de dictionaries para cada carrera
+            /*
             IDictionary<int, string> Economia = new Dictionary<int, string>();
             IDictionary<int, string> Sistemas = new Dictionary<int, string>();
             IDictionary<int, string> Administracion = new Dictionary<int, string>();
             IDictionary<int, string> ActuarioAdm = new Dictionary<int, string>();
             IDictionary<int, string> ActuarioEcon = new Dictionary<int, string>();
             IDictionary<int, string> Contador = new Dictionary<int, string>();
+            */
 
             // Iniciacion del usuario
             Console.WriteLine("Cual es su numero de registro?");
@@ -44,6 +46,7 @@ namespace TP4
             bool continuar = true;
             string strMateriaAprobada = Console.ReadLine();
             int CodigoMateriaAprobada = ChequearSiEsNumero(strMateriaAprobada);
+            RemoverMaterias(strEleccionCarrera, CodigoMateriaAprobada);
             
             while (continuar == true)
             {
@@ -56,6 +59,8 @@ namespace TP4
                 else
                 {
                     CodigoMateriaAprobada = ChequearSiEsNumero(strMateriaAprobada);
+                    RemoverMaterias(strEleccionCarrera, CodigoMateriaAprobada);
+                    continuar = true;
                 }
 
             }
@@ -108,9 +113,34 @@ namespace TP4
             }
         }
 
-        public static void RemoverMaterias()
+        public static void RemoverMaterias(string eleccionCarrera, int CodigoMateria)
         {
+            switch (eleccionCarrera)
+            {
+                case 1:
+                    Economia.Remove(CodigoMateria);
+                    break;
 
+                case 2:
+                    Sistemas.Remove(CodigoMateria);
+                    break;
+
+                case 3:
+                    Administracion.Remove(CodigoMateria);
+                    break;
+
+                case 4:
+                    ActuarioAdm.Remove(CodigoMateria);
+                    break;
+
+                case 5:
+                    ActuarioEcon.Remove(CodigoMateria);
+                    break;
+
+                case 6:
+                    Contador.Remove(CodigoMateria);
+                    break;
+            }
         }
     }
 }
