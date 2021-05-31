@@ -8,6 +8,10 @@ namespace TP4
 {
     internal class Program
     {
+
+        //Problemas:
+        //Falta hacer un bucle por si no existe el alumno
+
         static void Main(string[] args)
         {
             bool salir = false;
@@ -17,9 +21,10 @@ namespace TP4
                 Console.WriteLine("MENU PRINCIPAL");
                 Console.WriteLine("-------------");
 
-                // Iniciacion del usuario
+                // Iniciacion del usuario. 
                 BuscoRegistro();
 
+                // Seleccionamos la carrera
                 Console.WriteLine("Seleccione para que carrera va a anotarse a las materias");
                 Console.WriteLine("1 - Economia");
                 Console.WriteLine("2 - Sistemas");
@@ -28,15 +33,17 @@ namespace TP4
                 Console.WriteLine("5 - Actuario en economia");
                 Console.WriteLine("6 - Contador Publico");
 
-                Console.WriteLine("Ingrese una opción y presione [Enter]");
+                Console.WriteLine("Seleccione las materias que ya realizo escribiendo cada uno de los codigos de materia y luego ENTER");
                 var opcion = Console.ReadLine();
 
                 switch (opcion)
                 {
                     case "1":
-                        // Permito al usuario seleccionar las materias que ya realizo
-                        Console.WriteLine("Seleccione las materias que ya realizo escribiendo cada uno de los codigos de materia y luego ENTER");
                         MostrarMateriasEconomia();
+                        MarcarAprobadas();
+                        break;
+                    case "2":
+                        MostrarMateriasSistemas();
                         break;
                     case "4":
                         salir = true;
@@ -47,13 +54,33 @@ namespace TP4
                 }
 
             } while (!salir);
+        }
 
-            
-            
+        private static void BuscoRegistro()
+        {
+            var persona = Alumnado.Seleccionar();
+            if (persona == null)
+            {
+                return;
+            }
+            persona?.Mostrar();
+        }
+
+        private static void MostrarMateriasEconomia()
+        {
+            Economia.MostrarDatos();
+        }
+        private static void MostrarMateriasSistemas()
+        {
+            Sistemas.MostrarDatos();
+        }
+
+        private static void MarcarAprobadas()
+        {
             //string strMateriaAprobada = Console.ReadLine();
             //int CodigoMateriaAprobada = ChequearSiEsNumero(strMateriaAprobada);
             //RemoverMaterias(strEleccionCarrera, CodigoMateriaAprobada);
-            
+
             //while (continuar == true)
             //{
             //    Console.WriteLine("Ingrese otro codigo o escriba 'SALIR'");
@@ -70,17 +97,6 @@ namespace TP4
             //    }
 
             //}
-        }
-
-        private static void BuscoRegistro()
-        {
-            var persona = Alumnado.Seleccionar();
-            persona?.Mostrar();
-        }
-
-        private static void MostrarMateriasEconomia()
-        {
-            Carrera.MostrarDatos();
         }
 
 

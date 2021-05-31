@@ -22,7 +22,7 @@ namespace TP4
         public void Mostrar()
         {
             Console.WriteLine();
-            Console.WriteLine("Hola!" + $"Nombre: {NombreAlumno}");
+            Console.WriteLine("Hola! " + $"{NombreAlumno}");
             Console.WriteLine();
         }
         public static Alumno CrearModeloBusqueda()
@@ -31,6 +31,7 @@ namespace TP4
             modelo.NRegistro = IngresarRegistro(obligatorio: false);
             return modelo;
         }
+
         public bool CoincideCon(Alumno modelo)
         {
             if (modelo.NRegistro != 0 && modelo.NRegistro != NRegistro)

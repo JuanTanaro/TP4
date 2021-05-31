@@ -45,10 +45,13 @@
   <ItemGroup>
     <Compile Include="Alumnado.cs" />
     <Compile Include="Alumno.cs" />
+    <Compile Include="Asignacion.cs" />
+    <Compile Include="Inscripcion.cs" />
     <Compile Include="Materias.cs" />
-    <Compile Include="Carrera.cs" />
+    <Compile Include="Economia.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Sistemas.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
