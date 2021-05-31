@@ -41,7 +41,7 @@ namespace TP4
             string Mensaje = "";
             foreach (var materias in entradas.Values)
             {
-                Mensaje += $"Usted a sido asignado a: {materias.NombreMateria1}\n" + " - " + $"{materias.NombreMateria2}\n" + " - " + $"{ materias.NombreMateria3}\n";
+                Mensaje += "Usted a sido asignado a: \n" + " - " + $"{materias.NombreMateria1}\n" + " - " + $"{materias.NombreMateria2}\n" + " - " + $"{ materias.NombreMateria3}\n";
             }
             if (Mensaje != "")
             {

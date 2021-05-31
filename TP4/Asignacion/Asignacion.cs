@@ -51,28 +51,6 @@ namespace TP4
 
         //Validaciones e ingresos
 
-        private static int IngresarNumero(string titulo)
-        {
-            do
-            {
-                Console.WriteLine(titulo);
-
-                var ingreso = Console.ReadLine();
-                if (string.IsNullOrWhiteSpace(ingreso))
-                {
-                    return 0;
-                }
-
-                if (!int.TryParse(ingreso, out var codigoCuenta))
-                {
-                    Console.WriteLine("No ha ingresado un registro válido");
-                    continue;
-                }
-
-                return codigoCuenta;
-
-            } while (true);
-        }
 
         private static string Ingreso(string titulo, bool permiteNumeros = false)
         {

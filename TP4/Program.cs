@@ -111,7 +111,7 @@ namespace TP4
                     Console.WriteLine($"{materia.NombreMateria} ha sido marcada como aprobada");
                 }
 
-                EliminarMateria(eleccionCarrera, CodigoPersona)
+                EliminarMateria(eleccionCarrera, CodigoPersona);
             }
 
             else if (eleccionCarrera == "2")
@@ -130,7 +130,7 @@ namespace TP4
                     Console.WriteLine($"{materia.NombreMateria} ha sido marcada como aprobada");
                 }
 
-                EliminarMateria(eleccionCarrera, CodigoPersona)
+                EliminarMateria(eleccionCarrera, CodigoPersona);
             }
 
             else if (eleccionCarrera == "3")
