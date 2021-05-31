@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 
 namespace TP4
 {
-    static class Sistemas
+    static class Contador
     {
         private static readonly Dictionary<int, Materias> entradas;
-        const string nombreArchivo = "Sistemas.txt";
+        const string nombreArchivo = "Contador.txt";
 
-        static Sistemas()
+        static Contador()
         {
             entradas = new Dictionary<int, Materias>();
 
@@ -29,6 +29,7 @@ namespace TP4
                 }
             }
         }
+
 
         public static void MostrarDatos()
         {

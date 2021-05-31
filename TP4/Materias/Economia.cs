@@ -74,9 +74,9 @@ namespace TP4
         {
             using (var writer = new StreamWriter(nombreArchivo, append: false))
             {
-                foreach (var persona in entradas.Values)
+                foreach (var materias in entradas.Values)
                 {
-                    var linea = persona.ObtenerLineaDatos();
+                    var linea = materias.ObtenerLineaDatos();
                     writer.WriteLine(linea);
                 }
             }

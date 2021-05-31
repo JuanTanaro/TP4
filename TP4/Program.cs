@@ -6,7 +6,13 @@ namespace TP4
     {
 
         //Problemas:
+        //ANALIZAR EN BAJA
+        //Aca intentaria crear por cada alumno un txt, entonces se registraria ese alumno con las materias que puede cursar y las que tiene aprobadas
+        //  no se mostrarian
 
+        //Luego de eso, procederia a anotarse, las restricciones posibles serian:
+        //      las correlatividades
+        //      o en caso de que .Count(materias) < 4, libre eleccion
         static void Main(string[] args)
         {
             bool salir = false;
@@ -37,6 +43,10 @@ namespace TP4
                         Baja(eleccionCarrera);
                         break;
                     case "2":
+                        MostrarMaterias(eleccionCarrera);
+                        Baja(eleccionCarrera);
+                        break;
+                    case "3":
                         MostrarMaterias(eleccionCarrera);
                         Baja(eleccionCarrera);
                         break;
@@ -71,11 +81,23 @@ namespace TP4
             {
                 Sistemas.MostrarDatos();
             }
+            else if (eleccionCarrera == "3")
+            {
+                Contador.MostrarDatos();
+            }
         }
 
         private static void Baja(string eleccionCarrera)
         {
             Console.WriteLine("Seleccione las materias que ya realizo escribiendo cada uno de los codigos de materia y luego ENTER");
+
+            //ANALIZAR
+            //Aca intentaria crear por cada alumno un txt, entonces se registraria ese alumno con las materias que puede cursar y las que tiene aprobadas
+            //  no se mostrarian
+
+            //Luego de eso, procederia a anotarse, las restricciones posibles serian:
+            //      las correlatividades
+            //      o en caso de que .Count(materias) < 4, libre eleccion
 
             if (eleccionCarrera == "1")
             {
@@ -109,6 +131,25 @@ namespace TP4
                 if (key.Key == ConsoleKey.S)
                 {
                     Sistemas.Baja(materia);
+                    Console.WriteLine($"{materia.NombreMateria} ha sido marcada como aprobada");
+                }
+
+                EliminarMateria(eleccionCarrera);
+            }
+
+            else if (eleccionCarrera == "3")
+            {
+                var materia = Contador.Seleccionar();
+                if (materia == null)
+                {
+                    return;
+                }
+                materia.Mostrar();
+                Console.WriteLine($"Marca aprobada la materia {materia.CodigoMateria}. Está ud. seguro? S/N\n");
+                var key = Console.ReadKey(intercept: true);
+                if (key.Key == ConsoleKey.S)
+                {
+                    Contador.Baja(materia);
                     Console.WriteLine($"{materia.NombreMateria} ha sido marcada como aprobada");
                 }
 

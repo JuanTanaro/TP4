@@ -47,6 +47,7 @@
     <Compile Include="Alumnos\Alumno.cs" />
     <Compile Include="Asignacion\Asignacion.cs" />
     <Compile Include="Asignacion\Inscripcion.cs" />
+    <Compile Include="Materias\Contador.cs" />
     <Compile Include="Materias\Materias.cs" />
     <Compile Include="Materias\Economia.cs" />
     <Compile Include="Program.cs" />
