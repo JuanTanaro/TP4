@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +13,7 @@ namespace TP4
         public string NombreMateria1 { get; set; }
         public string NombreMateria2 { get; set; }
         public string NombreMateria3 { get; set; }
+
 
         public Asignacion() { }
 

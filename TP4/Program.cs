@@ -1,9 +1,12 @@
 ﻿using System;
+using System.IO;
+using System.Threading;
 
 namespace TP4
 {
     internal class Program
     {
+        private const string V = "-";
 
         //Problemas:
         //ANALIZAR EN BAJA
@@ -192,5 +195,6 @@ namespace TP4
             var inscripcion = Asignacion.Asignar();
             Inscripcion.Agregar(inscripcion);
         }
+
     }
 }
