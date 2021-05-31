@@ -10,7 +10,6 @@ namespace TP4
     {
 
         //Problemas:
-        //Falta hacer un bucle por si no existe el alumno
 
         static void Main(string[] args)
         {
@@ -33,14 +32,13 @@ namespace TP4
                 Console.WriteLine("5 - Actuario en economia");
                 Console.WriteLine("6 - Contador Publico");
 
-                Console.WriteLine("Seleccione las materias que ya realizo escribiendo cada uno de los codigos de materia y luego ENTER");
-                var opcion = Console.ReadLine();
+                var eleccionCarrera = Console.ReadLine();
 
-                switch (opcion)
+                switch (eleccionCarrera)
                 {
                     case "1":
                         MostrarMateriasEconomia();
-                        MarcarAprobadas();
+                        BajaEconomia();
                         break;
                     case "2":
                         MostrarMateriasSistemas();
@@ -61,7 +59,7 @@ namespace TP4
             var persona = Alumnado.Seleccionar();
             if (persona == null)
             {
-                return;
+                BuscoRegistro();
             }
             persona?.Mostrar();
         }
@@ -75,76 +73,60 @@ namespace TP4
             Sistemas.MostrarDatos();
         }
 
-        private static void MarcarAprobadas()
+        private static void BajaEconomia()
         {
-            //string strMateriaAprobada = Console.ReadLine();
-            //int CodigoMateriaAprobada = ChequearSiEsNumero(strMateriaAprobada);
-            //RemoverMaterias(strEleccionCarrera, CodigoMateriaAprobada);
-
-            //while (continuar == true)
-            //{
-            //    Console.WriteLine("Ingrese otro codigo o escriba 'SALIR'");
-            //    strMateriaAprobada = Console.ReadLine();
-            //    if (strMateriaAprobada == "SALIR")
-            //    {
-            //        continuar = false;
-            //    }
-            //    else
-            //    {
-            //        CodigoMateriaAprobada = ChequearSiEsNumero(strMateriaAprobada);
-            //        RemoverMaterias(strEleccionCarrera, CodigoMateriaAprobada);
-            //        continuar = true;
-            //    }
-
-            //}
-        }
-
-
-
-        // Metodo para validar si lo ingresado es un numero
-        public static int ChequearSiEsNumero(string strNumeroRegistro)
-        {
-            int NumeroRegistro;
-            while(int.TryParse(strNumeroRegistro, out NumeroRegistro) == false)
+            Console.WriteLine("Seleccione las materias que ya realizo escribiendo cada uno de los codigos de materia y luego ENTER");
+            var materia = Economia.Seleccionar();
+            if (materia == null)
             {
-                Console.WriteLine("El valor ingresado no es un numero. Intente nuevamente");
+                return;
             }
-            return NumeroRegistro;
+            materia.Mostrar();
+            Console.WriteLine($"Se dispone a dar de baja a {materia.CodigoMateria}. Está ud. seguro? S/N");
+            var key = Console.ReadKey(intercept: true);
+            if (key.Key == ConsoleKey.S)
+            {
+                Economia.Baja(materia);
+                Console.WriteLine($"{materia.NombreMateria} ha sido dada de baja");
+            }
+
+            EliminarMateria();
         }
 
+        private static void EliminarMateria()
+        {
+            bool salir = false;
+            do
+            {
+                Console.WriteLine("¿Tiene otra materia aprobada?");
+                Console.WriteLine("1 - SI");
+                Console.WriteLine("2 - NO");
 
-        
-       
-        //public static void RemoverMaterias(string eleccionCarrera, int CodigoMateria)
-        //{
-        //    switch (eleccionCarrera)
-        //    {
-        //        case 1:
-        //            Economia.Remove(CodigoMateria);
-        //            break;
+                var respuesta = Console.ReadLine();
 
-        //        case 2:
-        //            Sistemas.Remove(CodigoMateria);
-        //            break;
+                switch (respuesta)
+                {
+                    case "1":
+                        BajaEconomia();
+                        break;
+                    case "2":
+                        MostrarMateriasEconomia();
+                        Inscripcion();
+                        break;
+                    case "4":
+                        salir = true;
+                        break;
+                    default:
+                        Console.WriteLine("No ha ingresado una opción del menú");
+                        break;
+                }
+            } while (!salir);
+        }
 
-        //        case 3:
-        //            Administracion.Remove(CodigoMateria);
-        //            break;
-
-        //        case 4:
-        //            ActuarioAdm.Remove(CodigoMateria);
-        //            break;
-
-        //        case 5:
-        //            ActuarioEcon.Remove(CodigoMateria);
-        //            break;
-
-        //        case 6:
-        //            Contador.Remove(CodigoMateria);
-        //            break;
-        //    }
-        //}
-
-
+        private static void Inscripcion()
+        {
+            //var inscripcion = Inscripcion
+            //Agenda.Agregar(persona);
+        }
     }
 }

@@ -48,5 +48,38 @@ namespace TP4
             }
 
         }
+
+        public static Materias Seleccionar()
+        {
+            var modelo = Materias.CrearModeloBusqueda();
+            foreach (var persona in entradas.Values)
+            {
+                if (persona.CoincideCon(modelo))
+                {
+                    return persona;
+                }
+            }
+
+            Console.WriteLine("No se ha encontrado una materia que coincida");
+            return null;
+        }
+
+        public static void Baja(Materias materias)
+        {
+            entradas.Remove(materias.CodigoMateria);
+            Grabar();
+        }
+
+        public static void Grabar()
+        {
+            using (var writer = new StreamWriter(nombreArchivo, append: false))
+            {
+                foreach (var persona in entradas.Values)
+                {
+                    var linea = persona.ObtenerLineaDatos();
+                    writer.WriteLine(linea);
+                }
+            }
+        }
     }
 }
