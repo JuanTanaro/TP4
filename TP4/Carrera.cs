@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace TP4
 {
-    class Carrera
+    static class Carrera
     {
         private static readonly Dictionary<int, Econo> entradas;
         const string nombreArchivo = "economia.txt";
