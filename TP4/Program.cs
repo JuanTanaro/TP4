@@ -24,7 +24,7 @@ namespace TP4
             */
 
             // Iniciacion del usuario
-            Console.WriteLine("Cual es su numero de registro?");
+            Console.WriteLine("¿Cual es su numero de registro?");
             string strNumeroRegistro = Console.ReadLine();
             int NumeroRegistro = ChequearSiEsNumero(strNumeroRegistro);
 
@@ -46,28 +46,24 @@ namespace TP4
             bool continuar = true;
             string strMateriaAprobada = Console.ReadLine();
             int CodigoMateriaAprobada = ChequearSiEsNumero(strMateriaAprobada);
-            RemoverMaterias(strEleccionCarrera, CodigoMateriaAprobada);
+            //RemoverMaterias(strEleccionCarrera, CodigoMateriaAprobada);
             
-            while (continuar == true)
-            {
-                Console.WriteLine("Ingrese otro codigo o escriba 'SALIR'");
-                strMateriaAprobada = Console.ReadLine();
-                if (strMateriaAprobada == "SALIR")
-                {
-                    continuar = false;
-                }
-                else
-                {
-                    CodigoMateriaAprobada = ChequearSiEsNumero(strMateriaAprobada);
-                    RemoverMaterias(strEleccionCarrera, CodigoMateriaAprobada);
-                    continuar = true;
-                }
+            //while (continuar == true)
+            //{
+            //    Console.WriteLine("Ingrese otro codigo o escriba 'SALIR'");
+            //    strMateriaAprobada = Console.ReadLine();
+            //    if (strMateriaAprobada == "SALIR")
+            //    {
+            //        continuar = false;
+            //    }
+            //    else
+            //    {
+            //        CodigoMateriaAprobada = ChequearSiEsNumero(strMateriaAprobada);
+            //        RemoverMaterias(strEleccionCarrera, CodigoMateriaAprobada);
+            //        continuar = true;
+            //    }
 
-            }
-
-            
-
-
+            //}
         }
 
         // Metodo para validar si lo ingresado es un numero
@@ -87,60 +83,50 @@ namespace TP4
         {
             switch (eleccion)
             {
-                case 1:
-                    
+                case "1":
+                    MostrarMateriasEconomia();
                     break;
-
-                case 2:
-
-                    break;
-
-                case 3:
-
-                    break;
-
-                case 4:
-
-                    break;
-
-                case 5:
-
-                    break;
-
-                case 6:
-
+                default:
+                    Console.WriteLine("No ha ingresado una opción del menú");
                     break;
             }
         }
 
-        public static void RemoverMaterias(string eleccionCarrera, int CodigoMateria)
+        private static void MostrarMateriasEconomia()
         {
-            switch (eleccionCarrera)
-            {
-                case 1:
-                    Economia.Remove(CodigoMateria);
-                    break;
-
-                case 2:
-                    Sistemas.Remove(CodigoMateria);
-                    break;
-
-                case 3:
-                    Administracion.Remove(CodigoMateria);
-                    break;
-
-                case 4:
-                    ActuarioAdm.Remove(CodigoMateria);
-                    break;
-
-                case 5:
-                    ActuarioEcon.Remove(CodigoMateria);
-                    break;
-
-                case 6:
-                    Contador.Remove(CodigoMateria);
-                    break;
-            }
+            Carrera.MostrarDatos();
         }
+
+        //public static void RemoverMaterias(string eleccionCarrera, int CodigoMateria)
+        //{
+        //    switch (eleccionCarrera)
+        //    {
+        //        case 1:
+        //            Economia.Remove(CodigoMateria);
+        //            break;
+
+        //        case 2:
+        //            Sistemas.Remove(CodigoMateria);
+        //            break;
+
+        //        case 3:
+        //            Administracion.Remove(CodigoMateria);
+        //            break;
+
+        //        case 4:
+        //            ActuarioAdm.Remove(CodigoMateria);
+        //            break;
+
+        //        case 5:
+        //            ActuarioEcon.Remove(CodigoMateria);
+        //            break;
+
+        //        case 6:
+        //            Contador.Remove(CodigoMateria);
+        //            break;
+        //    }
+        //}
+
+
     }
 }
