@@ -39,7 +39,7 @@ namespace TP4
             }
             if (Mensaje != "")
             {
-                Console.WriteLine("Las materias existentes son: " + System.Environment.NewLine + Mensaje);
+                Console.WriteLine(System.Environment.NewLine + Mensaje);
             }
             if (Mensaje == "")
             {

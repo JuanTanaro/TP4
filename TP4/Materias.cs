@@ -15,7 +15,7 @@ namespace TP4
 
         public Materias(string linea)
         {
-            var datos = linea.Split('-');
+            var datos = linea.Split(';');
             CodigoMateria = int.Parse(datos[0]);
             NombreMateria = (datos[1]);
         }

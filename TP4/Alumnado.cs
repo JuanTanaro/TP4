@@ -41,7 +41,7 @@ namespace TP4
                 }
             }
 
-            Console.WriteLine("No se ha encontrado una persona que coincida");
+            Console.WriteLine("No se ha encontrado un alumno que coincida");
             return null;
         }
     }

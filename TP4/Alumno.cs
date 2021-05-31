@@ -19,14 +19,12 @@ namespace TP4
             NRegistro = int.Parse(datos[0]);
             NombreAlumno = (datos[1]);
         }
-
         public void Mostrar()
         {
             Console.WriteLine();
             Console.WriteLine("Hola!" + $"Nombre: {NombreAlumno}");
             Console.WriteLine();
         }
-
         public static Alumno CrearModeloBusqueda()
         {
             var modelo = new Alumno();
@@ -48,10 +46,6 @@ namespace TP4
         private static int IngresarRegistro(bool obligatorio = true)
         {
             var titulo = "¿Cual es su numero de registro?";
-            if (!obligatorio)
-            {
-                titulo += " o presione [Enter] para continuar";
-            }
 
             do
             {
@@ -62,13 +56,13 @@ namespace TP4
                     return 0;
                 }
 
-                if (!int.TryParse(ingreso, out var codigoCuenta))
+                if (!int.TryParse(ingreso, out var numeroRegistro))
                 {
                     Console.WriteLine("No ha ingresado un numero de registro válido");
                     continue;
                 }
 
-                return codigoCuenta;
+                return numeroRegistro;
 
             } while (true);
         }
