@@ -35,13 +35,13 @@ namespace TP4
             Console.WriteLine();
         }
 
-        public static Asignacion Asignar()
+        public static Asignacion Asignar(int CodigoPersona)
         {
             var inscripcion = new Asignacion();
 
             Console.WriteLine("Inscripcion");
 
-            inscripcion.NRegistro = IngresarNumero("Ingrese su registro");
+            inscripcion.NRegistro = CodigoPersona;
             inscripcion.NombreMateria1 = Ingreso("Ingrese el nombre de la 1ra materia");
             inscripcion.NombreMateria2 = Ingreso("Ingrese el nombre de la 2da materia");
             inscripcion.NombreMateria3 = Ingreso("Ingrese el nombre de la 3ra materia");

@@ -36,6 +36,26 @@ namespace TP4
             Grabar();
         }
 
+        public static void MostrarDatos()
+        {
+            string Mensaje = "";
+            foreach (var materias in entradas.Values)
+            {
+                Mensaje += $"Usted a sido asignado a: {materias.NombreMateria1}\n" + " - " + $"{materias.NombreMateria2}\n" + " - " + $"{ materias.NombreMateria3}\n";
+            }
+            if (Mensaje != "")
+            {
+                Console.WriteLine(System.Environment.NewLine + Mensaje);
+            }
+            if (Mensaje == "")
+            {
+                Console.WriteLine("No ha sido asignado");
+            }
+
+        }
+
+
+
         public static void Grabar()
         {
             using (var writer = new StreamWriter(nombreArchivo, append: false))
