@@ -9,12 +9,12 @@ namespace TP4
 {
     static class Carrera
     {
-        private static readonly Dictionary<int, Econo> entradas;
-        const string nombreArchivo = "economia.txt";
+        private static readonly Dictionary<int, Materias> entradas;
+        const string nombreArchivo = "Economia.txt";
 
         static Carrera()
         {
-            entradas = new Dictionary<int, Econo>();
+            entradas = new Dictionary<int, Materias>();
 
             if (File.Exists(nombreArchivo))
             {
@@ -23,7 +23,7 @@ namespace TP4
                     while (!reader.EndOfStream)
                     {
                         var linea = reader.ReadLine();
-                        var carrera = new Econo(linea);
+                        var carrera = new Materias(linea);
                         entradas.Add(carrera.CodigoMateria, carrera);
                     }
                 }

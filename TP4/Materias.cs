@@ -6,18 +6,18 @@ using System.Threading.Tasks;
 
 namespace TP4
 {
-    class Econo
+    class Materias
     {
         public int CodigoMateria { get; set; }
         public string NombreMateria { get; set; }
 
-        public Econo() { }
+        public Materias() { }
 
-        public Econo(string linea)
+        public Materias(string linea)
         {
             var datos = linea.Split('-');
             CodigoMateria = int.Parse(datos[0]);
-            NombreMateria = string.Format(datos[1]);
+            NombreMateria = (datos[1]);
         }
 
         public void Mostrar()

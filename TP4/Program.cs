@@ -10,23 +10,10 @@ namespace TP4
     {
         static void Main(string[] args)
         {
-            //Creacion de dictionary para almacenar registro y carrera (por ahora)
-            IDictionary<int, string> Alumnos = new Dictionary<int, string>();
-
-            //Creacion de dictionaries para cada carrera
-            /*
-            IDictionary<int, string> Economia = new Dictionary<int, string>();
-            IDictionary<int, string> Sistemas = new Dictionary<int, string>();
-            IDictionary<int, string> Administracion = new Dictionary<int, string>();
-            IDictionary<int, string> ActuarioAdm = new Dictionary<int, string>();
-            IDictionary<int, string> ActuarioEcon = new Dictionary<int, string>();
-            IDictionary<int, string> Contador = new Dictionary<int, string>();
-            */
-
             // Iniciacion del usuario
-            Console.WriteLine("¿Cual es su numero de registro?");
-            string strNumeroRegistro = Console.ReadLine();
-            int NumeroRegistro = ChequearSiEsNumero(strNumeroRegistro);
+            var persona = Alumnado.Seleccionar();
+            persona?.Mostrar();
+
 
             Console.WriteLine("Seleccione para que carrera va a anotarse a las materias");
             Console.WriteLine("1 - Economia");
@@ -38,8 +25,7 @@ namespace TP4
             string strEleccionCarrera = Console.ReadLine();
             ListarMaterias(strEleccionCarrera);
 
-            //Agrego al alumno a la base
-            Alumnos.Add(NumeroRegistro, strEleccionCarrera);
+            
 
             // Permito al usuario seleccionar las materias que ya realizo
             Console.WriteLine("Seleccione las materias que ya realizo escribiendo cada uno de los codigos de materia y luego ENTER");
