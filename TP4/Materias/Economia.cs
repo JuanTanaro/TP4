@@ -36,7 +36,7 @@ namespace TP4
             string Mensaje = "";
             foreach (var materias in entradas.Values)
             {
-                Mensaje += $"Codigo Materia: {materias.CodigoMateria}" + " " + $"Nombre Materia: {materias.NombreMateria}\n";
+                Mensaje += $"Codigo Materia: {materias.CodigoMateria}" + " - " + $"Nombre Materia: {materias.NombreMateria}\n";
             }
             if (Mensaje != "")
             {

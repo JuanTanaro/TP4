@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace TP4
 {
@@ -24,7 +20,7 @@ namespace TP4
                 BuscoRegistro();
 
                 // Seleccionamos la carrera
-                Console.WriteLine("Seleccione para que carrera va a anotarse a las materias");
+                Console.WriteLine("Seleccione su carrera, para luego anotarse a las materias");
                 Console.WriteLine("1 - Economia");
                 Console.WriteLine("2 - Sistemas");
                 Console.WriteLine("3 - Administracion de empresas");
@@ -37,8 +33,12 @@ namespace TP4
                 switch (eleccionCarrera)
                 {
                     case "1":
-                        MostrarMateriasEconomia();
-                        BajaEconomia();
+                        MostrarMaterias(eleccionCarrera);
+                        Baja(eleccionCarrera);
+                        break;
+                    case "2":
+                        MostrarMaterias(eleccionCarrera);
+                        Baja(eleccionCarrera);
                         break;
                     case "4":
                         salir = true;
@@ -61,32 +61,62 @@ namespace TP4
             persona?.Mostrar();
         }
 
-        private static void MostrarMateriasEconomia()
+        private static void MostrarMaterias(string eleccionCarrera)
         {
-            Economia.MostrarDatos();
+            if (eleccionCarrera == "1")
+            {
+                Economia.MostrarDatos();
+            }
+            else if (eleccionCarrera == "2")
+            {
+                Sistemas.MostrarDatos();
+            }
         }
 
-        private static void BajaEconomia()
+        private static void Baja(string eleccionCarrera)
         {
             Console.WriteLine("Seleccione las materias que ya realizo escribiendo cada uno de los codigos de materia y luego ENTER");
-            var materia = Economia.Seleccionar();
-            if (materia == null)
+
+            if (eleccionCarrera == "1")
             {
-                return;
-            }
-            materia.Mostrar();
-            Console.WriteLine($"Marca aprobada la materia {materia.CodigoMateria}. Está ud. seguro? S/N\n");
-            var key = Console.ReadKey(intercept: true);
-            if (key.Key == ConsoleKey.S)
-            {
-                Economia.Baja(materia);
-                Console.WriteLine($"{materia.NombreMateria} ha sido marcada como aprobada");
+                var materia = Economia.Seleccionar();
+                if (materia == null)
+                {
+                    return;
+                }
+                materia.Mostrar();
+                Console.WriteLine($"Marca aprobada la materia {materia.CodigoMateria}. Está ud. seguro? S/N\n");
+                var key = Console.ReadKey(intercept: true);
+                if (key.Key == ConsoleKey.S)
+                {
+                    Economia.Baja(materia);
+                    Console.WriteLine($"{materia.NombreMateria} ha sido marcada como aprobada");
+                }
+
+                EliminarMateria(eleccionCarrera);
             }
 
-            EliminarMateria();
+            else if (eleccionCarrera == "2")
+            {
+                var materia = Sistemas.Seleccionar();
+                if (materia == null)
+                {
+                    return;
+                }
+                materia.Mostrar();
+                Console.WriteLine($"Marca aprobada la materia {materia.CodigoMateria}. Está ud. seguro? S/N\n");
+                var key = Console.ReadKey(intercept: true);
+                if (key.Key == ConsoleKey.S)
+                {
+                    Sistemas.Baja(materia);
+                    Console.WriteLine($"{materia.NombreMateria} ha sido marcada como aprobada");
+                }
+
+                EliminarMateria(eleccionCarrera);
+            }
         }
 
-        private static void EliminarMateria()
+        private static void EliminarMateria(string eleccionCarrera)
         {
             bool salir = false;
             do
@@ -100,10 +130,10 @@ namespace TP4
                 switch (respuesta)
                 {
                     case "1":
-                        BajaEconomia();
+                        Baja(eleccionCarrera);
                         break;
                     case "2":
-                        MostrarMateriasEconomia();
+                        MostrarMaterias(eleccionCarrera);
                         InscripcionMaterias();
                         break;
                     case "4":

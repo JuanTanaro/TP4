@@ -13,13 +13,6 @@ namespace TP4
         public string NombreMateria2 { get; set; }
         public string NombreMateria3 { get; set; }
 
-        //public int CodigoMateria1 { get; set; }
-        //public int CodigoMateria2 { get; set; }
-
-        //public int CodigoMateria3 { get; set; }
-
-
-
         public Asignacion() { }
 
         public Asignacion(string linea)
