@@ -6,16 +6,8 @@ namespace TP4
 {
     internal class Program
     {
-        private const string V = "-";
-
         //Problemas:
-        //ANALIZAR EN BAJA
-        //Aca intentaria crear por cada alumno un txt, entonces se registraria ese alumno con las materias que puede cursar y las que tiene aprobadas
-        //  no se mostrarian
 
-        //Luego de eso, procederia a anotarse, las restricciones posibles serian:
-        //      las correlatividades
-        //      o en caso de que .Count(materias) < 4, libre eleccion
         static void Main(string[] args)
         {
             bool salir = false;
@@ -66,7 +58,7 @@ namespace TP4
 
         private static void BuscoRegistro()
         {
-            var persona = Alumnado.Seleccionar();
+            var persona = Persona.Seleccionar();
             if (persona == null)
             {
                 BuscoRegistro();
@@ -95,8 +87,7 @@ namespace TP4
             Console.WriteLine("Seleccione las materias que ya realizo escribiendo cada uno de los codigos de materia y luego ENTER");
 
             //ANALIZAR
-            //Aca intentaria crear por cada alumno un txt, entonces se registraria ese alumno con las materias que puede cursar y las que tiene aprobadas
-            //  no se mostrarian
+            //Aca intentaria crear un txt de alumno con las materias que tiene cursadas
 
             //Luego de eso, procederia a anotarse, las restricciones posibles serian:
             //      las correlatividades

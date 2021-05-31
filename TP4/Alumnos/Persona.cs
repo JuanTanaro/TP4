@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 
 namespace TP4
 {
-    static class Alumnado
+    static class Persona
     {
         private static readonly Dictionary<int, Alumno> entradas;
         const string nombreArchivo = "Alumno.txt";
 
-        static Alumnado()
+        static Persona()
         {
             entradas = new Dictionary<int, Alumno>();
 

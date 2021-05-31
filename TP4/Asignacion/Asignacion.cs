@@ -31,7 +31,7 @@ namespace TP4
         public void Mostrar()
         {
             Console.WriteLine();
-            Console.WriteLine($"{NRegistro}" + "" + $"{NombreMateria1}");
+            Console.WriteLine($"{NRegistro}" + "" + $"{NombreMateria1}" + "" + $"{NombreMateria2}" + "" + $"{NombreMateria3}");
             Console.WriteLine();
         }
 
