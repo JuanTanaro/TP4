@@ -22,7 +22,7 @@ namespace TP4
         public void Mostrar()
         {
             Console.WriteLine();
-            Console.WriteLine("Hola! " + $"{NombreAlumno}");
+            Console.WriteLine("Hola!" + $"{NombreAlumno}");
             Console.WriteLine();
         }
         public static Alumno CrearModeloBusqueda()

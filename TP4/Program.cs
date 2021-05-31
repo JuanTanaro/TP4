@@ -40,9 +40,6 @@ namespace TP4
                         MostrarMateriasEconomia();
                         BajaEconomia();
                         break;
-                    case "2":
-                        MostrarMateriasSistemas();
-                        break;
                     case "4":
                         salir = true;
                         break;
@@ -68,10 +65,6 @@ namespace TP4
         {
             Economia.MostrarDatos();
         }
-        private static void MostrarMateriasSistemas()
-        {
-            Sistemas.MostrarDatos();
-        }
 
         private static void BajaEconomia()
         {
@@ -82,12 +75,12 @@ namespace TP4
                 return;
             }
             materia.Mostrar();
-            Console.WriteLine($"Se dispone a dar de baja a {materia.CodigoMateria}. Está ud. seguro? S/N");
+            Console.WriteLine($"Marca aprobada la materia {materia.CodigoMateria}. Está ud. seguro? S/N\n");
             var key = Console.ReadKey(intercept: true);
             if (key.Key == ConsoleKey.S)
             {
                 Economia.Baja(materia);
-                Console.WriteLine($"{materia.NombreMateria} ha sido dada de baja");
+                Console.WriteLine($"{materia.NombreMateria} ha sido marcada como aprobada");
             }
 
             EliminarMateria();
@@ -111,7 +104,7 @@ namespace TP4
                         break;
                     case "2":
                         MostrarMateriasEconomia();
-                        Inscripcion();
+                        InscripcionMaterias();
                         break;
                     case "4":
                         salir = true;
@@ -123,10 +116,10 @@ namespace TP4
             } while (!salir);
         }
 
-        private static void Inscripcion()
+        private static void InscripcionMaterias()
         {
-            //var inscripcion = Inscripcion
-            //Agenda.Agregar(persona);
+            var inscripcion = Asignacion.Asignar();
+            Inscripcion.Agregar(inscripcion);
         }
     }
 }

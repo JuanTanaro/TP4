@@ -29,5 +29,23 @@ namespace TP4
                 }
             }
         }
+
+        public static void Agregar(Asignacion asignacion)
+        {
+            entradas.Add(asignacion.NRegistro, asignacion);
+            Grabar();
+        }
+
+        public static void Grabar()
+        {
+            using (var writer = new StreamWriter(nombreArchivo, append: false))
+            {
+                foreach (var asignacion in entradas.Values)
+                {
+                    var linea = asignacion.ObtenerLineaDatos();
+                    writer.WriteLine(linea);
+                }
+            }
+        }
     }
 }

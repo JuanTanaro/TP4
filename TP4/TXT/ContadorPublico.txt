@@ -1,0 +1,26 @@
+247 - Teoría Contable
+248 - Estadística I
+249 - Historia Económica y Social Argentina
+250 - Microeconomía I
+251 - Instituciones de Derecho Público
+252 - Administración General
+273 - Instituciones del Derecho Privado
+274 - Sistemas Administrativos
+275 - Tecnología de la Información
+276 - Cálculo Financiero
+278 - Macroeconomía y Política Económica
+279 - Administración Financiera
+351 - Sistemas Contables
+353 - Sistemas de Costos
+354 - Derecho del Trabajo y la Seguridad Social
+355 - Auditoría
+356 - Teoría y Técnica Impositiva I
+357 - Teoría y Técnica Impositiva II
+362 - Gestión y Costos para Contadores
+1330 - Contabilidad Social y Ambiental
+1352 - Contabilidad Financiera
+1359 - Derecho Económico
+1360 - Derecho Crediticio, Bursátil e Insolvencia
+1374 - Contabilidad Gubernamental y Control de Gestión
+1358 - Taller de Actuación Profesional Judicial
+1361 - Taller de Práctica Profesional en Organizaciones

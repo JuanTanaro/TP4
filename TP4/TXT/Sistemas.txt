@@ -1,0 +1,27 @@
+247 - Teoría Contable
+248 - Estadística I
+249 - Historia Económica y Social Argentina
+250 - Microeconomía I
+252 - Administración General
+1275 - Introducción a la Tecnología de la Información y las Comunicaciones
+274 - Sistemas Administrativos
+276 - Cálculo Financiero
+277 - Gestión y Costos
+278 - Macroeconomía y Política Económica
+279 - Administración Financiera
+452 - Sociología de la Organización
+457 - Teoría de la Decisión
+651 - Lógica
+655 - Tecnología de las Comunicaciones
+657 - Sistemas de Datos
+658 - Metodología de los Sistemas de Información
+740 - Redes Informáticas
+1601 - Ingeniería en Software
+1603 - Derecho Informático I
+1604 - Derecho Informático II
+1652 - Teoría de los Lenguajes y Algoritmos
+1653 - Tecnología de los Computadores y Sistemas Operativos
+1654 - Construcción de Aplicaciones Informáticas
+1659 - Auditoría y Seguridad de los Sistemas de Información
+1660 - Actuación Profesional del Licenciado en Sistemas de las Organizaciones
+1799 - Gestión de Recursos Informáticos
