@@ -42,9 +42,9 @@ namespace TP4
             Console.WriteLine("Inscripcion");
 
             inscripcion.NRegistro = CodigoPersona;
-            inscripcion.NombreMateria1 = Ingreso("Ingrese el nombre de la 1ra materia");
-            inscripcion.NombreMateria2 = Ingreso("Ingrese el nombre de la 2da materia");
-            inscripcion.NombreMateria3 = Ingreso("Ingrese el nombre de la 3ra materia");
+            inscripcion.NombreMateria1 = Ingreso("Ingrese el nombre de la primera materia a anotarse.");
+            inscripcion.NombreMateria2 = Ingreso("Ingrese el nombre de la segunda materia a anotarse.");
+            inscripcion.NombreMateria3 = Ingreso("Ingrese el nombre de la tercera materia a anotarse.");
 
             return inscripcion;
         }
