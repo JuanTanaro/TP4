@@ -58,7 +58,8 @@ namespace TP4
                 var ingreso = Console.ReadLine();
                 if (!obligatorio && string.IsNullOrWhiteSpace(ingreso))
                 {
-                    return 0;
+                    Console.WriteLine("No ha ingresado un codigo de materia válido");
+                    continue;
                 }
 
                 if (!int.TryParse(ingreso, out var codigomateria))

@@ -12,8 +12,6 @@ namespace TP4
                 BuscoRegistro();
         }
 
-
-
         private static void BuscoRegistro()
         {
             bool salir = false;
