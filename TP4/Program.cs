@@ -36,10 +36,10 @@ namespace TP4
                 Console.WriteLine("Seleccione su carrera, para luego anotarse a las materias");
                 Console.WriteLine("1 - Economia");
                 Console.WriteLine("2 - Sistemas");
-                Console.WriteLine("3 - Administracion de empresas");
+                Console.WriteLine("3 - Contador Publico");
                 Console.WriteLine("4 - Actuario en administracion");
                 Console.WriteLine("5 - Actuario en economia");
-                Console.WriteLine("6 - Contador Publico");
+                Console.WriteLine("6 - Administracion de empresas");
 
                 var eleccionCarrera = Console.ReadLine();
 
@@ -57,6 +57,7 @@ namespace TP4
                         MostrarMaterias(eleccionCarrera);
                         Baja(eleccionCarrera, CodigoPersona);
                         break;
+                        //.....
                     case "4":
                         salir = true;
                         break;
