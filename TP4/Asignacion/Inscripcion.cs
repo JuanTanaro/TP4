@@ -54,8 +54,6 @@ namespace TP4
 
         }
 
-
-
         public static void Grabar()
         {
             using (var writer = new StreamWriter(nombreArchivo, append: false))

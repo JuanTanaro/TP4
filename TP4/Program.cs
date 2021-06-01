@@ -45,15 +45,15 @@ namespace TP4
                 {
                     case "1":
                         MostrarMaterias(eleccionCarrera);
-                        Baja(eleccionCarrera, CodigoPersona);
+                        Aprobada(eleccionCarrera, CodigoPersona);
                         break;
                     case "2":
                         MostrarMaterias(eleccionCarrera);
-                        Baja(eleccionCarrera, CodigoPersona);
+                        Aprobada(eleccionCarrera, CodigoPersona);
                         break;
                     case "3":
                         MostrarMaterias(eleccionCarrera);
-                        Baja(eleccionCarrera, CodigoPersona);
+                        Aprobada(eleccionCarrera, CodigoPersona);
                         break;
                         //.....
                     case "4":
@@ -83,23 +83,16 @@ namespace TP4
             }
         }
 
-        private static void Baja(string eleccionCarrera, int CodigoPersona)
+        private static void Aprobada(string eleccionCarrera, int CodigoPersona)
         {
             Console.WriteLine("Seleccione las materias que ya realizo escribiendo cada uno de los codigos de materia y luego ENTER");
-
-            //ANALIZAR
-            //Aca intentaria crear un txt de alumno con las materias que tiene cursadas
-
-            //Luego de eso, procederia a anotarse, las restricciones posibles serian:
-            //      las correlatividades
-            //      o en caso de que .Count(materias) < 4, libre eleccion
 
             if (eleccionCarrera == "1")
             {
                 var materia = Economia.Seleccionar();
                 if (materia == null)
                 {
-                    return;
+                    Aprobada(eleccionCarrera, CodigoPersona);
                 }
                 materia.Mostrar();
                 Console.WriteLine($"Marca aprobada la materia {materia.CodigoMateria}. Está usted seguro? S/N\n");
@@ -118,7 +111,7 @@ namespace TP4
                 var materia = Sistemas.Seleccionar();
                 if (materia == null)
                 {
-                    return;
+                    Aprobada(eleccionCarrera, CodigoPersona);
                 }
                 materia.Mostrar();
                 Console.WriteLine($"Marca aprobada la materia {materia.CodigoMateria}. Está ud. seguro? S/N\n");
@@ -137,7 +130,7 @@ namespace TP4
                 var materia = Contador.Seleccionar();
                 if (materia == null)
                 {
-                    return;
+                    Aprobada(eleccionCarrera, CodigoPersona);
                 }
                 materia.Mostrar();
                 Console.WriteLine($"Marca aprobada la materia {materia.CodigoMateria}. Está ud. seguro? S/N\n");
@@ -166,7 +159,7 @@ namespace TP4
                 switch (respuesta)
                 {
                     case "1":
-                        Baja(eleccionCarrera, CodigoPersona);
+                        Aprobada(eleccionCarrera, CodigoPersona);
                         break;
                     case "2":
                         MostrarMaterias(eleccionCarrera);
