@@ -104,7 +104,7 @@ namespace TP4
                     return;
                 }
                 materia.Mostrar();
-                Console.WriteLine($"Marca aprobada la materia {materia.CodigoMateria}. Está ud. seguro? S/N\n");
+                Console.WriteLine($"Marca aprobada la materia {materia.CodigoMateria}. Está usted seguro? S/N\n");
                 var key = Console.ReadKey(intercept: true);
                 if (key.Key == ConsoleKey.S)
                 {
