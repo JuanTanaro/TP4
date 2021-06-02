@@ -10,6 +10,7 @@ namespace TP4
     class MateriasAprobadasAlumno
     {
         public int NRegistro { get; set; }
+        public int CodigoMateria { get; set; }
         public string NombreMateria { get; set; }
 
 
@@ -19,10 +20,11 @@ namespace TP4
         {
             var datos = linea.Split('-');
             NRegistro = int.Parse(datos[0]);
-            NombreMateria = (datos[1]);
+            CodigoMateria = int.Parse(datos[1]);
+            NombreMateria = (datos[2]);
         }
 
-        public string ObtenerLineaDatos() => $"{NRegistro}-{NombreMateria}";
+        public string ObtenerLineaDatos() => $"{NRegistro}-{CodigoMateria}-{NombreMateria}";
 
         public void Mostrar()
         {
@@ -59,23 +61,64 @@ namespace TP4
             Grabar();
         }
 
-        public static void MostrarDatos()
+        public static void MostrarDatos(int CodigoPersona)
         {
             string Mensaje = "";
+
+            foreach (var persona in entradas.Values)
+            {
+                if (CodigoPersona == persona.NRegistro)
+                {
+                    foreach (var materias in entradas.Values)
+                    {
+                        Mensaje += "Materia disponible: \n" + " - " + $"{materias.NombreMateria}\n";
+                    }
+                    if (Mensaje != "")
+                    {
+                        Console.WriteLine(System.Environment.NewLine + Mensaje);
+                    }
+                    if (Mensaje == "")
+                    {
+                        Console.WriteLine("No tiene materias disponibles");
+                    }
+                }
+            }
+        }
+
+        public static MateriasAprobadasAlumno Seleccionar(int CodigoPersona)
+        {
+            var modelo = CrearModeloBusqueda(CodigoPersona);
             foreach (var materias in entradas.Values)
             {
-                Mensaje += "Materia disponible: \n" + " - " + $"{materias.NombreMateria}\n";
-            }
-            if (Mensaje != "")
-            {
-                Console.WriteLine(System.Environment.NewLine + Mensaje);
-            }
-            if (Mensaje == "")
-            {
-                Console.WriteLine("No tiene materias disponibles");
+                if (materias.CoincideCon(modelo))
+                {
+                    return materias;
+                }
             }
 
+            Console.WriteLine("No se ha encontrado una materia que coincida");
+            return null;
         }
+
+        public static MateriasAprobadasAlumno CrearModeloBusqueda(int CodigoPersona)
+        {
+            var modelo = new MateriasAprobadasAlumno();
+            modelo.NRegistro = CodigoPersona;
+            return modelo;
+        }
+
+        public bool CoincideCon(MateriasAprobadasAlumno modelo)
+        {
+            if (modelo.NRegistro != 0 && modelo.NRegistro != NRegistro)
+            {
+                return false;
+            }
+
+            return true;
+
+        }
+
+
 
         public static void Grabar()
         {

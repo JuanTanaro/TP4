@@ -105,44 +105,6 @@ namespace TP4
 
                 OtraAprobada(eleccionCarrera, CodigoPersona);
             }
-
-            else if (eleccionCarrera == "2")
-            {
-                var materia = Sistemas.Seleccionar();
-                if (materia == null)
-                {
-                    Aprobada(eleccionCarrera, CodigoPersona);
-                }
-                materia.Mostrar();
-                Console.WriteLine($"Marca aprobada la materia {materia.CodigoMateria}. Está ud. seguro? S/N\n");
-                var key = Console.ReadKey(intercept: true);
-                if (key.Key == ConsoleKey.S)
-                {
-                    Sistemas.Baja(materia);
-                    Console.WriteLine($"{materia.NombreMateria} ha sido marcada como aprobada");
-                }
-
-                OtraAprobada(eleccionCarrera, CodigoPersona);
-            }
-
-            else if (eleccionCarrera == "3")
-            {
-                var materia = Contador.Seleccionar();
-                if (materia == null)
-                {
-                    Aprobada(eleccionCarrera, CodigoPersona);
-                }
-                materia.Mostrar();
-                Console.WriteLine($"Marca aprobada la materia {materia.CodigoMateria}. Está ud. seguro? S/N\n");
-                var key = Console.ReadKey(intercept: true);
-                if (key.Key == ConsoleKey.S)
-                {
-                    Contador.Baja(materia);
-                    Console.WriteLine($"{materia.NombreMateria} ha sido marcada como aprobada");
-                }
-
-                OtraAprobada(eleccionCarrera, CodigoPersona);
-            }
         }
 
         private static void OtraAprobada(string eleccionCarrera, int CodigoPersona)
@@ -162,7 +124,7 @@ namespace TP4
                         Aprobada(eleccionCarrera, CodigoPersona);
                         break;
                     case "2":
-                        MostrarMaterias(eleccionCarrera, CodigoPersona);
+                        MateriasAprobadasAlumno.MostrarDatos(CodigoPersona);
                         InscripcionMaterias(CodigoPersona);
                         break;
                     case "4":

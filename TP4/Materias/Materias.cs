@@ -32,7 +32,7 @@ namespace TP4
         public static Materias CrearModeloBusqueda()
         {
             var modelo = new Materias();
-            modelo.CodigoMateria = IngresarNumeroAsiento(obligatorio: false);
+            modelo.CodigoMateria = IngresarCodigoMateria(obligatorio: false);
             return modelo;
         }
 
@@ -49,7 +49,7 @@ namespace TP4
 
         //Validaciones e ingresos
 
-        private static int IngresarNumeroAsiento(bool obligatorio = true)
+        private static int IngresarCodigoMateria(bool obligatorio = true)
         {
             var titulo = "Ingrese el codigo de materia";
 
