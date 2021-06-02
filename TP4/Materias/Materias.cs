@@ -8,6 +8,7 @@ namespace TP4
 {
     class Materias
     {
+        public int NRegistro { get; set; }
         public int CodigoMateria { get; set; }
         public string NombreMateria { get; set; }
 
@@ -16,11 +17,15 @@ namespace TP4
         public Materias(string linea)
         {
             var datos = linea.Split('-');
-            CodigoMateria = int.Parse(datos[0]);
-            NombreMateria = (datos[1]);
+            NRegistro = int.Parse(datos[0]);
+            CodigoMateria = int.Parse(datos[1]);
+            NombreMateria = (datos[2]);
         }
 
+        public string ObtenerLineaDatosAlumno() => $"{NRegistro}-{CodigoMateria}-{NombreMateria}";
+
         public string ObtenerLineaDatos() => $"{CodigoMateria}-{NombreMateria}";
+        
 
         public void Mostrar()
         {
@@ -36,9 +41,27 @@ namespace TP4
             return modelo;
         }
 
+        public static Materias CrearModeloBusquedaAlumno(int CodigoPersona)
+        {
+            var modelo = new Materias();
+            modelo.CodigoMateria = CodigoPersona;
+            return modelo;
+        }
+
         public bool CoincideCon(Materias modelo)
         {
             if (modelo.CodigoMateria != 0 && modelo.CodigoMateria != CodigoMateria)
+            {
+                return false;
+            }
+
+            return true;
+
+        }
+
+        public bool CoincideConAlumno(Materias modelo)
+        {
+            if (modelo.NRegistro != 0 && modelo.NRegistro != NRegistro)
             {
                 return false;
             }

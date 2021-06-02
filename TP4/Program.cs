@@ -99,7 +99,7 @@ namespace TP4
                 var key = Console.ReadKey(intercept: true);
                 if (key.Key == ConsoleKey.S)
                 {
-                    MateriasAprobadasAlumno.Agregar(CodigoPersona, materia);
+                    MateriasAprobadasPorAlumno.Agregar(CodigoPersona, materia);
                     Console.WriteLine($"{materia.NombreMateria} ha sido marcada como aprobada");
                 }
 
@@ -124,7 +124,7 @@ namespace TP4
                         Aprobada(eleccionCarrera, CodigoPersona);
                         break;
                     case "2":
-                        MateriasAprobadasAlumno.MostrarDatos(CodigoPersona);
+                        MateriasAprobadasPorAlumno.MostrarDatos(CodigoPersona);
                         InscripcionMaterias(CodigoPersona);
                         break;
                     case "4":
