@@ -21,7 +21,7 @@ namespace TP4
                 Console.WriteLine("MENU PRINCIPAL");
                 Console.WriteLine("-------------");
 
-                var persona = Persona.Seleccionar();
+                var persona = Alumno.Seleccionar();
                 if (persona == null)
                 {
                     BuscoRegistro();
@@ -99,7 +99,7 @@ namespace TP4
                 var key = Console.ReadKey(intercept: true);
                 if (key.Key == ConsoleKey.S)
                 {
-                    Economia.Baja(materia);
+                    MateriasAprobadasAlumno.Agregar(CodigoPersona, materia);
                     Console.WriteLine($"{materia.NombreMateria} ha sido marcada como aprobada");
                 }
 
@@ -178,8 +178,8 @@ namespace TP4
         private static void InscripcionMaterias(int CodigoPersona)
         {
             var inscripcion = Asignacion.Asignar(CodigoPersona);
-            Inscripcion.Agregar(inscripcion);
-            Inscripcion.MostrarDatos();
+            Asignacion.Agregar(inscripcion);
+            Asignacion.MostrarDatos();
         }
 
     }

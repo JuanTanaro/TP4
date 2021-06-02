@@ -43,10 +43,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Alumnos\Persona.cs" />
     <Compile Include="Alumnos\Alumno.cs" />
     <Compile Include="Asignacion\Asignacion.cs" />
-    <Compile Include="Asignacion\Inscripcion.cs" />
+    <Compile Include="Asignacion\MateriasAprobadasAlumno.cs" />
     <Compile Include="Materias\Contador.cs" />
     <Compile Include="Materias\Materias.cs" />
     <Compile Include="Materias\Economia.cs" />
