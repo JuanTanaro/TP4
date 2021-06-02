@@ -12,8 +12,6 @@ namespace TP4
                 BuscoRegistro();
         }
 
-
-
         private static void BuscoRegistro()
         {
             bool salir = false;
@@ -23,7 +21,7 @@ namespace TP4
                 Console.WriteLine("MENU PRINCIPAL");
                 Console.WriteLine("-------------");
 
-                var persona = Persona.Seleccionar();
+                var persona = Alumno.Seleccionar();
                 if (persona == null)
                 {
                     BuscoRegistro();
@@ -36,27 +34,25 @@ namespace TP4
                 Console.WriteLine("Seleccione su carrera, para luego anotarse a las materias");
                 Console.WriteLine("1 - Economia");
                 Console.WriteLine("2 - Sistemas");
-                Console.WriteLine("3 - Administracion de empresas");
+                Console.WriteLine("3 - Contador Publico");
                 Console.WriteLine("4 - Actuario en administracion");
                 Console.WriteLine("5 - Actuario en economia");
-                Console.WriteLine("6 - Contador Publico");
+                Console.WriteLine("6 - Administracion de empresas");
 
                 var eleccionCarrera = Console.ReadLine();
 
                 switch (eleccionCarrera)
                 {
                     case "1":
-                        MostrarMateriasTXT(eleccionCarrera);
-                        Aprobada(eleccionCarrera, CodigoPersona);
+                        MostrarMaterias(eleccionCarrera, CodigoPersona);
                         break;
                     case "2":
-                        MostrarMateriasTXT(eleccionCarrera);
-                        Aprobada(eleccionCarrera, CodigoPersona);
+                        MostrarMaterias(eleccionCarrera, CodigoPersona);
                         break;
                     case "3":
-                        MostrarMateriasTXT(eleccionCarrera);
-                        Aprobada(eleccionCarrera, CodigoPersona);
+                        MostrarMaterias(eleccionCarrera, CodigoPersona);
                         break;
+                        //.....
                     case "4":
                         salir = true;
                         break;
@@ -68,32 +64,27 @@ namespace TP4
             } while (!salir);
         }
 
-        private static void MostrarMateriasTXT(string eleccionCarrera)
+        private static void MostrarMaterias(string eleccionCarrera)
         {
             if (eleccionCarrera == "1")
             {
-                Economia.MostrarTXT();
+                Economia.MostrarDatos();
             }
             else if (eleccionCarrera == "2")
             {
                 Sistemas.MostrarDatos();
+                Aprobada(eleccionCarrera, CodigoPersona);
             }
             else if (eleccionCarrera == "3")
             {
                 Contador.MostrarDatos();
+                Aprobada(eleccionCarrera, CodigoPersona);
             }
         }
 
         private static void Aprobada(string eleccionCarrera, int CodigoPersona)
         {
             Console.WriteLine("Seleccione las materias que ya realizo escribiendo cada uno de los codigos de materia y luego ENTER");
-
-            //ANALIZAR
-            //Aca intentaria crear un txt de alumno con las materias que tiene cursadas
-
-            //Luego de eso, procederia a anotarse, las restricciones posibles serian:
-            //      las correlatividades
-            //      o en caso de que .Count(materias) < 4, libre eleccion
 
             if (eleccionCarrera == "1")
             {
@@ -108,11 +99,11 @@ namespace TP4
                 var key = Console.ReadKey(intercept: true);
                 if (key.Key == ConsoleKey.S)
                 {
-                    Economia.Baja(materia);
+                    MateriasAprobadasPorAlumno.Agregar(CodigoPersona, materia);
                     Console.WriteLine($"{materia.NombreMateria} ha sido marcada como aprobada");
                 }
 
-                AprobadaLoop(eleccionCarrera, CodigoPersona);
+                EliminarMateria(eleccionCarrera, CodigoPersona);
             }
 
             else if (eleccionCarrera == "2")
@@ -131,7 +122,7 @@ namespace TP4
                     Console.WriteLine($"{materia.NombreMateria} ha sido marcada como aprobada");
                 }
 
-                AprobadaLoop(eleccionCarrera, CodigoPersona);
+                EliminarMateria(eleccionCarrera, CodigoPersona);
             }
 
             else if (eleccionCarrera == "3")
@@ -150,11 +141,11 @@ namespace TP4
                     Console.WriteLine($"{materia.NombreMateria} ha sido marcada como aprobada");
                 }
 
-                AprobadaLoop(eleccionCarrera, CodigoPersona);
+                EliminarMateria(eleccionCarrera, CodigoPersona);
             }
         }
 
-        private static void AprobadaLoop(string eleccionCarrera, int CodigoPersona)
+        private static void EliminarMateria(string eleccionCarrera, int CodigoPersona)
         {
             bool salir = false;
             do
@@ -171,7 +162,7 @@ namespace TP4
                         Aprobada(eleccionCarrera, CodigoPersona);
                         break;
                     case "2":
-                        MostrarMateriasTXT(eleccionCarrera);
+                        MostrarMaterias(eleccionCarrera);
                         InscripcionMaterias(CodigoPersona);
                         break;
                     case "4":
@@ -187,8 +178,8 @@ namespace TP4
         private static void InscripcionMaterias(int CodigoPersona)
         {
             var inscripcion = Asignacion.Asignar(CodigoPersona);
-            Inscripcion.Agregar(inscripcion);
-            Inscripcion.MostrarDatos();
+            Asignacion.Agregar(inscripcion);
+            Asignacion.MostrarDatos();
         }
 
     }

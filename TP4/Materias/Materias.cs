@@ -20,7 +20,9 @@ namespace TP4
             NombreMateria = (datos[1]);
         }
 
+
         public string ObtenerLineaDatos() => $"{CodigoMateria}-{NombreMateria}";
+        
 
         public void Mostrar()
         {
@@ -36,15 +38,19 @@ namespace TP4
             return modelo;
         }
 
+        
+
         public bool CoincideCon(Materias modelo)
         {
             if (modelo.CodigoMateria != 0 && modelo.CodigoMateria != CodigoMateria)
             {
                 return false;
             }
+
             return true;
 
         }
+
 
         //Validaciones e ingresos
 
@@ -58,7 +64,7 @@ namespace TP4
                 var ingreso = Console.ReadLine();
                 if (string.IsNullOrWhiteSpace(ingreso))
                 {
-                    Console.WriteLine("El ingreso no puede ser vacío.");
+                    Console.WriteLine("No ha ingresado un codigo de materia válido");
                     continue;
                 }
 
