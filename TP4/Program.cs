@@ -144,6 +144,5 @@ namespace TP4
             Asignacion.Agregar(inscripcion);
             Asignacion.MostrarDatos();
         }
-
     }
 }

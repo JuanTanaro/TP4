@@ -64,7 +64,7 @@ namespace TP4
             }
         }
 
-        public static void Agregar(int CodigoPersona, int CodigoMateria, string NombreMateria )
+        public static void Agregar(int CodigoPersona, int CodigoMateria, string NombreMateria)
         {
             List<MateriasAprobadasPorAlumno> materiasAprobadasPorAlumno = new List<MateriasAprobadasPorAlumno>();
 
@@ -75,9 +75,6 @@ namespace TP4
                 NombreMateria = NombreMateria
             });
 
-
-            //entradas.Add(CodigoPersona, materiasAprobadasPorAlumno);
-            //Grabar();
         }
 
         public static void MostrarDatos(int CodigoPersona)
