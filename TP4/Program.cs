@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Threading;
 
@@ -85,7 +86,7 @@ namespace TP4
 
         private static void Aprobada(string eleccionCarrera, int CodigoPersona)
         {
-            Console.WriteLine("Seleccione las materias que ya realizo escribiendo cada uno de los codigos de materia y luego ENTER");
+            Console.WriteLine("\nSeleccione las materias que ya realizo escribiendo cada uno de los codigos de materia y luego ENTER");
 
             if (eleccionCarrera == "1")
             {
@@ -99,7 +100,7 @@ namespace TP4
                 var key = Console.ReadKey(intercept: true);
                 if (key.Key == ConsoleKey.S)
                 {
-                    MateriasAprobadasPorAlumno.Agregar(CodigoPersona, materia);
+                    MateriasAprobadasPorAlumno.Agregar(CodigoPersona, materia.CodigoMateria, materia.NombreMateria);
                     Console.WriteLine($"{materia.NombreMateria} ha sido marcada como aprobada");
                 }
 

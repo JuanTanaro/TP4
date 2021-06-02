@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace TP4
 {
-    class MateriasAprobadasPorAlumno
+    class MateriasAprobadasPorAlumno 
     {
         public int NRegistro { get; set; }
         public int CodigoMateria { get; set; }
@@ -32,7 +32,6 @@ namespace TP4
             return modelo;
         }
 
-
         public bool CoincideConAlumno(MateriasAprobadasPorAlumno modelo)
         {
             if (modelo.NRegistro != 0 && modelo.NRegistro != NRegistro)
@@ -43,7 +42,6 @@ namespace TP4
             return true;
 
         }
-
 
         private static readonly Dictionary<int, MateriasAprobadasPorAlumno> entradas;
         const string nombreArchivo = "MateriasAprobadasAlumnos.txt";
@@ -66,10 +64,20 @@ namespace TP4
             }
         }
 
-        public static void Agregar(int CodigoPersona, MateriasAprobadasPorAlumno materiasAprobadasAlumno)
+        public static void Agregar(int CodigoPersona, int CodigoMateria, string NombreMateria )
         {
-            entradas.Add(CodigoPersona, materiasAprobadasAlumno);
-            Grabar();
+            List<MateriasAprobadasPorAlumno> materiasAprobadasPorAlumno = new List<MateriasAprobadasPorAlumno>();
+
+            materiasAprobadasPorAlumno.Add(new MateriasAprobadasPorAlumno()
+            {
+                NRegistro = CodigoPersona,
+                CodigoMateria = CodigoMateria,
+                NombreMateria = NombreMateria
+            });
+
+
+            //entradas.Add(CodigoPersona, materiasAprobadasPorAlumno);
+            //Grabar();
         }
 
         public static void MostrarDatos(int CodigoPersona)
@@ -110,7 +118,6 @@ namespace TP4
             Console.WriteLine("No se ha encontrado una materia que coincida");
             return null;
         }
-
 
         public static void Grabar()
         {
