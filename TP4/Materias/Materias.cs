@@ -32,7 +32,7 @@ namespace TP4
         public static Materias CrearModeloBusqueda()
         {
             var modelo = new Materias();
-            modelo.CodigoMateria = IngresarNumeroAsiento(obligatorio: false);
+            modelo.CodigoMateria = IngresarCodigoMateria();
             return modelo;
         }
 
@@ -48,7 +48,7 @@ namespace TP4
 
         //Validaciones e ingresos
 
-        private static int IngresarNumeroAsiento(bool obligatorio = true)
+        private static int IngresarCodigoMateria()
         {
             var titulo = "Ingrese el codigo de materia";
 
@@ -56,12 +56,13 @@ namespace TP4
             {
                 Console.WriteLine(titulo);
                 var ingreso = Console.ReadLine();
-                if (!obligatorio && string.IsNullOrWhiteSpace(ingreso))
+                if (string.IsNullOrWhiteSpace(ingreso))
                 {
-                    return 0;
+                    Console.WriteLine("El ingreso no puede ser vacío.");
+                    continue;
                 }
 
-                if (!int.TryParse(ingreso, out var codigomateria))
+                if (int.TryParse(ingreso, out var codigomateria) == false)
                 {
                     Console.WriteLine("No ha ingresado un codigo de materia válido");
                     continue;
@@ -71,6 +72,7 @@ namespace TP4
 
             } while (true);
         }
+
 
 
     }

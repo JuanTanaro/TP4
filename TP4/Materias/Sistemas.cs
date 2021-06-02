@@ -11,7 +11,7 @@ namespace TP4
     {
         private static readonly Dictionary<int, Materias> entradas;
         const string nombreArchivo = "Sistemas.txt";
-
+        public static Dictionary<int, String[]> ListaSistemas = new Dictionary<int, string[]>();
         static Sistemas()
         {
             entradas = new Dictionary<int, Materias>();
