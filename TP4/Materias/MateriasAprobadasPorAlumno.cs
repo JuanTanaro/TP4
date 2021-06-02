@@ -9,12 +9,48 @@ namespace TP4
 {
     class MateriasAprobadasPorAlumno
     {
-        private static readonly Dictionary<int, Materias> entradas;
+        public int NRegistro { get; set; }
+        public int CodigoMateria { get; set; }
+        public string NombreMateria { get; set; }
+
+        public MateriasAprobadasPorAlumno() { }
+
+        public MateriasAprobadasPorAlumno(string linea)
+        {
+            var datos = linea.Split('-');
+            NRegistro = int.Parse(datos[0]);
+            CodigoMateria = int.Parse(datos[1]);
+            NombreMateria = (datos[2]);
+        }
+
+        public string ObtenerLineaDatosAlumno() => $"{NRegistro}-{CodigoMateria}-{NombreMateria}";
+
+        public static MateriasAprobadasPorAlumno CrearModeloBusquedaAlumno(int CodigoPersona)
+        {
+            var modelo = new MateriasAprobadasPorAlumno();
+            modelo.CodigoMateria = CodigoPersona;
+            return modelo;
+        }
+
+
+        public bool CoincideConAlumno(MateriasAprobadasPorAlumno modelo)
+        {
+            if (modelo.NRegistro != 0 && modelo.NRegistro != NRegistro)
+            {
+                return false;
+            }
+
+            return true;
+
+        }
+
+
+        private static readonly Dictionary<int, MateriasAprobadasPorAlumno> entradas;
         const string nombreArchivo = "MateriasAprobadasAlumnos.txt";
 
         static MateriasAprobadasPorAlumno()
         {
-            entradas = new Dictionary<int, Materias>();
+            entradas = new Dictionary<int, MateriasAprobadasPorAlumno>();
 
             if (File.Exists(nombreArchivo))
             {
@@ -23,14 +59,14 @@ namespace TP4
                     while (!reader.EndOfStream)
                     {
                         var linea = reader.ReadLine();
-                        var materiasAprobadasAlumno = new Materias(linea);
+                        var materiasAprobadasAlumno = new MateriasAprobadasPorAlumno(linea);
                         entradas.Add(materiasAprobadasAlumno.NRegistro, materiasAprobadasAlumno);
                     }
                 }
             }
         }
 
-        public static void Agregar(int CodigoPersona, Materias materiasAprobadasAlumno)
+        public static void Agregar(int CodigoPersona, MateriasAprobadasPorAlumno materiasAprobadasAlumno)
         {
             entradas.Add(CodigoPersona, materiasAprobadasAlumno);
             Grabar();
@@ -60,9 +96,9 @@ namespace TP4
             }
         }
 
-        public static Materias Seleccionar(int CodigoPersona)
+        public static MateriasAprobadasPorAlumno Seleccionar(int CodigoPersona)
         {
-            var modelo = Materias.CrearModeloBusquedaAlumno(CodigoPersona);
+            var modelo = CrearModeloBusquedaAlumno(CodigoPersona);
             foreach (var materias in entradas.Values)
             {
                 if (materias.CoincideConAlumno(modelo))
