@@ -9,12 +9,12 @@ namespace TP4
 {
     static class Sistemas
     {
-        private static readonly Dictionary<int, Materias> entradas;
+        private static readonly Dictionary<int, MateriasBase> entradas;
         const string nombreArchivo = "Sistemas.txt";
         public static Dictionary<int, String[]> ListaSistemas = new Dictionary<int, string[]>();
         static Sistemas()
         {
-            entradas = new Dictionary<int, Materias>();
+            entradas = new Dictionary<int, MateriasBase>();
 
             if (File.Exists(nombreArchivo))
             {
@@ -23,7 +23,7 @@ namespace TP4
                     while (!reader.EndOfStream)
                     {
                         var linea = reader.ReadLine();
-                        var carrera = new Materias(linea);
+                        var carrera = new MateriasBase(linea);
                         entradas.Add(carrera.CodigoMateria, carrera);
                     }
                 }
@@ -48,9 +48,9 @@ namespace TP4
 
         }
 
-        public static Materias Seleccionar()
+        public static MateriasBase Seleccionar()
         {
-            var modelo = Materias.CrearModeloBusqueda();
+            var modelo = MateriasBase.CrearModeloBusqueda();
             foreach (var persona in entradas.Values)
             {
                 if (persona.CoincideCon(modelo))
@@ -63,13 +63,13 @@ namespace TP4
             return null;
         }
 
-        public static void Baja(Materias materias)
+        public static void Baja(MateriasBase materias)
         {
             entradas.Remove(materias.CodigoMateria);
             Grabar();
         }
 
-        public static void Cargar(Materias materias)
+        public static void Cargar(MateriasBase materias)
         {
             
             Grabar();

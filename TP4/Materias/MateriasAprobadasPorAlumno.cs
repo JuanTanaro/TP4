@@ -44,32 +44,48 @@ namespace TP4
 
         }
 
-
-        private static readonly Dictionary<int, MateriasAprobadasPorAlumno> entradas;
+        public static List<MateriasAprobadasPorAlumno> JuampiAprobadas = new List<MateriasAprobadasPorAlumno>();
+        private static readonly Dictionary<int, MateriasAprobadasPorAlumno> entradas = new Dictionary<int, MateriasAprobadasPorAlumno>();
         const string nombreArchivo = "MateriasAprobadasAlumnos.txt";
 
-        static MateriasAprobadasPorAlumno()
+        
+        public static void EscribirAprobadasEnTXT()
         {
-            entradas = new Dictionary<int, MateriasAprobadasPorAlumno>();
-
             if (File.Exists(nombreArchivo))
             {
-                using (var reader = new StreamReader(nombreArchivo))
+                using (TextWriter tw = new StreamWriter(nombreArchivo))
                 {
-                    while (!reader.EndOfStream)
+                    foreach(var materiaAprobada in JuampiAprobadas)
                     {
-                        var linea = reader.ReadLine();
-                        var materiasAprobadasAlumno = new MateriasAprobadasPorAlumno(linea);
-                        entradas.Add(materiasAprobadasAlumno.NRegistro, materiasAprobadasAlumno);
+                        tw.WriteLine("Numero de registro:" + materiaAprobada.NRegistro +" | Codigo de materia:" + materiaAprobada.CodigoMateria + " | Nombre de materia:" + materiaAprobada.NombreMateria);
                     }
+                    
                 }
+            }
+            else
+            {
+                Console.WriteLine("No encontre el archivo TXT");
             }
         }
 
-        public static void Agregar(int CodigoPersona, MateriasAprobadasPorAlumno materiasAprobadasAlumno)
+
+        public static void AgregarMateria(int numRegistro, int codMateria, string nomMateria)
         {
-            entradas.Add(CodigoPersona, materiasAprobadasAlumno);
-            Grabar();
+            JuampiAprobadas.Add(new MateriasAprobadasPorAlumno()
+            {
+                NRegistro = numRegistro,
+                CodigoMateria = codMateria,
+                NombreMateria = nomMateria,
+            });
+        }
+
+        public static void ImprimirLista()
+        {
+            Console.WriteLine("Sus Materias aprobadas son: ");
+            foreach (var item in JuampiAprobadas)
+            {
+                //Console.WriteLine($"{JuampiAprobadas.Nro);
+            }
         }
 
         public static void MostrarDatos(int CodigoPersona)
@@ -112,17 +128,7 @@ namespace TP4
         }
 
 
-        public static void Grabar()
-        {
-            using (var writer = new StreamWriter(nombreArchivo, append: false))
-            {
-                foreach (var materiaAprobada in entradas.Values)
-                {
-                    var linea = materiaAprobada.ObtenerLineaDatosAlumno();
-                    writer.WriteLine(linea);
-                }
-            }
-        }
+
 
     }
 }

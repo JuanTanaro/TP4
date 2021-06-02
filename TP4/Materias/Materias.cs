@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace TP4
 {
-    class Materias
+    class MateriasBase
     {
         public int CodigoMateria { get; set; }
         public string NombreMateria { get; set; }
 
-        public Materias() { }
+        public MateriasBase() { }
 
-        public Materias(string linea)
+        public MateriasBase(string linea)
         {
             var datos = linea.Split('-');
             CodigoMateria = int.Parse(datos[0]);
@@ -31,16 +31,16 @@ namespace TP4
             Console.WriteLine();
         }
 
-        public static Materias CrearModeloBusqueda()
+        public static MateriasBase CrearModeloBusqueda()
         {
-            var modelo = new Materias();
+            var modelo = new MateriasBase();
             modelo.CodigoMateria = IngresarCodigoMateria();
             return modelo;
         }
 
         
 
-        public bool CoincideCon(Materias modelo)
+        public bool CoincideCon(MateriasBase modelo)
         {
             if (modelo.CodigoMateria != 0 && modelo.CodigoMateria != CodigoMateria)
             {
