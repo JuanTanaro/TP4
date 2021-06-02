@@ -44,16 +44,13 @@ namespace TP4
                 switch (eleccionCarrera)
                 {
                     case "1":
-                        MostrarMaterias(eleccionCarrera);
-                        Aprobada(eleccionCarrera, CodigoPersona);
+                        MostrarMaterias(eleccionCarrera, CodigoPersona);
                         break;
                     case "2":
-                        MostrarMaterias(eleccionCarrera);
-                        Aprobada(eleccionCarrera, CodigoPersona);
+                        MostrarMaterias(eleccionCarrera, CodigoPersona);
                         break;
                     case "3":
-                        MostrarMaterias(eleccionCarrera);
-                        Aprobada(eleccionCarrera, CodigoPersona);
+                        MostrarMaterias(eleccionCarrera, CodigoPersona);
                         break;
                         //.....
                     case "4":
@@ -67,19 +64,22 @@ namespace TP4
             } while (!salir);
         }
 
-        private static void MostrarMaterias(string eleccionCarrera)
+        private static void MostrarMaterias(string eleccionCarrera, int CodigoPersona)
         {
             if (eleccionCarrera == "1")
             {
                 Economia.MostrarDatos();
+                Aprobada(eleccionCarrera, CodigoPersona);
             }
             else if (eleccionCarrera == "2")
             {
                 Sistemas.MostrarDatos();
+                Aprobada(eleccionCarrera, CodigoPersona);
             }
             else if (eleccionCarrera == "3")
             {
                 Contador.MostrarDatos();
+                Aprobada(eleccionCarrera, CodigoPersona);
             }
         }
 
@@ -103,7 +103,7 @@ namespace TP4
                     Console.WriteLine($"{materia.NombreMateria} ha sido marcada como aprobada");
                 }
 
-                EliminarMateria(eleccionCarrera, CodigoPersona);
+                OtraAprobada(eleccionCarrera, CodigoPersona);
             }
 
             else if (eleccionCarrera == "2")
@@ -122,7 +122,7 @@ namespace TP4
                     Console.WriteLine($"{materia.NombreMateria} ha sido marcada como aprobada");
                 }
 
-                EliminarMateria(eleccionCarrera, CodigoPersona);
+                OtraAprobada(eleccionCarrera, CodigoPersona);
             }
 
             else if (eleccionCarrera == "3")
@@ -141,11 +141,11 @@ namespace TP4
                     Console.WriteLine($"{materia.NombreMateria} ha sido marcada como aprobada");
                 }
 
-                EliminarMateria(eleccionCarrera, CodigoPersona);
+                OtraAprobada(eleccionCarrera, CodigoPersona);
             }
         }
 
-        private static void EliminarMateria(string eleccionCarrera, int CodigoPersona)
+        private static void OtraAprobada(string eleccionCarrera, int CodigoPersona)
         {
             bool salir = false;
             do
@@ -162,7 +162,7 @@ namespace TP4
                         Aprobada(eleccionCarrera, CodigoPersona);
                         break;
                     case "2":
-                        MostrarMaterias(eleccionCarrera);
+                        MostrarMaterias(eleccionCarrera, CodigoPersona);
                         InscripcionMaterias(CodigoPersona);
                         break;
                     case "4":

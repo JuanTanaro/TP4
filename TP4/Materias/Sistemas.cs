@@ -69,6 +69,13 @@ namespace TP4
             Grabar();
         }
 
+        public static void Cargar(Materias materias)
+        {
+            
+            Grabar();
+        }
+
+
         public static void Grabar()
         {
             using (var writer = new StreamWriter(nombreArchivo, append: false))
