@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace TP4
 {
-    static class Economia
+    public class Economia
     {
 
         public static Dictionary<int, MateriasBase> economia;
@@ -29,7 +29,11 @@ namespace TP4
                         var linea = reader.ReadLine();
                         var carrera = new MateriasBase(linea);
                         economia.Add(carrera.CodigoMateria, carrera);
-                        economia2.Add(carrera.CodigoMateria, carrera.NombreMateria);
+                        economia2.Add(new MateriasBase()
+                        {
+                            CodigoMateria = carrera.CodigoMateria,
+                            NombreMateria = carrera.NombreMateria,
+                        });
                     }
                 }
             }       

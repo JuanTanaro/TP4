@@ -25,12 +25,11 @@ namespace TP4
 
         public static List<Inscripciones> AlumnoInscripto = new List<Inscripciones>();
         const string nombreArchivo = "Inscripciones.txt";
-      
+        public static List<MateriasBase> materiasDisponibles = new List<MateriasBase>();
 
         public static void MostrarMateriasDisponibles(int CodigoPersona)
         {
-            var result = newDic
-                .Where(KeyValuePair => !)
+            var MS = Economia.economia2.Except(MateriasAprobadasPorAlumno.JuampiAprobadas).ToList(materiasDisponibles);
         }
 
         public static void AgregarInscripcionEnLista(int numRegistro, int codMateria, string nomMateria)

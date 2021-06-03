@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TP4
 {
-    class MateriasBase
+    public class MateriasBase
     {
         public int CodigoMateria { get; set; }
         public string NombreMateria { get; set; }
