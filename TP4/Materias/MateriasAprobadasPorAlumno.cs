@@ -82,6 +82,9 @@ namespace TP4
             }
         }
 
+
+
+
         public static MateriasAprobadasPorAlumno CrearModeloBusquedaAlumno(int CodigoPersona)
         {
             var modelo = new MateriasAprobadasPorAlumno();

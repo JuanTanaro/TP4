@@ -60,24 +60,12 @@ namespace TP4
 
         public static void MostrarInscripciones(int CodigoPersona)
         {
-            string Mensaje = "";
-
-            Console.WriteLine("Tu numero de registro es " + CodigoPersona + " y has sido inscripto en las siguientes materias: ");
-
-            foreach (var persona in inscripcionesPorAlumno)
-            {
-                if (CodigoPersona == persona.NRegistro)
-                {
-                    foreach (var materias in inscripcionesPorAlumno)
-                    {
-                        Mensaje += "Has sido inscripto en: " + $"{materias.NombreMateria}\n";
-                    }
-                    if (Mensaje == "")
-                    {
-                        Console.WriteLine("No esta inscripto en ninguna materia");
-                    }
-                }
-            }
+            var materiasInscriptas = inscripcionesPorAlumno.Where(inscripcionesGeneral => inscripcionesPorAlumno.All(inscripto => inscripto.NRegistro == inscripcionesGeneral.NRegistro));
+            Console.WriteLine($"Materias en las que se encuentra inscripto:");   
+            foreach (var val in materiasInscriptas)           
+            {           
+                Console.WriteLine($"Codigo de materia: " + val.CodigoMateria + $" | Nombre de materia: " + val.NombreMateria);           
+            }           
         }
     }
 }
