@@ -45,11 +45,11 @@
   <ItemGroup>
     <Compile Include="Alumnos\Alumno.cs" />
     <Compile Include="Asignacion\Asignacion.cs" />
-    <Compile Include="Materias\InscripcionesPorAlumno.cs" />
+    <Compile Include="Asignacion\InscripcionesPorAlumno.cs" />
     <Compile Include="Materias\Sistemas.cs" />
     <Compile Include="Materias\MateriasBase.cs" />
     <Compile Include="Materias\Economia.cs" />
-    <Compile Include="Materias\MateriasAprobadasPorAlumno.cs" />
+    <Compile Include="Alumnos\MateriasAprobadasPorAlumno.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
