@@ -154,25 +154,33 @@ namespace TP4
         private static void InscripcionMaterias(int CodigoPersona, string eleccionCarrera)
         {
             Inscripciones.MostrarMateriasDisponibles(eleccionCarrera);
-            Console.WriteLine("");
-            Console.WriteLine("Escriba el codigo de la primer materia en la cual quiere inscribirse");
-                switch (eleccionCarrera)
+            Console.WriteLine("-------------");
+            Console.WriteLine("MENU PRINCIPAL");
+            Console.WriteLine(" ");
+            Console.WriteLine("-------------");
+            switch (eleccionCarrera)
                 {
                 case "1":
-                    var materiaEcon = Economia.Seleccionar(); //te devuelve el codigo de materia en .int
-                    if (materiaEcon == null)
+                    for (int i = 1; i <= 3; i++)
                     {
-                        Aprobada(eleccionCarrera, CodigoPersona);
-                    }
+                        int materia =+ i;
 
-                    materiaEcon.Mostrar();
-                    Console.WriteLine($"Marcaste como aprobada la materia {materiaEcon.CodigoMateria}. Está usted seguro? S/N\n");
-                    var keyEcon = Console.ReadKey(intercept: true);
-                    if (keyEcon.Key == ConsoleKey.S)
-                    {
-                        Console.WriteLine($"{materiaEcon.NombreMateria} ha sido marcada como aprobada");
-                        MateriasAprobadasPorAlumno.AgregarMateria(CodigoPersona, materiaEcon.CodigoMateria, materiaEcon.NombreMateria);
+                        var materiaEcon = Economia.SeleccionarAsignacion(materia); //te devuelve el codigo de materia en .int
+                        if (materiaEcon == null)
+                        {
+                            Aprobada(eleccionCarrera, CodigoPersona);
+                        }
+
+                        materiaEcon.Mostrar();
+                        Console.WriteLine($"Te has inscripto en {materiaEcon.CodigoMateria}. Está usted seguro? S/N\n");
+                        var keyEcon = Console.ReadKey(intercept: true);
+                        if (keyEcon.Key == ConsoleKey.S)
+                        {
+                            Console.WriteLine($"Has sido inscripto en {materiaEcon.NombreMateria}");
+                            MateriasAprobadasPorAlumno.AgregarMateria(CodigoPersona, materiaEcon.CodigoMateria, materiaEcon.NombreMateria);
+                        }
                     }
+                    
 
                     otraAprobada(eleccionCarrera, CodigoPersona);
                     break;

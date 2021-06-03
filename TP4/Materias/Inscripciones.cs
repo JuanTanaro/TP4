@@ -36,7 +36,7 @@ namespace TP4
                     Console.WriteLine($"Materias disponibles para inscrpcion:");
                     foreach (var val in materiasDisponiblesEcon)
                     {
-                        Console.WriteLine($"{val.CodigoMateria}" + $"{val.NombreMateria}");
+                        Console.WriteLine($"Codigo de materia: " + val.CodigoMateria + $" | Nombre de materia: " + val.NombreMateria);
                     }
                     break;
 
@@ -45,7 +45,7 @@ namespace TP4
                     Console.WriteLine($"Materias disponibles para inscrpcion:");
                     foreach (var val in materiasDisponiblesSist)
                     {
-                        Console.WriteLine($"{val.CodigoMateria}" + $"{val.NombreMateria}");
+                        Console.WriteLine($"Codigo de materia: " + val.CodigoMateria + $" | Nombre de materia: " + val.NombreMateria);
                     }
                     break;
 

@@ -43,7 +43,7 @@ namespace TP4
             }
             else
             {
-                Console.WriteLine("No encontre el archivo TXT");
+                Console.WriteLine("No se ha encontrado el archivo TXT");
             }
         }
 

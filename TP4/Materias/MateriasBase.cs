@@ -38,6 +38,13 @@ namespace TP4
             return modelo;
         }
 
+        public static MateriasBase CrearModeloBusquedaAsignacion(int materia)
+        {
+            var modelo = new MateriasBase();
+            modelo.CodigoMateria = IngresarCodigoMateriaAsignacion(materia);
+            return modelo;
+        }
+
         public bool CoincideCon(MateriasBase modelo)
         {
             if (modelo.CodigoMateria != 0 && modelo.CodigoMateria != CodigoMateria)
@@ -51,6 +58,31 @@ namespace TP4
 
 
         //Validaciones e ingresos
+
+        private static int IngresarCodigoMateriaAsignacion(int materia)
+        {
+            var titulo = "Ingrese el codigo de materia ha inscribirse numero " + materia + "/3";
+
+            do
+            {
+                Console.WriteLine(titulo);
+                var ingreso = Console.ReadLine();
+                if (string.IsNullOrWhiteSpace(ingreso))
+                {
+                    Console.WriteLine("No ha ingresado un codigo de materia válido");
+                    continue;
+                }
+
+                if (int.TryParse(ingreso, out var codigomateria) == false)
+                {
+                    Console.WriteLine("No ha ingresado un codigo de materia válido");
+                    continue;
+                }
+
+                return codigomateria;
+
+            } while (true);
+        }
 
         private static int IngresarCodigoMateria()
         {
@@ -76,7 +108,6 @@ namespace TP4
 
             } while (true);
         }
-
 
 
     }

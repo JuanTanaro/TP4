@@ -66,5 +66,20 @@ namespace TP4
             Console.WriteLine("No se ha encontrado una materia que coincida");
             return null;
         }
+
+        public static MateriasBase SeleccionarAsignacion(int materia)
+        {
+            var modelo = MateriasBase.CrearModeloBusquedaAsignacion(materia);
+            foreach (var persona in economia)
+            {
+                if (persona.CoincideCon(modelo))
+                {
+                    return persona;
+                }
+            }
+
+            Console.WriteLine("No se ha encontrado una materia que coincida");
+            return null;
+        }
     }
 }
