@@ -49,7 +49,6 @@
     <Compile Include="Materias\Sistemas.cs" />
     <Compile Include="Materias\MateriasBase.cs" />
     <Compile Include="Materias\Economia.cs" />
-    <Compile Include="Materias\Inscripciones.cs" />
     <Compile Include="Materias\MateriasAprobadasPorAlumno.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

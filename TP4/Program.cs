@@ -143,7 +143,7 @@ namespace TP4
         
         private static void InscripcionMaterias(int CodigoPersona, string eleccionCarrera)
         {
-            Inscripciones.MostrarMateriasDisponibles(eleccionCarrera);
+            MateriasAprobadasPorAlumno.MostrarMateriasDisponibles(eleccionCarrera);
             Console.WriteLine(" ");
             Console.WriteLine("-------------");
             Console.WriteLine(" ");

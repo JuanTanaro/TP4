@@ -46,7 +46,6 @@ namespace TP4
                 Console.WriteLine("No se ha encontrado el archivo TXT");
             }
         }
-
         public static void AgregarMateria(int numRegistro, int codMateria, string nomMateria)
         {
             JuampiAprobadas.Add(new MateriasAprobadasPorAlumno()
@@ -55,6 +54,32 @@ namespace TP4
                 CodigoMateria = codMateria,
                 NombreMateria = nomMateria,
             });
+        }
+
+
+        public static void MostrarMateriasDisponibles(string eleccionCarrera)
+        {
+            switch (eleccionCarrera)
+            {
+                case "1":
+                    var materiasDisponiblesEcon = Economia.economia.Where(econ => MateriasAprobadasPorAlumno.JuampiAprobadas.All(aprob => aprob.CodigoMateria != econ.CodigoMateria));
+                    Console.WriteLine($"Materias disponibles para inscrpcion:");
+                    foreach (var val in materiasDisponiblesEcon)
+                    {
+                        Console.WriteLine($"Codigo de materia: " + val.CodigoMateria + $" | Nombre de materia: " + val.NombreMateria);
+                    }
+                    break;
+
+                case "2":
+                    var materiasDisponiblesSist = Sistemas.sistemas.Where(sist => MateriasAprobadasPorAlumno.JuampiAprobadas.All(aprob => aprob.CodigoMateria != sist.CodigoMateria));
+                    Console.WriteLine($"Materias disponibles para inscrpcion:");
+                    foreach (var val in materiasDisponiblesSist)
+                    {
+                        Console.WriteLine($"Codigo de materia: " + val.CodigoMateria + $" | Nombre de materia: " + val.NombreMateria);
+                    }
+                    break;
+
+            }
         }
 
         public static MateriasAprobadasPorAlumno CrearModeloBusquedaAlumno(int CodigoPersona)
