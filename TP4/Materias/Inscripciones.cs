@@ -29,11 +29,13 @@ namespace TP4
 
         public static void MostrarMateriasDisponibles(int CodigoPersona)
         {
-            //var result = Economia.Except(MateriasAprobadasPorAlumno.JuampiAprobadas);
+            var result = Economia.economia.Nombre
+                Except(MateriasAprobadasPorAlumno.JuampiAprobadas).ToList(AlumnoInscripto);
+
 
             //Economia.economia.Except<>
 
-            
+            /*
             foreach (var totalMaterias in Economia.economia)
             {
                 var materiaTotal = totalMaterias.CodigoMateria;
@@ -46,6 +48,7 @@ namespace TP4
                     }
                 }
             }
+            */
         }
 
         public static void AgregarInscripcionEnLista(int numRegistro, int codMateria, string nomMateria)

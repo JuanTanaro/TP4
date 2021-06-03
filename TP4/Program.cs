@@ -125,6 +125,9 @@ namespace TP4
         
         private static void InscripcionMaterias(int CodigoPersona)
         {
+            Console.WriteLine("Tenes las siguientes materias disponible para inscribirte:");
+
+            Inscripciones.MostrarMateriasDisponibles(CodigoPersona);
             Console.WriteLine("Escriba el codigo de la primer materia en la cual quiere inscribirse");
             Console.WriteLine("Seleccione la segunda materia en la cual quiere inscribirse");
             Console.WriteLine("Seleccione la tercera materia en la cual quiere inscribirse");
