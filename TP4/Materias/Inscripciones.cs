@@ -34,15 +34,15 @@ namespace TP4
             //Economia.economia.Except<>
 
             
-            foreach (var materiasAprobadas in Economia.economia)
+            foreach (var totalMaterias in Economia.economia)
             {
-                var materiaAprobada = materiasAprobadas.CodigoMateria;
+                var materiaTotal = totalMaterias.CodigoMateria;
 
-                foreach (var totalMaterias in MateriasAprobadasPorAlumno.JuampiAprobadas)
+                foreach (var materiasAprobadas in MateriasAprobadasPorAlumno.JuampiAprobadas)
                 {
-                    if (CodigoPersona == totalMaterias.NRegistro && materiaAprobada != totalMaterias.CodigoMateria)
+                    if (CodigoPersona == materiasAprobadas.NRegistro && materiaTotal != materiasAprobadas.CodigoMateria)
                     {
-                            Console.WriteLine("Codigo de materia:" + totalMaterias.CodigoMateria + " | Nombre de materia:" + totalMaterias.NombreMateria);
+                            Console.WriteLine("Codigo de materia:" + materiasAprobadas.CodigoMateria + " | Nombre de materia:" + materiasAprobadas.NombreMateria);
                     }
                 }
             }
