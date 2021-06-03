@@ -27,27 +27,25 @@ namespace TP4
         const string nombreArchivo = "Inscripciones.txt";
         
 
-        public void MostrarMateriasDisponibles(int CodigoPersona)
+        public static void MostrarMateriasDisponibles(int CodigoPersona)
         {
             //var result = Economia.Except(MateriasAprobadasPorAlumno.JuampiAprobadas);
 
             //Economia.economia.Except<>
 
-
+            
             foreach (var materiasAprobadas in Economia.economia)
             {
                 var materiaAprobada = materiasAprobadas.CodigoMateria;
 
                 foreach (var totalMaterias in MateriasAprobadasPorAlumno.JuampiAprobadas)
                 {
-                    if (materiaAprobada != totalMaterias.CodigoMateria)
+                    if (CodigoPersona == totalMaterias.NRegistro && materiaAprobada != totalMaterias.CodigoMateria)
                     {
-                        Console.WriteLine("Codigo de materia:" + totalMaterias.CodigoMateria + " | Nombre de materia:" + totalMaterias.NombreMateria);
-                        continue;
+                            Console.WriteLine("Codigo de materia:" + totalMaterias.CodigoMateria + " | Nombre de materia:" + totalMaterias.NombreMateria);
                     }
                 }
             }
-
         }
 
         public static void AgregarInscripcionEnLista(int numRegistro, int codMateria, string nomMateria)

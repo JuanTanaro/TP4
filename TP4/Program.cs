@@ -110,8 +110,8 @@ namespace TP4
                         break;
                     case "2":
                         MateriasAprobadasPorAlumno.EscribirAprobadasEnTXT();
+                        Inscripciones.MostrarMateriasDisponibles(CodigoPersona);
                         InscripcionMaterias(CodigoPersona);
-
                         break;
                     case "4":
                         salir = true;
