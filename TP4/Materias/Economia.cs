@@ -11,6 +11,7 @@ namespace TP4
     {
 
         public static Dictionary<int, MateriasBase> economia;
+        public static List<MateriasBase> economia2 = new List<MateriasBase>();
 
 
         const string nombreArchivo = "Economia.txt";
@@ -28,6 +29,7 @@ namespace TP4
                         var linea = reader.ReadLine();
                         var carrera = new MateriasBase(linea);
                         economia.Add(carrera.CodigoMateria, carrera);
+                        economia2.Add(carrera.CodigoMateria, carrera.NombreMateria);
                     }
                 }
             }       
