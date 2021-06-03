@@ -29,9 +29,24 @@ namespace TP4
 
         public void MostrarMateriasDisponibles(int CodigoPersona)
         {
-            foreach (var materias in Economia.economia)
+            //var result = Economia.Except(MateriasAprobadasPorAlumno.JuampiAprobadas);
+
+            //Economia.economia.Except<>
+
+
+            foreach (var materiasAprobadas in Economia.economia)
             {
+                var materiaAprobada = materiasAprobadas.CodigoMateria;
+
+                foreach (var totalMaterias in MateriasAprobadasPorAlumno.JuampiAprobadas)
+                {
+                    if (materiaAprobada != totalMaterias.CodigoMateria)
+                    {
+                        Console.WriteLine("Codigo de materia:" + totalMaterias.CodigoMateria + " | Nombre de materia:" + totalMaterias.NombreMateria);
+                    }
+                }
             }
+
         }
 
         public static void AgregarInscripcionEnLista(int numRegistro, int codMateria, string nomMateria)
@@ -51,7 +66,7 @@ namespace TP4
             {
                 using (TextWriter tw = new StreamWriter(nombreArchivo))
                 {
-                    foreach (var materiaAprobada in JuampiAprobadas)
+                    foreach (var materiaAprobada in MateriasAprobadasPorAlumno.JuampiAprobadas)
                     {
                         tw.WriteLine("Numero de registro:" + materiaAprobada.NRegistro + "| Codigo de materia:" + materiaAprobada.CodigoMateria + "| Nombre de materia:" + materiaAprobada.NombreMateria);
                     }

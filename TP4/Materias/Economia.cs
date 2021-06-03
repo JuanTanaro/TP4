@@ -11,12 +11,10 @@ namespace TP4
     {
         public static List<MateriasBase> economia = new List<MateriasBase>();
 
-
         const string nombreArchivo = "Economia.txt";
 
         static Economia()
         {
-
             if (File.Exists(nombreArchivo))
             {
                 using (var reader = new StreamReader(nombreArchivo))

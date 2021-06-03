@@ -25,27 +25,8 @@ namespace TP4
 
         public string ObtenerLineaDatosAlumno() => $"{NRegistro}-{CodigoMateria}-{NombreMateria}";
 
-        public static MateriasAprobadasPorAlumno CrearModeloBusquedaAlumno(int CodigoPersona)
-        {
-            var modelo = new MateriasAprobadasPorAlumno();
-            modelo.CodigoMateria = CodigoPersona;
-            return modelo;
-        }
-
-        public bool CoincideConAlumno(MateriasAprobadasPorAlumno modelo)
-        {
-            if (modelo.NRegistro != 0 && modelo.NRegistro != NRegistro)
-            {
-                return false;
-            }
-
-            return true;
-
-        }
-
         public static List<MateriasAprobadasPorAlumno> JuampiAprobadas = new List<MateriasAprobadasPorAlumno>();
         const string nombreArchivo = "MateriasAprobadasAlumnos.txt";
-
 
         public static void EscribirAprobadasEnTXT()
         {
@@ -67,7 +48,7 @@ namespace TP4
         }
 
 
-        public void AgregarMateria(int numRegistro, int codMateria, string nomMateria)
+        public static void AgregarMateria(int numRegistro, int codMateria, string nomMateria)
         {
             JuampiAprobadas.Add(new MateriasAprobadasPorAlumno()
             {
@@ -77,6 +58,23 @@ namespace TP4
             });
         }
 
+        public static MateriasAprobadasPorAlumno CrearModeloBusquedaAlumno(int CodigoPersona)
+        {
+            var modelo = new MateriasAprobadasPorAlumno();
+            modelo.CodigoMateria = CodigoPersona;
+            return modelo;
+        }
+
+        public bool CoincideConAlumno(MateriasAprobadasPorAlumno modelo)
+        {
+            if (modelo.NRegistro != 0 && modelo.NRegistro != NRegistro)
+            {
+                return false;
+            }
+
+            return true;
+
+        }
         public static void MostrarDatos(int CodigoPersona)
         {
             string Mensaje = "";
