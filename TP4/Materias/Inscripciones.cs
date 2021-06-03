@@ -27,28 +27,31 @@ namespace TP4
         const string nombreArchivo = "Inscripciones.txt";
         
 
-        public static void MostrarMateriasDisponibles(int CodigoPersona)
+        public static void MostrarMateriasDisponibles(string eleccionCarrera)
         {
-            var result = Economia.economia.Nombre
-                Except(MateriasAprobadasPorAlumno.JuampiAprobadas).ToList(AlumnoInscripto);
-
-
-            //Economia.economia.Except<>
-
-            /*
-            foreach (var totalMaterias in Economia.economia)
+            switch (eleccionCarrera)
             {
-                var materiaTotal = totalMaterias.CodigoMateria;
-
-                foreach (var materiasAprobadas in MateriasAprobadasPorAlumno.JuampiAprobadas)
-                {
-                    if (CodigoPersona == materiasAprobadas.NRegistro && materiaTotal != materiasAprobadas.CodigoMateria)
+                case "1":
+                    var materiasDisponiblesEcon = Economia.economia.Where(econ => MateriasAprobadasPorAlumno.JuampiAprobadas.All(aprob => aprob.CodigoMateria != econ.CodigoMateria));
+                    Console.WriteLine($"Materias disponibles para inscrpcion:");
+                    foreach (var val in materiasDisponiblesEcon)
                     {
-                            Console.WriteLine("Codigo de materia:" + materiasAprobadas.CodigoMateria + " | Nombre de materia:" + materiasAprobadas.NombreMateria);
+                        Console.WriteLine($"{val.CodigoMateria}" + $"{val.NombreMateria}");
                     }
-                }
+                    break;
+
+                case "2":
+                    var materiasDisponiblesSist = Sistemas.sistemas.Where(sist => MateriasAprobadasPorAlumno.JuampiAprobadas.All(aprob => aprob.CodigoMateria != sist.CodigoMateria));
+                    Console.WriteLine($"Materias disponibles para inscrpcion:");
+                    foreach (var val in materiasDisponiblesSist)
+                    {
+                        Console.WriteLine($"{val.CodigoMateria}" + $"{val.NombreMateria}");
+                    }
+                    break;
+
             }
-            */
+
+            
         }
 
         public static void AgregarInscripcionEnLista(int numRegistro, int codMateria, string nomMateria)

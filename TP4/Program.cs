@@ -47,6 +47,9 @@ namespace TP4
                     case "1":
                         MostrarMaterias(eleccionCarrera, CodigoPersona);
                         break;
+                    case "2":
+                        MostrarMaterias(eleccionCarrera, CodigoPersona);
+                        break;
                     case "4":
                         salir = true;
                         break;
@@ -63,6 +66,12 @@ namespace TP4
             if (eleccionCarrera == "1")
             {
                 Economia.MostrarTXT();
+                Aprobada(eleccionCarrera, CodigoPersona);
+            }
+
+            if (eleccionCarrera == "2")
+            {
+                Sistemas.MostrarTXT();
                 Aprobada(eleccionCarrera, CodigoPersona);
             }
         }
@@ -90,6 +99,26 @@ namespace TP4
 
                 otraAprobada(eleccionCarrera, CodigoPersona);
             }
+
+            if (eleccionCarrera == "2")
+            {
+                var materia = Sistemas.Seleccionar(); //te devuelve el codigo de materia en .int
+                if (materia == null)
+                {
+                    Aprobada(eleccionCarrera, CodigoPersona);
+                }
+
+                materia.Mostrar();
+                Console.WriteLine($"Marcaste como aprobada la materia {materia.CodigoMateria}. Está usted seguro? S/N\n");
+                var key = Console.ReadKey(intercept: true);
+                if (key.Key == ConsoleKey.S)
+                {
+                    Console.WriteLine($"{materia.NombreMateria} ha sido marcada como aprobada");
+                    MateriasAprobadasPorAlumno.AgregarMateria(CodigoPersona, materia.CodigoMateria, materia.NombreMateria);
+                }
+
+                otraAprobada(eleccionCarrera, CodigoPersona);
+            }
         }
 
         private static void otraAprobada(string eleccionCarrera, int CodigoPersona)
@@ -110,8 +139,7 @@ namespace TP4
                         break;
                     case "2":
                         MateriasAprobadasPorAlumno.EscribirAprobadasEnTXT();
-                        Inscripciones.MostrarMateriasDisponibles(CodigoPersona);
-                        InscripcionMaterias(CodigoPersona);
+                        InscripcionMaterias(CodigoPersona, eleccionCarrera);
                         break;
                     case "4":
                         salir = true;
@@ -123,12 +151,39 @@ namespace TP4
             } while (!salir);
         }
         
-        private static void InscripcionMaterias(int CodigoPersona)
+        private static void InscripcionMaterias(int CodigoPersona, string eleccionCarrera)
         {
-            Console.WriteLine("Tenes las siguientes materias disponible para inscribirte:");
-
-            Inscripciones.MostrarMateriasDisponibles(CodigoPersona);
+            Inscripciones.MostrarMateriasDisponibles(eleccionCarrera);
+            Console.WriteLine("");
             Console.WriteLine("Escriba el codigo de la primer materia en la cual quiere inscribirse");
+                switch (eleccionCarrera)
+                {
+                case "1":
+                    var materiaEcon = Economia.Seleccionar(); //te devuelve el codigo de materia en .int
+                    if (materiaEcon == null)
+                    {
+                        Aprobada(eleccionCarrera, CodigoPersona);
+                    }
+
+                    materiaEcon.Mostrar();
+                    Console.WriteLine($"Marcaste como aprobada la materia {materiaEcon.CodigoMateria}. Está usted seguro? S/N\n");
+                    var keyEcon = Console.ReadKey(intercept: true);
+                    if (keyEcon.Key == ConsoleKey.S)
+                    {
+                        Console.WriteLine($"{materiaEcon.NombreMateria} ha sido marcada como aprobada");
+                        MateriasAprobadasPorAlumno.AgregarMateria(CodigoPersona, materiaEcon.CodigoMateria, materiaEcon.NombreMateria);
+                    }
+
+                    otraAprobada(eleccionCarrera, CodigoPersona);
+                    break;
+                
+                case "2":
+                    break;
+            }
+
+                Console.WriteLine("Seleccione la segunda materia en la cual quiere inscribirse");
+                Console.WriteLine("Seleccione la tercera materia en la cual quiere inscribirse");
+            
             Console.WriteLine("Seleccione la segunda materia en la cual quiere inscribirse");
             Console.WriteLine("Seleccione la tercera materia en la cual quiere inscribirse");
         }
