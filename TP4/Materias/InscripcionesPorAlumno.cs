@@ -7,15 +7,15 @@ using System.Threading.Tasks;
 
 namespace TP4
 {
-    public class MateriasAprobadasPorAlumno
+    public class InscripcionesPorAlumno
     {
         public int NRegistro { get; set; }
         public int CodigoMateria { get; set; }
         public string NombreMateria { get; set; }
 
-        public MateriasAprobadasPorAlumno() { }
+        public InscripcionesPorAlumno() { }
 
-        public MateriasAprobadasPorAlumno(string linea)
+        public InscripcionesPorAlumno(string linea)
         {
             var datos = linea.Split('-');
             NRegistro = int.Parse(datos[0]);
@@ -25,8 +25,8 @@ namespace TP4
 
         public string ObtenerLineaDatosAlumno() => $"{NRegistro}-{CodigoMateria}-{NombreMateria}";
 
-        public static List<MateriasAprobadasPorAlumno> JuampiAprobadas = new List<MateriasAprobadasPorAlumno>();
-        const string nombreArchivo = "MateriasAprobadasAlumnos.txt";
+        public static List<InscripcionesPorAlumno> inscripcionesPorAlumno = new List<InscripcionesPorAlumno>();
+        const string nombreArchivo = "InscripcionesPorAlumnos.txt";
 
         public static void EscribirAprobadasEnTXT()
         {
@@ -34,7 +34,7 @@ namespace TP4
             {
                 using (TextWriter tw = new StreamWriter(nombreArchivo))
                 {
-                    foreach (var materiaAprobada in JuampiAprobadas)
+                    foreach (var materiaAprobada in inscripcionesPorAlumno)
                     {
                         tw.WriteLine("Numero de registro:" + materiaAprobada.NRegistro + " | Codigo de materia:" + materiaAprobada.CodigoMateria + " | Nombre de materia:" + materiaAprobada.NombreMateria);
                     }
@@ -47,9 +47,10 @@ namespace TP4
             }
         }
 
-        public static void AgregarMateria(int numRegistro, int codMateria, string nomMateria)
+
+        public static void AgregarInscripcion(int numRegistro, int codMateria, string nomMateria)
         {
-            JuampiAprobadas.Add(new MateriasAprobadasPorAlumno()
+            inscripcionesPorAlumno.Add(new InscripcionesPorAlumno()
             {
                 NRegistro = numRegistro,
                 CodigoMateria = codMateria,
@@ -57,22 +58,26 @@ namespace TP4
             });
         }
 
-        public static MateriasAprobadasPorAlumno CrearModeloBusquedaAlumno(int CodigoPersona)
+        public static void MostrarInscripciones(int CodigoPersona)
         {
-            var modelo = new MateriasAprobadasPorAlumno();
-            modelo.CodigoMateria = CodigoPersona;
-            return modelo;
-        }
+            string Mensaje = "";
 
-        public bool CoincideConAlumno(MateriasAprobadasPorAlumno modelo)
-        {
-            if (modelo.NRegistro != 0 && modelo.NRegistro != NRegistro)
+            Console.WriteLine("Tu numero de registro es " + CodigoPersona + " y has sido inscripto en las siguientes materias: ");
+
+            foreach (var persona in inscripcionesPorAlumno)
             {
-                return false;
+                if (CodigoPersona == persona.NRegistro)
+                {
+                    foreach (var materias in inscripcionesPorAlumno)
+                    {
+                        Mensaje += "Has sido inscripto en: " + $"{materias.NombreMateria}\n";
+                    }
+                    if (Mensaje == "")
+                    {
+                        Console.WriteLine("No esta inscripto en ninguna materia");
+                    }
+                }
             }
-
-            return true;
-
         }
     }
 }
