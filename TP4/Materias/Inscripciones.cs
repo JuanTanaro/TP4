@@ -43,6 +43,7 @@ namespace TP4
                     if (materiaAprobada != totalMaterias.CodigoMateria)
                     {
                         Console.WriteLine("Codigo de materia:" + totalMaterias.CodigoMateria + " | Nombre de materia:" + totalMaterias.NombreMateria);
+                        continue;
                     }
                 }
             }
