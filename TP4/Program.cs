@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Threading;
 
@@ -85,7 +86,7 @@ namespace TP4
 
         private static void Aprobada(string eleccionCarrera, int CodigoPersona)
         {
-            Console.WriteLine("Seleccione las materias que ya realizo escribiendo cada uno de los codigos de materia y luego ENTER");
+            Console.WriteLine("\nSeleccione las materias que ya realizo escribiendo cada uno de los codigos de materia y luego ENTER");
 
             if (eleccionCarrera == "1")
             {
@@ -184,6 +185,5 @@ namespace TP4
             Console.WriteLine("Seleccione la segunda materia en la cual quiere inscribirse");
             Console.WriteLine("Seleccione la tercera materia en la cual quiere inscribirse");
         }
-
     }
 }

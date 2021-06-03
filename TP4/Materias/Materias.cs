@@ -20,10 +20,8 @@ namespace TP4
             NombreMateria = (datos[1]);
         }
 
-
         public string ObtenerLineaDatos() => $"{CodigoMateria}-{NombreMateria}";
         
-
         public void Mostrar()
         {
             Console.WriteLine();

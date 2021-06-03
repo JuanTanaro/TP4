@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace TP4
 {
-    class MateriasAprobadasPorAlumno
+    class MateriasAprobadasPorAlumno 
     {
         public int NRegistro { get; set; }
         public int CodigoMateria { get; set; }
@@ -31,7 +31,6 @@ namespace TP4
             modelo.CodigoMateria = CodigoPersona;
             return modelo;
         }
-
 
         public bool CoincideConAlumno(MateriasAprobadasPorAlumno modelo)
         {
@@ -79,13 +78,10 @@ namespace TP4
             });
         }
 
-        public static void ImprimirLista()
+        public static void Agregar(int CodigoPersona, MateriasAprobadasPorAlumno materiasAprobadasAlumno)
         {
-            Console.WriteLine("Sus Materias aprobadas son: ");
-            foreach (var item in JuampiAprobadas)
-            {
-                //Console.WriteLine($"{JuampiAprobadas.Nro);
-            }
+            entradas.Add(CodigoPersona, materiasAprobadasAlumno);
+            Grabar();
         }
 
         public static void MostrarDatos(int CodigoPersona)
@@ -128,7 +124,17 @@ namespace TP4
         }
 
 
-
+        public static void Grabar()
+        {
+            using (var writer = new StreamWriter(nombreArchivo, append: false))
+            {
+                foreach (var materiaAprobada in entradas.Values)
+                {
+                    var linea = materiaAprobada.ObtenerLineaDatosAlumno();
+                    writer.WriteLine(linea);
+                }
+            }
+        }
 
     }
 }
