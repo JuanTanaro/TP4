@@ -45,16 +45,12 @@
   <ItemGroup>
     <Compile Include="Alumnos\Alumno.cs" />
     <Compile Include="Asignacion\Asignacion.cs" />
-    <Compile Include="Materias\Contador.cs" />
     <Compile Include="Materias\Materias.cs" />
     <Compile Include="Materias\Economia.cs" />
     <Compile Include="Materias\Inscripciones.cs" />
-    <Compile Include="..\..\..\..\Desktop\MateriasAprobadasPorAlumno.cs">
-      <Link>Materias\MateriasAprobadasPorAlumno.cs</Link>
-    </Compile>
+    <Compile Include="Materias\MateriasAprobadasPorAlumno.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Materias\Sistemas.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

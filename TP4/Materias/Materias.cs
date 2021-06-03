@@ -29,14 +29,14 @@ namespace TP4
             Console.WriteLine();
         }
 
+        public static List<MateriasBase> materiasDisponibles = new List<MateriasBase>();
+
         public static MateriasBase CrearModeloBusqueda()
         {
             var modelo = new MateriasBase();
             modelo.CodigoMateria = IngresarCodigoMateria();
             return modelo;
         }
-
-        
 
         public bool CoincideCon(MateriasBase modelo)
         {

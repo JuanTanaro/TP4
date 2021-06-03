@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace TP4
 {
-    class Inscripciones
+    public class Inscripciones
     {
         public int NRegistro { get; set; }
         public int CodigoMateria { get; set; }
@@ -25,11 +25,13 @@ namespace TP4
 
         public static List<Inscripciones> AlumnoInscripto = new List<Inscripciones>();
         const string nombreArchivo = "Inscripciones.txt";
-        public static List<MateriasBase> materiasDisponibles = new List<MateriasBase>();
+        
 
-        public static void MostrarMateriasDisponibles(int CodigoPersona)
+        public void MostrarMateriasDisponibles(int CodigoPersona)
         {
-            var MS = Economia.economia2.Except(MateriasAprobadasPorAlumno.JuampiAprobadas).ToList(materiasDisponibles);
+            foreach (var materias in Economia.economia)
+            {
+            }
         }
 
         public static void AgregarInscripcionEnLista(int numRegistro, int codMateria, string nomMateria)

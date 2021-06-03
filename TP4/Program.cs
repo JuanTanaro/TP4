@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Threading;
+using TP4.Materias;
 
 namespace TP4
 {
@@ -47,13 +48,6 @@ namespace TP4
                     case "1":
                         MostrarMaterias(eleccionCarrera, CodigoPersona);
                         break;
-                    case "2":
-                        MostrarMaterias(eleccionCarrera, CodigoPersona);
-                        break;
-                    case "3":
-                        MostrarMaterias(eleccionCarrera, CodigoPersona);
-                        break;
-                        //.....
                     case "4":
                         salir = true;
                         break;
@@ -70,16 +64,6 @@ namespace TP4
             if (eleccionCarrera == "1")
             {
                 Economia.MostrarTXT();
-                Aprobada(eleccionCarrera, CodigoPersona);
-            }
-            else if (eleccionCarrera == "2")
-            {
-                Sistemas.MostrarDatos();
-                Aprobada(eleccionCarrera, CodigoPersona);
-            }
-            else if (eleccionCarrera == "3")
-            {
-                Contador.MostrarDatos();
                 Aprobada(eleccionCarrera, CodigoPersona);
             }
         }
@@ -105,49 +89,11 @@ namespace TP4
                     MateriasAprobadasPorAlumno.AgregarMateria(CodigoPersona , materia.CodigoMateria, materia.NombreMateria);
                 }
 
-                EliminarMateria(eleccionCarrera, CodigoPersona);
-            }
-
-            else if (eleccionCarrera == "2")
-            {
-                var materia = Sistemas.Seleccionar();
-                if (materia == null)
-                {
-                    return;
-                }
-                materia.Mostrar();
-                Console.WriteLine($"Marca aprobada la materia {materia.CodigoMateria}. Está ud. seguro? S/N\n");
-                var key = Console.ReadKey(intercept: true);
-                if (key.Key == ConsoleKey.S)
-                {
-                    Sistemas.Baja(materia);
-                    Console.WriteLine($"{materia.NombreMateria} ha sido marcada como aprobada");
-                }
-
-                EliminarMateria(eleccionCarrera, CodigoPersona);
-            }
-
-            else if (eleccionCarrera == "3")
-            {
-                var materia = Contador.Seleccionar();
-                if (materia == null)
-                {
-                    return;
-                }
-                materia.Mostrar();
-                Console.WriteLine($"Marca aprobada la materia {materia.CodigoMateria}. Está ud. seguro? S/N\n");
-                var key = Console.ReadKey(intercept: true);
-                if (key.Key == ConsoleKey.S)
-                {
-                    Contador.Baja(materia);
-                    Console.WriteLine($"{materia.NombreMateria} ha sido marcada como aprobada");
-                }
-
-                EliminarMateria(eleccionCarrera, CodigoPersona);
+                otraAprobada(eleccionCarrera, CodigoPersona);
             }
         }
 
-        private static void EliminarMateria(string eleccionCarrera, int CodigoPersona)
+        private static void otraAprobada(string eleccionCarrera, int CodigoPersona)
         {
             bool salir = false;
             do
@@ -164,7 +110,6 @@ namespace TP4
                         Aprobada(eleccionCarrera, CodigoPersona);
                         break;
                     case "2":
-                        //MateriasAprobadasPorAlumno.ImprimirLista(); COMENTARIO PORQUE NO FUNCIONA
                         MateriasAprobadasPorAlumno.EscribirAprobadasEnTXT();
                         InscripcionMaterias(CodigoPersona);
 

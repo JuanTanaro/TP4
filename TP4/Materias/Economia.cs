@@ -9,16 +9,13 @@ namespace TP4
 {
     public class Economia
     {
-
-        public static Dictionary<int, MateriasBase> economia;
-        public static List<MateriasBase> economia2 = new List<MateriasBase>();
+        public static List<MateriasBase> economia = new List<MateriasBase>();
 
 
         const string nombreArchivo = "Economia.txt";
 
         static Economia()
         {
-            economia = new Dictionary<int, MateriasBase>();
 
             if (File.Exists(nombreArchivo))
             {
@@ -28,8 +25,7 @@ namespace TP4
                     {
                         var linea = reader.ReadLine();
                         var carrera = new MateriasBase(linea);
-                        economia.Add(carrera.CodigoMateria, carrera);
-                        economia2.Add(new MateriasBase()
+                        economia.Add(new MateriasBase()
                         {
                             CodigoMateria = carrera.CodigoMateria,
                             NombreMateria = carrera.NombreMateria,
@@ -43,7 +39,7 @@ namespace TP4
         public static void MostrarTXT()
         {
             string Mensaje = "";
-            foreach (var materias in economia.Values)
+            foreach (var materias in economia)
             {
                 Mensaje += $"Codigo Materia: {materias.CodigoMateria}" + " - " + $"Nombre Materia: {materias.NombreMateria}\n";
             }
@@ -61,7 +57,7 @@ namespace TP4
         public static MateriasBase Seleccionar()
         {
             var modelo = MateriasBase.CrearModeloBusqueda();
-            foreach (var persona in economia.Values)
+            foreach (var persona in economia)
             {
                 if (persona.CoincideCon(modelo))
                 {
@@ -72,24 +68,5 @@ namespace TP4
             Console.WriteLine("No se ha encontrado una materia que coincida");
             return null;
         }
-
-        public static void Baja(MateriasBase materias)
-        {
-            economia.Remove(materias.CodigoMateria);
-            //Grabar();
-        }
-        /*
-        public static void Grabar()
-        {
-            using (var writer = new StreamWriter(nombreArchivo, append: false))
-            {
-                foreach (var materias in economia.Values)
-                {
-                    var linea = materias.ObtenerLineaDatos();
-                    writer.WriteLine(linea);
-                }
-            }
-        }
-        */
     }
 }

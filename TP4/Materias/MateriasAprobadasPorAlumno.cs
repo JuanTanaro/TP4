@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace TP4
 {
-    class MateriasAprobadasPorAlumno 
+    public class MateriasAprobadasPorAlumno
     {
         public int NRegistro { get; set; }
         public int CodigoMateria { get; set; }
@@ -44,21 +44,20 @@ namespace TP4
         }
 
         public static List<MateriasAprobadasPorAlumno> JuampiAprobadas = new List<MateriasAprobadasPorAlumno>();
-        private static readonly Dictionary<int, MateriasAprobadasPorAlumno> entradas = new Dictionary<int, MateriasAprobadasPorAlumno>();
         const string nombreArchivo = "MateriasAprobadasAlumnos.txt";
 
-        
+
         public static void EscribirAprobadasEnTXT()
         {
             if (File.Exists(nombreArchivo))
             {
                 using (TextWriter tw = new StreamWriter(nombreArchivo))
                 {
-                    foreach(var materiaAprobada in JuampiAprobadas)
+                    foreach (var materiaAprobada in JuampiAprobadas)
                     {
-                        tw.WriteLine("Numero de registro:" + materiaAprobada.NRegistro +" | Codigo de materia:" + materiaAprobada.CodigoMateria + " | Nombre de materia:" + materiaAprobada.NombreMateria);
+                        tw.WriteLine("Numero de registro:" + materiaAprobada.NRegistro + " | Codigo de materia:" + materiaAprobada.CodigoMateria + " | Nombre de materia:" + materiaAprobada.NombreMateria);
                     }
-                    
+
                 }
             }
             else
@@ -68,7 +67,7 @@ namespace TP4
         }
 
 
-        public static void AgregarMateria(int numRegistro, int codMateria, string nomMateria)
+        public void AgregarMateria(int numRegistro, int codMateria, string nomMateria)
         {
             JuampiAprobadas.Add(new MateriasAprobadasPorAlumno()
             {
@@ -78,21 +77,15 @@ namespace TP4
             });
         }
 
-        public static void Agregar(int CodigoPersona, MateriasAprobadasPorAlumno materiasAprobadasAlumno)
-        {
-            entradas.Add(CodigoPersona, materiasAprobadasAlumno);
-            Grabar();
-        }
-
         public static void MostrarDatos(int CodigoPersona)
         {
             string Mensaje = "";
 
-            foreach (var persona in entradas.Values)
+            foreach (var persona in JuampiAprobadas)
             {
                 if (CodigoPersona == persona.NRegistro)
                 {
-                    foreach (var materias in entradas.Values)
+                    foreach (var materias in JuampiAprobadas)
                     {
                         Mensaje += "Materia disponible: \n" + " - " + $"{materias.NombreMateria}\n";
                     }
@@ -107,34 +100,5 @@ namespace TP4
                 }
             }
         }
-
-        public static MateriasAprobadasPorAlumno Seleccionar(int CodigoPersona)
-        {
-            var modelo = CrearModeloBusquedaAlumno(CodigoPersona);
-            foreach (var materias in entradas.Values)
-            {
-                if (materias.CoincideConAlumno(modelo))
-                {
-                    return materias;
-                }
-            }
-
-            Console.WriteLine("No se ha encontrado una materia que coincida");
-            return null;
-        }
-
-
-        public static void Grabar()
-        {
-            using (var writer = new StreamWriter(nombreArchivo, append: false))
-            {
-                foreach (var materiaAprobada in entradas.Values)
-                {
-                    var linea = materiaAprobada.ObtenerLineaDatosAlumno();
-                    writer.WriteLine(linea);
-                }
-            }
-        }
-
     }
 }
