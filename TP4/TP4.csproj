@@ -45,6 +45,10 @@
   <ItemGroup>
     <Compile Include="Alumnos\Alumno.cs" />
     <Compile Include="Asignacion\InscripcionesPorAlumno.cs" />
+    <Compile Include="Materias\Administracion.cs" />
+    <Compile Include="Materias\Contador.cs" />
+    <Compile Include="Materias\ActuarioAdministracion.cs" />
+    <Compile Include="Materias\ActuarioEconomia.cs" />
     <Compile Include="Materias\Sistemas.cs" />
     <Compile Include="Materias\MateriasBase.cs" />
     <Compile Include="Materias\Economia.cs" />

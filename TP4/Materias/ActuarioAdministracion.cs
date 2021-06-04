@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 
 namespace TP4
 {
-    public class Sistemas
+    public class ActuarioAdministracion
     {
-        public static List<MateriasBase> sistemas = new List<MateriasBase>();
+        public static List<MateriasBase> actuarioAdministracion = new List<MateriasBase>();
 
-        const string nombreArchivo = "Sistemas.txt";
+        const string nombreArchivo = "ActuarioAdministracion.txt";
 
-        static Sistemas()
+        static ActuarioAdministracion()
         {
             if (File.Exists(nombreArchivo))
             {
@@ -23,7 +23,7 @@ namespace TP4
                     {
                         var linea = reader.ReadLine();
                         var carrera = new MateriasBase(linea);
-                        sistemas.Add(new MateriasBase()
+                        actuarioAdministracion.Add(new MateriasBase()
                         {
                             CodigoMateria = carrera.CodigoMateria,
                             NombreMateria = carrera.NombreMateria,
@@ -37,7 +37,7 @@ namespace TP4
         public static void MostrarTXT()
         {
             string Mensaje = "";
-            foreach (var materias in sistemas)
+            foreach (var materias in actuarioAdministracion)
             {
                 Mensaje += $"Codigo Materia: {materias.CodigoMateria}" + " - " + $"Nombre Materia: {materias.NombreMateria}\n";
             }
@@ -55,7 +55,7 @@ namespace TP4
         public static MateriasBase Seleccionar()
         {
             var modelo = MateriasBase.CrearModeloBusqueda();
-            foreach (var persona in sistemas)
+            foreach (var persona in actuarioAdministracion)
             {
                 if (persona.CoincideCon(modelo))
                 {
@@ -70,7 +70,7 @@ namespace TP4
         public static MateriasBase SeleccionarAsignacion(int materia)
         {
             var modelo = MateriasBase.CrearModeloBusquedaAsignacion(materia);
-            foreach (var persona in sistemas)
+            foreach (var persona in actuarioAdministracion)
             {
                 if (persona.CoincideCon(modelo))
                 {
