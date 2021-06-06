@@ -67,5 +67,15 @@ namespace TP4
                 Console.WriteLine($"Codigo de materia: " + val.CodigoMateria + $" | Nombre de materia: " + val.NombreMateria);           
             }           
         }
+
+        public static void AgregarInscripcionALista(int numRegistro, int codMateria, string nomMateria)
+        {
+            inscripcionesPorAlumno.Add(new InscripcionesPorAlumno()
+            {
+                NRegistro = numRegistro,
+                CodigoMateria = codMateria,
+                NombreMateria = nomMateria,
+            });
+        }
     }
 }

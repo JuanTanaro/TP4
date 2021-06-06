@@ -5,7 +5,7 @@ using System.Threading;
 
 namespace TP4
 {
-    internal class Program
+    public class Program
     {
         static void Main(string[] args)
         {
@@ -261,7 +261,9 @@ namespace TP4
         
         private static void InscripcionMaterias(int CodigoPersona, string eleccionCarrera)
         {
-            MateriasAprobadasPorAlumno.MostrarMateriasDisponibles(eleccionCarrera);
+            MateriasAprobadasPorAlumno.MostrarMateriasDisponibles(eleccionCarrera, CodigoPersona);
+            int materiasDisponiblesAlumno = MateriasAprobadasPorAlumno.contarMateriasDisponibles(CodigoPersona);
+            Console.WriteLine("Usted tiene " + materiasDisponiblesAlumno + " materias disponibles");
             Console.WriteLine(" ");
             Console.WriteLine("-------------");
             Console.WriteLine(" ");

@@ -25,7 +25,8 @@ namespace TP4
 
         public string ObtenerLineaDatosAlumno() => $"{NRegistro}-{CodigoMateria}-{NombreMateria}";
 
-        public static List<MateriasAprobadasPorAlumno> JuampiAprobadas = new List<MateriasAprobadasPorAlumno>();
+        public static List<MateriasAprobadasPorAlumno> materiasAprobadas = new List<MateriasAprobadasPorAlumno>();
+        public static List<MateriasAprobadasPorAlumno> materiasDisponibles = new List<MateriasAprobadasPorAlumno>();
         const string nombreArchivo = "MateriasAprobadasAlumnos.txt";
 
         public static void EscribirAprobadasEnTXT()
@@ -34,7 +35,7 @@ namespace TP4
             {
                 using (TextWriter tw = new StreamWriter(nombreArchivo))
                 {
-                    foreach (var materiaAprobada in JuampiAprobadas)
+                    foreach (var materiaAprobada in materiasAprobadas)
                     {
                         tw.WriteLine("Numero de registro:" + materiaAprobada.NRegistro + " | Codigo de materia:" + materiaAprobada.CodigoMateria + " | Nombre de materia:" + materiaAprobada.NombreMateria);
                     }
@@ -48,7 +49,16 @@ namespace TP4
         }
         public static void AgregarMateria(int numRegistro, int codMateria, string nomMateria)
         {
-            JuampiAprobadas.Add(new MateriasAprobadasPorAlumno()
+            materiasAprobadas.Add(new MateriasAprobadasPorAlumno()
+            {
+                NRegistro = numRegistro,
+                CodigoMateria = codMateria,
+                NombreMateria = nomMateria,
+            });
+        }
+        public static void AgregarMateriaDisponible(int numRegistro, int codMateria, string nomMateria)
+        {
+            materiasDisponibles.Add(new MateriasAprobadasPorAlumno()
             {
                 NRegistro = numRegistro,
                 CodigoMateria = codMateria,
@@ -57,31 +67,45 @@ namespace TP4
         }
 
 
-        public static void MostrarMateriasDisponibles(string eleccionCarrera)
+        public static void MostrarMateriasDisponibles(string eleccionCarrera, int numRegistro)
         {
             switch (eleccionCarrera)
             {
                 case "1":
-                    var materiasDisponiblesEcon = Economia.economia.Where(econ => MateriasAprobadasPorAlumno.JuampiAprobadas.All(aprob => aprob.CodigoMateria != econ.CodigoMateria));
+                    var materiasDisponiblesEcon = Economia.economia.Where(econ => MateriasAprobadasPorAlumno.materiasAprobadas.All(aprob => aprob.CodigoMateria != econ.CodigoMateria));
                     Console.WriteLine($"Materias disponibles para inscrpcion:");
                     foreach (var val in materiasDisponiblesEcon)
                     {
                         Console.WriteLine($"Codigo de materia: " + val.CodigoMateria + $" | Nombre de materia: " + val.NombreMateria);
+                        AgregarMateriaDisponible(numRegistro, val.CodigoMateria, val.NombreMateria);                      
                     }
                     break;
 
                 case "2":
-                    var materiasDisponiblesSist = Sistemas.sistemas.Where(sist => MateriasAprobadasPorAlumno.JuampiAprobadas.All(aprob => aprob.CodigoMateria != sist.CodigoMateria));
+                    var materiasDisponiblesSist = Sistemas.sistemas.Where(sist => MateriasAprobadasPorAlumno.materiasAprobadas.All(aprob => aprob.CodigoMateria != sist.CodigoMateria));
                     Console.WriteLine($"Materias disponibles para inscrpcion:");
                     foreach (var val in materiasDisponiblesSist)
                     {
                         Console.WriteLine($"Codigo de materia: " + val.CodigoMateria + $" | Nombre de materia: " + val.NombreMateria);
+                        AgregarMateriaDisponible(numRegistro, val.CodigoMateria, val.NombreMateria);
                     }
                     break;
 
             }
         }
 
+        public static int contarMateriasDisponibles(int numRegistro)
+        {
+            int intMateriasDisponibles = 0;
+            foreach (var val in materiasDisponibles)
+            {
+                if(numRegistro == val.NRegistro)
+                {
+                    intMateriasDisponibles++;
+                }
+            }
+            return intMateriasDisponibles;
+        }
 
 
 
