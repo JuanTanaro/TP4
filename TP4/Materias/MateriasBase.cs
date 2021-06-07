@@ -14,6 +14,12 @@ namespace TP4
         public string HorarioMateria {get; set; }
         public int CapacidadMateria {get; set; }
         public double CorteDeRankingMateria {get; set; }
+        public int Correlativa1 { get; set; }
+        public int Correlativa2 { get; set; }
+        public int Correlativa3 { get; set; }
+        public int Correlativa4 { get; set; }
+
+
 
 
         public MateriasBase() { }
@@ -27,10 +33,22 @@ namespace TP4
             HorarioMateria = (datos[3]);
             CapacidadMateria = int.Parse(datos[4]);
             CorteDeRankingMateria = double.Parse(datos[5]);
-
+            Correlativa1 = int.Parse(datos[6]);
+            Correlativa2 = int.Parse(datos[7]);
+            Correlativa3 = int.Parse(datos[8]);
+            Correlativa4 = int.Parse(datos[9]);
         }
 
-        public string ObtenerLineaDatos() => $"{CodigoMateria}-{NombreMateria}-{ProfesorMateria}-{HorarioMateria}-{CapacidadMateria}-{CorteDeRankingMateria}";
+        public string ObtenerLineaDatos() => $"{CodigoMateria}-" +
+            $"{NombreMateria}-" +
+            $"{ProfesorMateria}-" +
+            $"{HorarioMateria}-" +
+            $"{CapacidadMateria}-" +
+            $"{CorteDeRankingMateria}-" +
+            $"{Correlativa1}-" +
+            $"{Correlativa2}-" +
+            $"{Correlativa3}-" +
+            $"{Correlativa4}";
         
         public void Mostrar()
         {
@@ -40,7 +58,11 @@ namespace TP4
                 + " " + $"Horario: {HorarioMateria}" 
                 + " " + $"Profesor: {ProfesorMateria}" 
                 + " " + $"Capacidad: {CapacidadMateria}" 
-                + " " + $"Corte de Ranking: {CorteDeRankingMateria}");
+                + " " + $"Corte de Ranking: {CorteDeRankingMateria}"
+                + " " + $"{Correlativa1}"
+                + " " + $"{Correlativa2}"
+                + " " + $"{Correlativa3}"
+                + " " + $"{Correlativa4}");
             Console.WriteLine();
         }
 

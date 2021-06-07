@@ -9,8 +9,9 @@ namespace TP4
     {
         static void Main(string[] args)
         {
-                // Iniciacion del usuario. 
-                BuscoRegistro();
+            
+            // Iniciacion del usuario. 
+            BuscoRegistro();
         }
 
         private static void BuscoRegistro()
