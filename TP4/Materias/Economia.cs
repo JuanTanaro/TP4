@@ -67,9 +67,9 @@ namespace TP4
             return null;
         }
 
-        public static MateriasBase SeleccionarAsignacion(int materia)
+        public static MateriasBase SeleccionarAsignacion(int materia, int CantidadMax)
         {
-            var modelo = MateriasBase.CrearModeloBusquedaAsignacion(materia);
+            var modelo = MateriasBase.CrearModeloBusquedaAsignacion(materia, CantidadMax);
             foreach (var persona in economia)
             {
                 if (persona.CoincideCon(modelo))

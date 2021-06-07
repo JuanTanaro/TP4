@@ -56,6 +56,7 @@ namespace TP4
                 NombreMateria = nomMateria,
             });
         }
+
         public static void AgregarMateriaDisponible(int numRegistro, int codMateria, string nomMateria)
         {
             materiasDisponibles.Add(new MateriasAprobadasPorAlumno()

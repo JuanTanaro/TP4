@@ -254,178 +254,89 @@ namespace TP4
                     break;
                 case "2":
                     MateriasAprobadasPorAlumno.EscribirAprobadasEnTXT();
-                    InscripcionMaterias(CodigoPersona, eleccionCarrera);
+                    AjustesInscripcionMaterias(CodigoPersona, eleccionCarrera);
                     break;
             }
         }
-        
-        private static void InscripcionMaterias(int CodigoPersona, string eleccionCarrera)
+
+        private static void AjustesInscripcionMaterias(int CodigoPersona, string eleccionCarrera)
         {
-            MateriasAprobadasPorAlumno.MostrarMateriasDisponibles(eleccionCarrera, CodigoPersona);
-            int materiasDisponiblesAlumno = MateriasAprobadasPorAlumno.contarMateriasDisponibles(CodigoPersona);
-            Console.WriteLine("Usted tiene " + materiasDisponiblesAlumno + " materias disponibles");
             Console.WriteLine(" ");
             Console.WriteLine("-------------");
             Console.WriteLine(" ");
             Console.WriteLine("INSCRIPCIONES");
+            MateriasAprobadasPorAlumno.MostrarMateriasDisponibles(eleccionCarrera, CodigoPersona);
+            Console.WriteLine(" ");
+            int materiasDisponiblesAlumno = MateriasAprobadasPorAlumno.contarMateriasDisponibles(CodigoPersona);
+            Console.WriteLine("Usted tiene " + materiasDisponiblesAlumno + " materias disponibles");
             Console.WriteLine(" ");
             Console.WriteLine("-------------");
 
+            int CantidadMax;
+            if (materiasDisponiblesAlumno <= 4)
+            {
+                CantidadMax = 4;
+                Inscripciones(CodigoPersona, eleccionCarrera, materiasDisponiblesAlumno, CantidadMax);
+            }
+            else
+            {
+                CantidadMax = 3;
+                Inscripciones(CodigoPersona, eleccionCarrera, materiasDisponiblesAlumno, CantidadMax);
+            }
+        }
+
+        private static void Inscripciones(int CodigoPersona, string eleccionCarrera, int materiasDisponiblesAlumno, int CantidadMax)
+        {
             switch (eleccionCarrera)
             {
                 case "1":
-                    for (int i = 1; i <= 3; i++)
+
+                    do
                     {
-
-                        //Acumulador para saber el numero de materia
-                        int materia = +i;
-
-                        var materiaEcon = Economia.SeleccionarAsignacion(materia); //te devuelve el codigo de materia en .int
-                        if (materiaEcon == null)
+                        for (int i = 1; i <= CantidadMax; i++)
                         {
-                            InscripcionMaterias(CodigoPersona, eleccionCarrera);
-                        }
 
-                        materiaEcon.Mostrar();
-                        Console.WriteLine($"Te has inscripto en {materiaEcon.CodigoMateria}. Está usted seguro? S/N\n");
-                        var keyEcon = Console.ReadKey(intercept: true);
-                        if (keyEcon.Key == ConsoleKey.S)
-                        {
-                            Console.WriteLine($"Has sido inscripto en {materiaEcon.NombreMateria}");
-                            InscripcionesPorAlumno.AgregarInscripcion(CodigoPersona, materiaEcon.CodigoMateria, materiaEcon.NombreMateria);
-                        }
-                    }
+                            //Acumulador para saber el numero de materia
+                            int materia = +i;
 
-                    InscripcionesPorAlumno.MostrarInscripciones(CodigoPersona);
+                            var materiaEcon = Economia.SeleccionarAsignacion(materia, CantidadMax); //te devuelve el codigo de materia en .int
+                            if (materiaEcon == null)
+                            {
+                                Inscripciones(CodigoPersona, eleccionCarrera, materiasDisponiblesAlumno, CantidadMax);
+                            }
+
+                            materiaEcon.Mostrar();
+                            Console.WriteLine($"Te has inscripto en {materiaEcon.CodigoMateria}. Está usted seguro? S/N\n");
+                            var keyEcon = Console.ReadKey(intercept: true);
+                            if (keyEcon.Key == ConsoleKey.S)
+                            {
+                                Console.WriteLine($"Has sido inscripto en {materiaEcon.NombreMateria}");
+                                InscripcionesPorAlumno.AgregarInscripcion(CodigoPersona, materiaEcon.CodigoMateria, materiaEcon.NombreMateria);
+                            }
+
+                            otraInscripcion(CodigoPersona, eleccionCarrera, materiasDisponiblesAlumno, CantidadMax);
+                        }
+                    } while (true);
+
                     break;
 
+            }    
+        }
+
+        private static void otraInscripcion(int CodigoPersona, string eleccionCarrera, int materiasDisponiblesAlumno, int CantidadMax)
+        {
+            Console.WriteLine("¿Quiere inscribirse a otra materia?");
+            Console.WriteLine("1 - SI");
+            Console.WriteLine("2 - NO");
+
+            var respuesta = Console.ReadLine();
+
+            switch (respuesta)
+            {
+                case "1":
+                    Inscripciones(CodigoPersona, eleccionCarrera, materiasDisponiblesAlumno, CantidadMax);
+                    break;
                 case "2":
-                    for (int i = 1; i <= 3; i++)
-                    {
-
-                        //Acumulador para saber el numero de materia
-                        int materia = +i;
-
-                        var materiaSist = Sistemas.SeleccionarAsignacion(materia); //te devuelve el codigo de materia en .int
-                        if (materiaSist == null)
-                        {
-                            InscripcionMaterias(CodigoPersona, eleccionCarrera);
-                        }
-
-                        materiaSist.Mostrar();
-                        Console.WriteLine($"Te has inscripto en {materiaSist.CodigoMateria}. Está usted seguro? S/N\n");
-                        var keyEcon = Console.ReadKey(intercept: true);
-                        if (keyEcon.Key == ConsoleKey.S)
-                        {
-                            Console.WriteLine($"Has sido inscripto en {materiaSist.NombreMateria}");
-                            InscripcionesPorAlumno.AgregarInscripcion(CodigoPersona, materiaSist.CodigoMateria, materiaSist.NombreMateria);
-                        }
-                    }
-
-                    InscripcionesPorAlumno.MostrarInscripciones(CodigoPersona);
-                    break;
-
-                case "3":
-                    for (int i = 1; i <= 3; i++)
-                    {
-
-                        //Acumulador para saber el numero de materia
-                        int materia = +i;
-
-                        var materiaCont = Contador.SeleccionarAsignacion(materia); //te devuelve el codigo de materia en .int
-                        if (materiaCont == null)
-                        {
-                            InscripcionMaterias(CodigoPersona, eleccionCarrera);
-                        }
-
-                        materiaCont.Mostrar();
-                        Console.WriteLine($"Te has inscripto en {materiaCont.CodigoMateria}. Está usted seguro? S/N\n");
-                        var keyCont = Console.ReadKey(intercept: true);
-                        if (keyCont.Key == ConsoleKey.S)
-                        {
-                            Console.WriteLine($"Has sido inscripto en {materiaCont.NombreMateria}");
-                            InscripcionesPorAlumno.AgregarInscripcion(CodigoPersona, materiaCont.CodigoMateria, materiaCont.NombreMateria);
-                        }
-                    }
-
-                    InscripcionesPorAlumno.MostrarInscripciones(CodigoPersona);
-                    break;
-
-                case "4":
-                    for (int i = 1; i <= 3; i++)
-                    {
-
-                        //Acumulador para saber el numero de materia
-                        int materia = +i;
-
-                        var materiaActAdm = ActuarioAdministracion.SeleccionarAsignacion(materia); //te devuelve el codigo de materia en .int
-                        if (materiaActAdm == null)
-                        {
-                            InscripcionMaterias(CodigoPersona, eleccionCarrera);
-                        }
-
-                        materiaActAdm.Mostrar();
-                        Console.WriteLine($"Te has inscripto en {materiaActAdm.CodigoMateria}. Está usted seguro? S/N\n");
-                        var keyActAdm = Console.ReadKey(intercept: true);
-                        if (keyActAdm.Key == ConsoleKey.S)
-                        {
-                            Console.WriteLine($"Has sido inscripto en {materiaActAdm.NombreMateria}");
-                            InscripcionesPorAlumno.AgregarInscripcion(CodigoPersona, materiaActAdm.CodigoMateria, materiaActAdm.NombreMateria);
-                        }
-                    }
-
-                    InscripcionesPorAlumno.MostrarInscripciones(CodigoPersona);
-                    break;
-
-                case "5":
-                    for (int i = 1; i <= 3; i++)
-                    {
-
-                        //Acumulador para saber el numero de materia
-                        int materia = +i;
-
-                        var materiaActEcon = ActuarioEconomia.SeleccionarAsignacion(materia); //te devuelve el codigo de materia en .int
-                        if (materiaActEcon == null)
-                        {
-                            InscripcionMaterias(CodigoPersona, eleccionCarrera);
-                        }
-
-                        materiaActEcon.Mostrar();
-                        Console.WriteLine($"Te has inscripto en {materiaActEcon.CodigoMateria}. Está usted seguro? S/N\n");
-                        var keyActEcon = Console.ReadKey(intercept: true);
-                        if (keyActEcon.Key == ConsoleKey.S)
-                        {
-                            Console.WriteLine($"Has sido inscripto en {materiaActEcon.NombreMateria}");
-                            InscripcionesPorAlumno.AgregarInscripcion(CodigoPersona, materiaActEcon.CodigoMateria, materiaActEcon.NombreMateria);
-                        }
-                    }
-
-                    InscripcionesPorAlumno.MostrarInscripciones(CodigoPersona);
-                    break;
-
-                case "6":
-                    for (int i = 1; i <= 3; i++)
-                    {
-
-                        //Acumulador para saber el numero de materia
-                        int materia = +i;
-
-                        var materiaAdm = Administracion.SeleccionarAsignacion(materia); //te devuelve el codigo de materia en .int
-                        if (materiaAdm == null)
-                        {
-                            InscripcionMaterias(CodigoPersona, eleccionCarrera);
-                        }
-
-                        materiaAdm.Mostrar();
-                        Console.WriteLine($"Te has inscripto en {materiaAdm.CodigoMateria}. Está usted seguro? S/N\n");
-                        var keyAdm = Console.ReadKey(intercept: true);
-                        if (keyAdm.Key == ConsoleKey.S)
-                        {
-                            Console.WriteLine($"Has sido inscripto en {materiaAdm.NombreMateria}");
-                            InscripcionesPorAlumno.AgregarInscripcion(CodigoPersona, materiaAdm.CodigoMateria, materiaAdm.NombreMateria);
-                        }
-                    }
-
                     InscripcionesPorAlumno.MostrarInscripciones(CodigoPersona);
                     break;
             }
