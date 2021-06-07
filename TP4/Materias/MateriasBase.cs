@@ -10,6 +10,9 @@ namespace TP4
     {
         public int CodigoMateria { get; set; }
         public string NombreMateria { get; set; }
+        public string ProfesorMateria { get; set; }
+        public DateTime HorarioMateria {get; set; }
+
 
         public MateriasBase() { }
 
@@ -18,14 +21,17 @@ namespace TP4
             var datos = linea.Split('-');
             CodigoMateria = int.Parse(datos[0]);
             NombreMateria = (datos[1]);
+            ProfesorMateria = (datos[2]);
+            HorarioMateria = DateTime.Parse(datos[3]);
+
         }
 
-        public string ObtenerLineaDatos() => $"{CodigoMateria}-{NombreMateria}";
+        public string ObtenerLineaDatos() => $"{CodigoMateria}-{NombreMateria}-{ProfesorMateria}-{HorarioMateria}";
         
         public void Mostrar()
         {
             Console.WriteLine();
-            Console.WriteLine($"Codigo de Materia: {CodigoMateria}" + " " + $"Nombre de Materia: {NombreMateria}");
+            Console.WriteLine($"Codigo de Materia: {CodigoMateria}" + " " + $"Nombre: {NombreMateria}" + " " + $"Horario: {HorarioMateria.ToShortDateString()}" + " " + $"Profesor: {ProfesorMateria}");
             Console.WriteLine();
         }
 
