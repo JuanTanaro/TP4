@@ -128,14 +128,20 @@ namespace TP4
 
                 materia.Mostrar();
                 Console.WriteLine($"Marcaste como aprobada la materia {materia.CodigoMateria}. Está usted seguro? S/N\n");
-                var key = Console.ReadKey(intercept: true);
-                if (key.Key == ConsoleKey.S)
+                var key = Console.ReadLine();
+                if (key.ToUpper() == "S")
                 {
                     Console.WriteLine($"{materia.NombreMateria} ha sido marcada como aprobada");
                     MateriasAprobadasPorAlumno.AgregarMateria(CodigoPersona, materia.CodigoMateria, materia.NombreMateria);
                 }
+                else
+                {
+                    Console.WriteLine($"{materia.NombreMateria} NO ha sido marcada como aprobada");
+                    
+                }
 
                 otraAprobada(eleccionCarrera, CodigoPersona);
+
             }
 
             if (eleccionCarrera == "2")
@@ -148,11 +154,16 @@ namespace TP4
 
                 materia.Mostrar();
                 Console.WriteLine($"Marcaste como aprobada la materia {materia.CodigoMateria}. Está usted seguro? S/N\n");
-                var key = Console.ReadKey(intercept: true);
-                if (key.Key == ConsoleKey.S)
+                var key = Console.ReadLine();
+                if (key.ToUpper() == "S")
                 {
                     Console.WriteLine($"{materia.NombreMateria} ha sido marcada como aprobada");
                     MateriasAprobadasPorAlumno.AgregarMateria(CodigoPersona, materia.CodigoMateria, materia.NombreMateria);
+                }
+                else
+                {
+                    Console.WriteLine($"{materia.NombreMateria} NO ha sido marcada como aprobada");
+
                 }
 
                 otraAprobada(eleccionCarrera, CodigoPersona);
@@ -168,11 +179,16 @@ namespace TP4
 
                 materia.Mostrar();
                 Console.WriteLine($"Marcaste como aprobada la materia {materia.CodigoMateria}. Está usted seguro? S/N\n");
-                var key = Console.ReadKey(intercept: true);
-                if (key.Key == ConsoleKey.S)
+                var key = Console.ReadLine();
+                if (key.ToUpper() == "S")
                 {
                     Console.WriteLine($"{materia.NombreMateria} ha sido marcada como aprobada");
                     MateriasAprobadasPorAlumno.AgregarMateria(CodigoPersona, materia.CodigoMateria, materia.NombreMateria);
+                }
+                else
+                {
+                    Console.WriteLine($"{materia.NombreMateria} NO ha sido marcada como aprobada");
+
                 }
 
                 otraAprobada(eleccionCarrera, CodigoPersona);
@@ -188,11 +204,16 @@ namespace TP4
 
                 materia.Mostrar();
                 Console.WriteLine($"Marcaste como aprobada la materia {materia.CodigoMateria}. Está usted seguro? S/N\n");
-                var key = Console.ReadKey(intercept: true);
-                if (key.Key == ConsoleKey.S)
+                var key = Console.ReadLine();
+                if (key.ToUpper() == "S")
                 {
                     Console.WriteLine($"{materia.NombreMateria} ha sido marcada como aprobada");
                     MateriasAprobadasPorAlumno.AgregarMateria(CodigoPersona, materia.CodigoMateria, materia.NombreMateria);
+                }
+                else
+                {
+                    Console.WriteLine($"{materia.NombreMateria} NO ha sido marcada como aprobada");
+
                 }
 
                 otraAprobada(eleccionCarrera, CodigoPersona);
@@ -208,11 +229,16 @@ namespace TP4
 
                 materia.Mostrar();
                 Console.WriteLine($"Marcaste como aprobada la materia {materia.CodigoMateria}. Está usted seguro? S/N\n");
-                var key = Console.ReadKey(intercept: true);
-                if (key.Key == ConsoleKey.S)
+                var key = Console.ReadLine();
+                if (key.ToUpper() == "S")
                 {
                     Console.WriteLine($"{materia.NombreMateria} ha sido marcada como aprobada");
                     MateriasAprobadasPorAlumno.AgregarMateria(CodigoPersona, materia.CodigoMateria, materia.NombreMateria);
+                }
+                else
+                {
+                    Console.WriteLine($"{materia.NombreMateria} NO ha sido marcada como aprobada");
+
                 }
 
                 otraAprobada(eleccionCarrera, CodigoPersona);
@@ -228,11 +254,16 @@ namespace TP4
 
                 materia.Mostrar();
                 Console.WriteLine($"Marcaste como aprobada la materia {materia.CodigoMateria}. Está usted seguro? S/N\n");
-                var key = Console.ReadKey(intercept: true);
-                if (key.Key == ConsoleKey.S)
+                var key = Console.ReadLine();
+                if (key.ToUpper() == "S")
                 {
                     Console.WriteLine($"{materia.NombreMateria} ha sido marcada como aprobada");
                     MateriasAprobadasPorAlumno.AgregarMateria(CodigoPersona, materia.CodigoMateria, materia.NombreMateria);
+                }
+                else
+                {
+                    Console.WriteLine($"{materia.NombreMateria} NO ha sido marcada como aprobada");
+
                 }
 
                 otraAprobada(eleccionCarrera, CodigoPersona);
