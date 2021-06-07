@@ -117,6 +117,26 @@ namespace TP4
 
         private static void Aprobada(string eleccionCarrera, int CodigoPersona)
         {
+            Console.WriteLine("¿Tiene una materia aprobada?");
+            Console.WriteLine("1 - SI");
+            Console.WriteLine("2 - NO");
+
+            var respuesta = Console.ReadLine();
+
+            switch (respuesta)
+            {
+                case "1":
+                    SeleccionarAprobada(eleccionCarrera, CodigoPersona);
+                    break;
+                case "2":
+                    MateriasAprobadasPorAlumno.EscribirAprobadasEnTXT();
+                    AjustesInscripcionMaterias(CodigoPersona, eleccionCarrera);
+                    break;
+            }
+        }
+
+        private static void SeleccionarAprobada(string eleccionCarrera, int CodigoPersona)
+        {
             Console.WriteLine("\nSeleccione las materias que ya realizo escribiendo cada uno de los codigos de materia y luego ENTER");
 
             if (eleccionCarrera == "1")
@@ -138,7 +158,7 @@ namespace TP4
                 else
                 {
                     Console.WriteLine($"{materia.NombreMateria} NO ha sido marcada como aprobada");
-                    
+
                 }
 
                 otraAprobada(eleccionCarrera, CodigoPersona);
@@ -282,7 +302,7 @@ namespace TP4
             switch (respuesta)
             {
                 case "1":
-                    Aprobada(eleccionCarrera, CodigoPersona);
+                    SeleccionarAprobada(eleccionCarrera, CodigoPersona);
                     break;
                 case "2":
                     MateriasAprobadasPorAlumno.EscribirAprobadasEnTXT();
