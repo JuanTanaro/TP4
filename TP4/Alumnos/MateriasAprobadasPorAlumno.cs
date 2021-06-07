@@ -74,7 +74,7 @@ namespace TP4
             {
                 case "1":
                     var materiasDisponiblesEcon = Economia.economia.Where(econ => MateriasAprobadasPorAlumno.materiasAprobadas.All(aprob => aprob.CodigoMateria != econ.CodigoMateria));
-                    Console.WriteLine($"Materias disponibles para inscrpcion:");
+                    Console.WriteLine($"Materias disponibles para inscripcion:");
                     foreach (var val in materiasDisponiblesEcon)
                     {
                         Console.WriteLine($"Codigo de materia: " + val.CodigoMateria + $" | Nombre de materia: " + val.NombreMateria);
@@ -84,7 +84,7 @@ namespace TP4
 
                 case "2":
                     var materiasDisponiblesSist = Sistemas.sistemas.Where(sist => MateriasAprobadasPorAlumno.materiasAprobadas.All(aprob => aprob.CodigoMateria != sist.CodigoMateria));
-                    Console.WriteLine($"Materias disponibles para inscrpcion:");
+                    Console.WriteLine($"Materias disponibles para inscripcion:");
                     foreach (var val in materiasDisponiblesSist)
                     {
                         Console.WriteLine($"Codigo de materia: " + val.CodigoMateria + $" | Nombre de materia: " + val.NombreMateria);

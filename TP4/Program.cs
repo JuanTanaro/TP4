@@ -290,35 +290,32 @@ namespace TP4
             switch (eleccionCarrera)
             {
                 case "1":
-
-                    do
+                    if (CantidadMax > 0)
                     {
-                        for (int i = 1; i <= CantidadMax; i++)
+                        var materiaEcon = Economia.SeleccionarAsignacion(CantidadMax);
+                        if (materiaEcon == null)
                         {
-
-                            //Acumulador para saber el numero de materia
-                            int materia = +i;
-
-                            var materiaEcon = Economia.SeleccionarAsignacion(materia, CantidadMax); //te devuelve el codigo de materia en .int
-                            if (materiaEcon == null)
-                            {
-                                Inscripciones(CodigoPersona, eleccionCarrera, materiasDisponiblesAlumno, CantidadMax);
-                            }
-
-                            materiaEcon.Mostrar();
-                            Console.WriteLine($"Te has inscripto en {materiaEcon.CodigoMateria}. Está usted seguro? S/N\n");
-                            var keyEcon = Console.ReadKey(intercept: true);
-                            if (keyEcon.Key == ConsoleKey.S)
-                            {
-                                Console.WriteLine($"Has sido inscripto en {materiaEcon.NombreMateria}");
-                                InscripcionesPorAlumno.AgregarInscripcion(CodigoPersona, materiaEcon.CodigoMateria, materiaEcon.NombreMateria);
-                            }
-
-                            otraInscripcion(CodigoPersona, eleccionCarrera, materiasDisponiblesAlumno, CantidadMax);
+                            Inscripciones(CodigoPersona, eleccionCarrera, materiasDisponiblesAlumno, CantidadMax);
                         }
-                    } while (true);
 
-                    break;
+                        materiaEcon.Mostrar();
+                        Console.WriteLine($"Te has inscripto en {materiaEcon.CodigoMateria}. Está usted seguro? S/N\n");
+                        var keyEcon = Console.ReadKey(intercept: true);
+                        if (keyEcon.Key == ConsoleKey.S)
+                        {
+                            Console.WriteLine($"Has sido inscripto en {materiaEcon.NombreMateria}");
+                            InscripcionesPorAlumno.AgregarInscripcion(CodigoPersona, materiaEcon.CodigoMateria, materiaEcon.NombreMateria);
+                        }
+
+                        otraInscripcion(CodigoPersona, eleccionCarrera, materiasDisponiblesAlumno, CantidadMax);
+                    }
+                    else if(CantidadMax == 0)
+                    {
+                        Console.WriteLine("¡No se puede inscribir a más materias, accedera a sus inscripciones hasta el momento!\n");
+                        InscripcionesPorAlumno.MostrarInscripciones(CodigoPersona);
+                    }
+
+                break;
 
             }    
         }
@@ -334,9 +331,12 @@ namespace TP4
             switch (respuesta)
             {
                 case "1":
+                    CantidadMax = CantidadMax - 1;
                     Inscripciones(CodigoPersona, eleccionCarrera, materiasDisponiblesAlumno, CantidadMax);
                     break;
                 case "2":
+                    CantidadMax = 0;
+                    Inscripciones(CodigoPersona, eleccionCarrera, materiasDisponiblesAlumno, CantidadMax);
                     InscripcionesPorAlumno.MostrarInscripciones(CodigoPersona);
                     break;
             }

@@ -38,10 +38,10 @@ namespace TP4
             return modelo;
         }
 
-        public static MateriasBase CrearModeloBusquedaAsignacion(int materia, int CantidadMax)
+        public static MateriasBase CrearModeloBusquedaAsignacion(int CantidadMax)
         {
             var modelo = new MateriasBase();
-            modelo.CodigoMateria = IngresarCodigoMateriaAsignacion(materia, CantidadMax);
+            modelo.CodigoMateria = IngresarCodigoMateriaAsignacion(CantidadMax);
             return modelo;
         }
 
@@ -59,9 +59,9 @@ namespace TP4
 
         //Validaciones e ingresos
 
-        private static int IngresarCodigoMateriaAsignacion(int materia, int CantidadMax)
+        private static int IngresarCodigoMateriaAsignacion(int CantidadMax)
         {
-            var titulo = "Ingrese el codigo de materia ha inscribirse numero " + materia + "/" + CantidadMax;
+            var titulo = "Ingrese el codigo de materia ha inscribirse numero 1/" + CantidadMax;
 
             do
             {
