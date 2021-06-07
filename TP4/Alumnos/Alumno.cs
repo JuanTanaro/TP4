@@ -14,8 +14,8 @@ namespace TP4
         public string ApellidoAlumno { get; set; }
         public string CarreraAlumno { get; set; }
         public int MateriasAprobadas { get; set; }
-        public int Ranking { get; set; }
-        public int Promedio { get; set; }
+        public double Ranking { get; set; }
+        public double Promedio { get; set; }
         
 
         public Alumno() { }
@@ -28,13 +28,13 @@ namespace TP4
             ApellidoAlumno = (datos[2]);
             CarreraAlumno = (datos[3]);
             MateriasAprobadas = int.Parse(datos[4]);
-            Ranking = int.Parse(datos[5]);
-            Promedio = int.Parse(datos[6]);
+            Ranking = double.Parse(datos[5]);
+            Promedio = double.Parse(datos[6]);
         }
         public void Mostrar()
         {
             Console.WriteLine();
-            Console.WriteLine("Hola!" + $"{NombreAlumno} {ApellidoAlumno}");
+            Console.WriteLine("Hola! " + $"{NombreAlumno.Trim()}{ApellidoAlumno}");
             Console.WriteLine();
         }
 

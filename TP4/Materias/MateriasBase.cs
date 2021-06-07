@@ -11,7 +11,9 @@ namespace TP4
         public int CodigoMateria { get; set; }
         public string NombreMateria { get; set; }
         public string ProfesorMateria { get; set; }
-        public DateTime HorarioMateria {get; set; }
+        public string HorarioMateria {get; set; }
+        public int CapacidadMateria {get; set; }
+        public double CorteDeRankingMateria {get; set; }
 
 
         public MateriasBase() { }
@@ -22,16 +24,23 @@ namespace TP4
             CodigoMateria = int.Parse(datos[0]);
             NombreMateria = (datos[1]);
             ProfesorMateria = (datos[2]);
-            HorarioMateria = DateTime.Parse(datos[3]);
+            HorarioMateria = (datos[3]);
+            CapacidadMateria = int.Parse(datos[4]);
+            CorteDeRankingMateria = double.Parse(datos[5]);
 
         }
 
-        public string ObtenerLineaDatos() => $"{CodigoMateria}-{NombreMateria}-{ProfesorMateria}-{HorarioMateria}";
+        public string ObtenerLineaDatos() => $"{CodigoMateria}-{NombreMateria}-{ProfesorMateria}-{HorarioMateria}-{CapacidadMateria}-{CorteDeRankingMateria}";
         
         public void Mostrar()
         {
             Console.WriteLine();
-            Console.WriteLine($"Codigo de Materia: {CodigoMateria}" + " " + $"Nombre: {NombreMateria}" + " " + $"Horario: {HorarioMateria.ToShortDateString()}" + " " + $"Profesor: {ProfesorMateria}");
+            Console.WriteLine($"Codigo de Materia: {CodigoMateria}" 
+                + " " + $"Nombre: {NombreMateria}" 
+                + " " + $"Horario: {HorarioMateria}" 
+                + " " + $"Profesor: {ProfesorMateria}" 
+                + " " + $"Capacidad: {CapacidadMateria}" 
+                + " " + $"Corte de Ranking: {CorteDeRankingMateria}");
             Console.WriteLine();
         }
 

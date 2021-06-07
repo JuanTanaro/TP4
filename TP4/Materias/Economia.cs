@@ -27,6 +27,8 @@ namespace TP4
                         {
                             CodigoMateria = carrera.CodigoMateria,
                             NombreMateria = carrera.NombreMateria,
+                            ProfesorMateria = carrera.ProfesorMateria,
+                            HorarioMateria = carrera.HorarioMateria,
                         });
                     }
                 }
@@ -39,7 +41,7 @@ namespace TP4
             string Mensaje = "";
             foreach (var materias in economia)
             {
-                Mensaje += $"Codigo Materia: {materias.CodigoMateria}" + " - " + $"Nombre Materia: {materias.NombreMateria}\n";
+                Mensaje += $"\nCodigo Materia: {materias.CodigoMateria}" + " - " + $"Nombre: {materias.NombreMateria}\n" + $"Profesor:{materias.ProfesorMateria}" + " - " + $"Horario:{materias.HorarioMateria}\n";
             }
             if (Mensaje != "")
             {

@@ -9,15 +9,18 @@ namespace TP4
 {
     public class InscripcionesPorAlumno
     {
+        //public int NInscripcion { get; set; }
         public int NRegistro { get; set; }
         public int CodigoMateria { get; set; }
         public string NombreMateria { get; set; }
+
 
         public InscripcionesPorAlumno() { }
 
         public InscripcionesPorAlumno(string linea)
         {
             var datos = linea.Split('-');
+            //NInscripcion = int.Parse(datos[0]);
             NRegistro = int.Parse(datos[0]);
             CodigoMateria = int.Parse(datos[1]);
             NombreMateria = (datos[2]);
