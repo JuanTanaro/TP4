@@ -77,8 +77,18 @@ namespace TP4
                     Console.WriteLine($"Materias disponibles para inscripcion:");
                     foreach (var val in materiasDisponiblesEcon)
                     {
-                        Console.WriteLine($"Codigo de materia: " + val.CodigoMateria + $" | Nombre de materia: " + val.NombreMateria);
-                        AgregarMateriaDisponible(numRegistro, val.CodigoMateria, val.NombreMateria);                      
+                        //Si no tiene correlativas, la agrego como disponible
+                        if (val.Correlativa1 == 0 && val.Correlativa2 == 0 && val.Correlativa3 == 0 && val.Correlativa4 == 0)
+                        {
+                            Console.WriteLine($"Codigo de materia: " + val.CodigoMateria + $" | Nombre de materia: " + val.NombreMateria);
+                            AgregarMateriaDisponible(numRegistro, val.CodigoMateria, val.NombreMateria);
+                        }
+
+                        else if (materiasDisponiblesEcon.All(n => (n.CodigoMateria != val.Correlativa1) && ((n.CodigoMateria != val.Correlativa2) || val.Correlativa2 == 0) && ((n.CodigoMateria != val.Correlativa3) || val.Correlativa3 == 0) && ((n.CodigoMateria != val.Correlativa4) || val.Correlativa4 == 0)))
+                        {
+                                Console.WriteLine($"Codigo de materia: " + val.CodigoMateria + $" | Nombre de materia: " + val.NombreMateria);
+                                AgregarMateriaDisponible(numRegistro, val.CodigoMateria, val.NombreMateria);                            
+                        }                  
                     }
                     break;
 
@@ -87,8 +97,98 @@ namespace TP4
                     Console.WriteLine($"Materias disponibles para inscripcion:");
                     foreach (var val in materiasDisponiblesSist)
                     {
-                        Console.WriteLine($"Codigo de materia: " + val.CodigoMateria + $" | Nombre de materia: " + val.NombreMateria);
-                        AgregarMateriaDisponible(numRegistro, val.CodigoMateria, val.NombreMateria);
+                        //Si no tiene correlativas, la agrego como disponible
+                        if (val.Correlativa1 == 0 && val.Correlativa2 == 0 && val.Correlativa3 == 0 && val.Correlativa4 == 0)
+                        {
+                            Console.WriteLine($"Codigo de materia: " + val.CodigoMateria + $" | Nombre de materia: " + val.NombreMateria);
+                            AgregarMateriaDisponible(numRegistro, val.CodigoMateria, val.NombreMateria);
+                        }
+
+                        else if (materiasDisponiblesSist.All(n => (n.CodigoMateria != val.Correlativa1) && ((n.CodigoMateria != val.Correlativa2) || val.Correlativa2 == 0) && ((n.CodigoMateria != val.Correlativa3) || val.Correlativa3 == 0) && ((n.CodigoMateria != val.Correlativa4) || val.Correlativa4 == 0)))
+                        {
+                            Console.WriteLine($"Codigo de materia: " + val.CodigoMateria + $" | Nombre de materia: " + val.NombreMateria);
+                            AgregarMateriaDisponible(numRegistro, val.CodigoMateria, val.NombreMateria);
+                        }
+                    }
+                    break;
+
+                case "3":
+                    var materiasDisponiblesCont = Contador.contador.Where(cont => MateriasAprobadasPorAlumno.materiasAprobadas.All(aprob => aprob.CodigoMateria != cont.CodigoMateria));
+                    Console.WriteLine($"Materias disponibles para inscripcion:");
+                    foreach (var val in materiasDisponiblesCont)
+                    {
+                        //Si no tiene correlativas, la agrego como disponible
+                        if (val.Correlativa1 == 0 && val.Correlativa2 == 0 && val.Correlativa3 == 0 && val.Correlativa4 == 0)
+                        {
+                            Console.WriteLine($"Codigo de materia: " + val.CodigoMateria + $" | Nombre de materia: " + val.NombreMateria);
+                            AgregarMateriaDisponible(numRegistro, val.CodigoMateria, val.NombreMateria);
+                        }
+
+                        else if (materiasDisponiblesCont.All(n => (n.CodigoMateria != val.Correlativa1) && ((n.CodigoMateria != val.Correlativa2) || val.Correlativa2 == 0) && ((n.CodigoMateria != val.Correlativa3) || val.Correlativa3 == 0) && ((n.CodigoMateria != val.Correlativa4) || val.Correlativa4 == 0)))
+                        {
+                            Console.WriteLine($"Codigo de materia: " + val.CodigoMateria + $" | Nombre de materia: " + val.NombreMateria);
+                            AgregarMateriaDisponible(numRegistro, val.CodigoMateria, val.NombreMateria);
+                        }
+                    }
+                    break;
+
+                case "4":
+                    var materiasDisponiblesActAdm = ActuarioAdministracion.actuarioAdministracion.Where(actAdm => MateriasAprobadasPorAlumno.materiasAprobadas.All(aprob => aprob.CodigoMateria != actAdm.CodigoMateria));
+                    Console.WriteLine($"Materias disponibles para inscripcion:");
+                    foreach (var val in materiasDisponiblesActAdm)
+                    {
+                        //Si no tiene correlativas, la agrego como disponible
+                        if (val.Correlativa1 == 0 && val.Correlativa2 == 0 && val.Correlativa3 == 0 && val.Correlativa4 == 0)
+                        {
+                            Console.WriteLine($"Codigo de materia: " + val.CodigoMateria + $" | Nombre de materia: " + val.NombreMateria);
+                            AgregarMateriaDisponible(numRegistro, val.CodigoMateria, val.NombreMateria);
+                        }
+
+                        else if (materiasDisponiblesActAdm.All(n => (n.CodigoMateria != val.Correlativa1) && ((n.CodigoMateria != val.Correlativa2) || val.Correlativa2 == 0) && ((n.CodigoMateria != val.Correlativa3) || val.Correlativa3 == 0) && ((n.CodigoMateria != val.Correlativa4) || val.Correlativa4 == 0)))
+                        {
+                            Console.WriteLine($"Codigo de materia: " + val.CodigoMateria + $" | Nombre de materia: " + val.NombreMateria);
+                            AgregarMateriaDisponible(numRegistro, val.CodigoMateria, val.NombreMateria);
+                        }
+                    }
+                    break;
+
+                case "5":
+                    var materiasDisponiblesActEcon = ActuarioEconomia.actuarioEconomia.Where(actEcon => MateriasAprobadasPorAlumno.materiasAprobadas.All(aprob => aprob.CodigoMateria != actEcon.CodigoMateria));
+                    Console.WriteLine($"Materias disponibles para inscripcion:");
+                    foreach (var val in materiasDisponiblesActEcon)
+                    {
+                        //Si no tiene correlativas, la agrego como disponible
+                        if (val.Correlativa1 == 0 && val.Correlativa2 == 0 && val.Correlativa3 == 0 && val.Correlativa4 == 0)
+                        {
+                            Console.WriteLine($"Codigo de materia: " + val.CodigoMateria + $" | Nombre de materia: " + val.NombreMateria);
+                            AgregarMateriaDisponible(numRegistro, val.CodigoMateria, val.NombreMateria);
+                        }
+
+                        else if (materiasDisponiblesActEcon.All(n => (n.CodigoMateria != val.Correlativa1) && ((n.CodigoMateria != val.Correlativa2) || val.Correlativa2 == 0) && ((n.CodigoMateria != val.Correlativa3) || val.Correlativa3 == 0) && ((n.CodigoMateria != val.Correlativa4) || val.Correlativa4 == 0)))
+                        {
+                            Console.WriteLine($"Codigo de materia: " + val.CodigoMateria + $" | Nombre de materia: " + val.NombreMateria);
+                            AgregarMateriaDisponible(numRegistro, val.CodigoMateria, val.NombreMateria);
+                        }
+                    }
+                    break;
+
+                case "6":
+                    var materiasDisponiblesAdmin = ActuarioEconomia.actuarioEconomia.Where(admin => MateriasAprobadasPorAlumno.materiasAprobadas.All(aprob => aprob.CodigoMateria != admin.CodigoMateria));
+                    Console.WriteLine($"Materias disponibles para inscripcion:");
+                    foreach (var val in materiasDisponiblesAdmin)
+                    {
+                        //Si no tiene correlativas, la agrego como disponible
+                        if (val.Correlativa1 == 0 && val.Correlativa2 == 0 && val.Correlativa3 == 0 && val.Correlativa4 == 0)
+                        {
+                            Console.WriteLine($"Codigo de materia: " + val.CodigoMateria + $" | Nombre de materia: " + val.NombreMateria);
+                            AgregarMateriaDisponible(numRegistro, val.CodigoMateria, val.NombreMateria);
+                        }
+
+                        else if (materiasDisponiblesAdmin.All(n => (n.CodigoMateria != val.Correlativa1) && ((n.CodigoMateria != val.Correlativa2) || val.Correlativa2 == 0) && ((n.CodigoMateria != val.Correlativa3) || val.Correlativa3 == 0) && ((n.CodigoMateria != val.Correlativa4) || val.Correlativa4 == 0)))
+                        {
+                            Console.WriteLine($"Codigo de materia: " + val.CodigoMateria + $" | Nombre de materia: " + val.NombreMateria);
+                            AgregarMateriaDisponible(numRegistro, val.CodigoMateria, val.NombreMateria);
+                        }
                     }
                     break;
 

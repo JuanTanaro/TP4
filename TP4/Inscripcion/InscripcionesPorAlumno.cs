@@ -71,14 +71,5 @@ namespace TP4
             }           
         }
 
-        public static void AgregarInscripcionALista(int numRegistro, int codMateria, string nomMateria)
-        {
-            inscripcionesPorAlumno.Add(new InscripcionesPorAlumno()
-            {
-                NRegistro = numRegistro,
-                CodigoMateria = codMateria,
-                NombreMateria = nomMateria,
-            });
-        }
     }
 }

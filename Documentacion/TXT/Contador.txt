@@ -1,0 +1,26 @@
+247 - Teoría Contable - Profesor1 - hora - 100 - 200 - 0 - 0 - 0 - 0
+248 - Estadística I - Profesor1 - hora - 100 - 200 - 0 - 0 - 0 - 0
+249 - Historia Económica y Social Argentina - Profesor1 - hora - 100 - 200 - 0 - 0 - 0 - 0
+250 - Microeconomía I - Profesor1 - hora - 100 - 200 - 0 - 0 - 0 - 0
+251 - Instituciones de Derecho Público - Profesor1 - hora - 100 - 200 - 0 - 0 - 0 - 0
+252 - Administración General - Profesor1 - hora - 100 - 200 - 0 - 0 - 0 - 0
+273 - Instituciones del Derecho Privado - Profesor1 - hora - 100 - 200 - 1359 - 0 - 0 - 0
+274 - Sistemas Administrativos - Profesor1 - hora - 100 - 200 - 252 - 0 - 0 - 0
+275 - Tecnología de la Información - Profesor1 - hora - 100 - 200 - 274 - 0 - 0 - 0
+276 - Cálculo Financiero - Profesor1 - hora - 100 - 200 - 248 - 0 - 0 - 0
+278 - Macroeconomía y Política Económica - Profesor1 - hora - 100 - 200 - 0 - 0 - 0 - 0
+279 - Administración Financiera - Profesor1 - hora - 100 - 200 - 276 - 0 - 0 - 0
+351 - Sistemas Contables - Profesor1 - hora - 100 - 200 - 247 - 0 - 0 - 0
+353 - Sistemas de Costos - Profesor1 - hora - 100 - 200 - 247 - 0 - 0 - 0
+354 - Derecho del Trabajo y la Seguridad Social - Profesor1 - hora - 100 - 200 - 251 - 1359 - 0 - 0
+355 - Auditoría - Profesor1 - hora - 100 - 200 - 362 - 1352 - 0 - 0
+356 - Teoría y Técnica Impositiva I - Profesor1 - hora - 100 - 200 - 251 - 1352 - 0 - 0
+357 - Teoría y Técnica Impositiva II - Profesor1 - hora - 100 - 200 - 356 - 0 - 0 - 0
+362 - Gestión y Costos para Contadores - Profesor1 - hora - 100 - 200 - 353 - 0 - 0 - 0
+1330 - Contabilidad Social y Ambiental - Profesor1 - hora - 100 - 200 - 1352 - 0 - 0 - 0
+1352 - Contabilidad Financiera - Profesor1 - hora - 100 - 200 - 351 -353 - 0 - 0
+1359 - Derecho Económico - Profesor1 - hora - 100 - 200 - 0 - 0 - 0 - 0
+1360 - Derecho Crediticio, Bursátil e Insolvencia - Profesor1 - hora - 100 - 200 - 273 - 354 - 0 - 0
+1374 - Contabilidad Gubernamental y Control de Gestión - Profesor1 - hora - 100 - 200 - 278 - 1352 - 0 - 0
+1358 - Taller de Actuación Profesional Judicial - Profesor1 - hora - 100 - 200 - 355 - 1360 - 0 - 0
+1361 - Taller de Práctica Profesional en Organizaciones - Profesor1 - hora - 100 - 200 - 273 - 279 - 355 - 1330

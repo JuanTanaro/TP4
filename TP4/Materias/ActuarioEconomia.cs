@@ -27,6 +27,14 @@ namespace TP4
                         {
                             CodigoMateria = carrera.CodigoMateria,
                             NombreMateria = carrera.NombreMateria,
+                            ProfesorMateria = carrera.ProfesorMateria,
+                            HorarioMateria = carrera.HorarioMateria,
+                            CapacidadMateria = carrera.CapacidadMateria,
+                            CorteDeRankingMateria = carrera.CorteDeRankingMateria,
+                            Correlativa1 = carrera.Correlativa1,
+                            Correlativa2 = carrera.Correlativa2,
+                            Correlativa3 = carrera.Correlativa3,
+                            Correlativa4 = carrera.Correlativa4,
                         });
                     }
                 }

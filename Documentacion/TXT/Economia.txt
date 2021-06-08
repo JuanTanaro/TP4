@@ -1,25 +1,25 @@
-247 - Teoría Contable - German Tobaldo - Lu Jue 18hs - 0 - 0 - 0 - 0 - 0 - 0
-248 - Estadística I - German Tobaldo - Lu Jue 18hs - 0 - 0 - 0 - 0 - 0 - 0
-249 - Historia Económica y Social Argentina - German Tobaldo - Lu Jue 18hs - 0 - 0 - 0 - 0 - 0 - 0
-261 - Teoría Política y Derecho Público - German Tobaldo - Lu Jue 18hs - 0 - 0 - 0 - 0 - 0 - 0
-262 - Macroeconomía I- German Tobaldo - Lu Jue 18hs - 0 - 0 - 0 - 0 - 0 - 0
-284 - Análisis Matemático II - German Tobaldo - Lu Jue 18hs - 0 - 0 - 0 - 0 - 0 - 0
-283 - Macroeconomía II - German Tobaldo - Lu Jue 18hs - 0 - 0 - 0 - 0 - 0 - 0
-285 - Estadística II - German Tobaldo - Lu Jue 18hs - 0 - 0 - 0 - 0 - 0 - 0
-286 - Microeconomía II - German Tobaldo - Lu Jue 18hs - 0 - 0 - 0 - 0 - 0 - 0
-287 - Geografía Económica - German Tobaldo - Lu Jue 18hs - 0 - 0 - 0 - 0 - 0 - 0
-288 - Matemática para Economistas - German Tobaldo - Lu Jue 18hs - 0 - 0 - 0 - 0 - 0 - 0
-289 - Epistemología de la Economía - German Tobaldo - Lu Jue 18hs - 0 - 0 - 0 - 0 - 0 - 0
-290 - Microeconomía I (para Economistas) - German Tobaldo - Lu Jue 18hs - 0 - 0 - 0 - 0 - 0 - 0
-551 - Econometría - German Tobaldo - Lu Jue 18hs - 0 - 0 - 0 - 0 - 0 - 0
-552 - Dinero, Crédito y Bancos - German Tobaldo - Lu Jue 18hs - 0 - 0 - 0 - 0 - 0 - 0
-553 - Historia del Pensamiento Económico - German Tobaldo - Lu Jue 18hs - 0 - 0 - 0 - 0 - 0 - 0
-554 - Crecimiento Económico - German Tobaldo - Lu Jue 18hs - 0 - 0 - 0 - 0 - 0 - 0
-555 - Organización Industrial - German Tobaldo - Lu Jue 18hs - 0 - 0 - 0 - 0 - 0 - 0
-556 - Finanzas Públicas - German Tobaldo - Lu Jue 18hs - 0 - 0 - 0 - 0 - 0 - 0
-557 - Estructura Social Argentina - German Tobaldo - Lu Jue 18hs - 0 - 0 - 0 - 0 - 0 - 0
-558 - Economía Internacional - German Tobaldo - Lu Jue 18hs - 0 - 0 - 0 - 0 - 0 - 0
-559 - Desarrollo Económico - German Tobaldo - Lu Jue 18hs - 0 - 0 - 0 - 0 - 0 - 0
-560 - Estructura Económica Argentina - German Tobaldo - Lu Jue 18hs - 0 - 0 - 0 - 0 - 0 - 0
-561 - Cuentas Nacionales - German Tobaldo - Lu Jue 18hs - 0 - 0 - 0 - 0 - 0 - 0
-562 - Seminario de Integración y Aplicación - German Tobaldo - Lu Jue 18hs - 0 - 0 - 0 - 0 - 0 - 0
+247 - Teoría Contable - Profesor1 - hora - 100 - 200 - 0 - 0 - 0 - 0
+248 - Estadística I - Profesor1 - hora - 100 - 200 - 0 - 0 - 0 - 0
+249 - Historia Económica y Social Argentina - Profesor1 - hora - 100 - 200 - 0 - 0 - 0 - 0
+261 - Teoría Política y Derecho Público - Profesor1 - hora - 100 - 200 - 0 - 0 - 0 - 0
+262 - Macroeconomía I - Profesor1 - hora - 100 - 200 - 0 - 0 - 0 - 0
+284 - Análisis Matemático II - Profesor1 - hora - 100 - 200 - 0 - 0 - 0 - 0
+283 - Macroeconomía II - Profesor1 - hora - 100 - 200 - 262 - 288 - 0 - 0
+285 - Estadística II - Profesor1 - hora - 100 - 200 - 248 - 284 - 0 - 0
+286 - Microeconomía II - Profesor1 - hora - 100 - 200 - 288 - 290 - 0 - 0
+287 - Geografía Económica - Profesor1 - hora - 100 - 200 - 249 - 0 - 0 - 0
+288 - Matemática para Economistas - Profesor1 - hora - 100 - 200 - 284 - 0 - 0 - 0
+289 - Epistemología de la Economía - Profesor1 - hora - 100 - 200 - 262 - 290 - 0 - 0
+290 - Microeconomía I (para Economistas) - Profesor1 - hora - 100 - 200 - 284 - 0 - 0 - 0
+551 - Econometría - Profesor1 - hora - 100 - 200 - 285 - 288 - 0 - 0
+552 - Dinero, Crédito y Bancos - Profesor1 - hora - 100 - 200 - 283 - 286 - 288 - 0
+553 - Historia del Pensamiento Económico - Profesor1 - hora - 100 - 200 - 262 - 290 - 0 - 0
+554 - Crecimiento Económico - Profesor1 - hora - 100 - 200 - 283 - 286 - 288 - 0
+555 - Organización Industrial - Profesor1 - hora - 100 - 200 - 286 - 0 - 0 - 0
+556 - Finanzas Públicas - Profesor1 - hora - 100 - 200 - 261 - 290 - 0 - 0
+557 - Estructura Social Argentina - Profesor1 - hora - 100 - 200 - 249 - 561 - 0 - 0
+558 - Economía Internacional - Profesor1 - hora - 100 - 200 - 283 - 287 - 290 - 0
+559 - Desarrollo Económico - Profesor1 - hora - 100 - 200 - 557 - 560 - 0 - 0
+560 - Estructura Económica Argentina - Profesor1 - hora - 100 - 200 - 287 - 561 - 0 - 0
+561 - Cuentas Nacionales - Profesor1 - hora - 100 - 200 - 247 - 262 - 0 - 0
+562 - Seminario de Integración y Aplicación - Profesor1 - hora - 100 - 200 - 286 - 289 -551 - 558
