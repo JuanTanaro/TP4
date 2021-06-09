@@ -1,2 +1,11 @@
-1 - Jose - Lopez - Sistemas - 0 - 170 - 8.5
-2 - Martin - Lopez - Economia - 0 - 150 - 8.5
+1 - Jose - Lopez - 80 
+2 - Martin - Lopez - 150 
+3 - Juan - Tanaro - 200
+4 - Gonzalo - Falcon - 90
+5 - Philippe - Agustin - 120
+6 - Matias - Tulli - 180
+7 - Valentina - Greco - 100
+8 - Gerardo - Aries - 170
+9 - Franco - Zabala - 230
+10 - Lucas - Olmos - 40
+11 - Victor - Ramirez - 70

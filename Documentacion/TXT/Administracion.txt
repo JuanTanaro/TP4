@@ -1,0 +1,23 @@
+247 - Teoría Contable - Profesor1 - hora - 100 - 200 - 0 - 0 - 0 - 0
+248 - Estadística I - Profesor1 - hora - 100 - 200 - 0 - 0 - 0 - 0
+249 - Historia Económica y Social Argentina - Profesor1 - hora - 100 - 200 - 0 - 0 - 0 - 0
+250 - Microeconomía I - Profesor1 - hora - 100 - 200 - 0 - 0 - 0 - 0
+251 - Instituciones de Derecho Público - Profesor1 - hora - 100 - 200 - 0 - 0 - 0 - 0
+252 - Administración General - Profesor1 - hora - 100 - 200 - 0 - 0 - 0 - 0
+273 - Instituciones del Derecho Privado - Profesor1 - hora - 100 - 200 - 0 - 0 - 0 - 0
+274 - Sistemas Administrativos - Profesor1 - hora - 100 - 200 - 252 - 0 - 0 - 0
+275 - Tecnología de la Información - Profesor1 - hora - 100 - 200 - 274 - 0 - 0 - 0
+276 - Cálculo Financiero - Profesor1 - hora - 100 - 200 - 248 - 0 - 0 - 0
+277 - Gestión y Costos - Profesor1 - hora - 100 - 200 - 247 - 0 - 0 - 0
+278 - Macroeconomía y Política Económica - Profesor1 - hora - 100 - 200 - 250 - 0 - 0 - 0
+279 - Administración Financiera - Profesor1 - hora - 100 - 200 - 252 - 276 - 0 - 0
+451 - Estadística para Administradores - Profesor1 - hora - 100 - 200 - 248 - 274 - 275 - 0
+452 - Sociología de la Organización - Profesor1 - hora - 100 - 200 - 243 - 244 - 252 - 0
+453 - Administración de la Producción - Profesor1 - hora - 100 - 200 - 252 - 276 - 0 - 0
+454 - Administración del Personal - Profesor1 - hora - 100 - 200 - 273 - 452 - 0 - 0
+455 - Régimen Tributario - Profesor1 - hora - 100 - 200 - 273 - 277 - 278 - 0
+456 - Comercialización - Profesor1 - hora - 100 - 200 - 277 - 279 - 453 - 454
+457 - Teoría de la Decisión - Profesor1 - hora - 100 - 200 - 277 - 451 - 0 - 0
+458 - Planeamiento a Largo Plazo - Profesor1 - hora - 100 - 200 - 457 - 0 - 0 - 0
+459 - Dirección General - Profesor1 - hora - 100 - 200 - 279 - 453 - 454 - 456
+460 - Seminario de Integración y Aplicación - Profesor1 - hora - 100 - 200 - 456 - 457 - 0 - 0
