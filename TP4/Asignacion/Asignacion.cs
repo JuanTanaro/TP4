@@ -29,6 +29,7 @@ namespace TP4.Asignacion
                             NRegistro = carrera.NRegistro,
                             CodigoMateria = carrera.CodigoMateria,
                             NombreMateria = carrera.NombreMateria,
+                            RankingAlumno = carrera.RankingAlumno,
                         });
                     }
                 }
@@ -45,9 +46,9 @@ namespace TP4.Asignacion
                 contadorMateria = Asignacion.inscripcionesAsignacion.Where(x => x.Equals(val.CodigoMateria)).Count();
                 inscriptosPorMateria.Add(new InscripcionesPorAlumno()
                 {
-                    CantidadInscriptos = contadorMateria,
                     CodigoMateria = val.CodigoMateria,
                     NombreMateria = val.NombreMateria,
+                    CantidadInscriptos = contadorMateria,
                 });
             }
         }
@@ -64,7 +65,7 @@ namespace TP4.Asignacion
                         {
                             int capacidadRanking = (int)(val.CapacidadMateria * 0.70);
                             int capacidadRegistro = (int)(val.CapacidadMateria * 0.30);
-                            cortePorRanking = inscripcionesAsignacion.OrderByDescending(o => o.).ToList();
+                            cortePorRanking = inscripcionesAsignacion.OrderByDescending(o => o.RankingAlumno).ToList();
                             foreach (var val3 in cortePorRanking.Take(capacidadRanking))
                             {
                                 asignaciones.Add(new InscripcionesPorAlumno()
@@ -73,6 +74,8 @@ namespace TP4.Asignacion
                                     CodigoMateria = val3.CodigoMateria,
                                     NombreMateria = val3.NombreMateria,
                                 });
+                                cortePorRanking.Remove(val3);
+                                Asignacion.EscribirAsignacionEnTXT(val3.NRegistro, val3.CodigoMateria, val3.NombreMateria);
                             }
 
                             cortePorRanking = inscripcionesAsignacion.OrderBy(o => o.NRegistro).ToList();
@@ -83,9 +86,11 @@ namespace TP4.Asignacion
                                     NRegistro = val3.NRegistro,
                                     CodigoMateria = val3.CodigoMateria,
                                     NombreMateria = val3.NombreMateria,
-                                }); 
+                                });
+                                Asignacion.EscribirAsignacionEnTXT(val3.NRegistro, val3.CodigoMateria, val3.NombreMateria);
                             }
                         }
+
                         else
                         {
                             foreach(var val4 in inscripcionesAsignacion)
@@ -96,6 +101,7 @@ namespace TP4.Asignacion
                                     CodigoMateria = val4.CodigoMateria,
                                     NombreMateria = val4.NombreMateria,
                                 });
+                                Asignacion.EscribirAsignacionEnTXT(val4.NRegistro, val4.CodigoMateria, val4.NombreMateria);
                             }
 
                         }
@@ -104,7 +110,23 @@ namespace TP4.Asignacion
 
             }
         }
-        
+
+        public static void EscribirAsignacionEnTXT(int numRegistro, int codMateria, string nomMateria)
+        {
+            string nombreArchivoAsignaciones = "AsignacionesPorAlumnos.txt";
+            if (File.Exists(nombreArchivoAsignaciones))
+            {
+                using (StreamWriter sw = File.AppendText(nombreArchivoAsignaciones))
+                {
+                    sw.WriteLine("Numero de registro:" + numRegistro + " | Codigo de materia:" + codMateria + " | Nombre de materia:" + nomMateria);
+                }
+            }
+            else
+            {
+                Console.WriteLine("No se ha encontrado el archivo TXT. El archivo 'InscripcionesPorAlumnos.txt' debe estar en la carpeta Debug");
+            }
+        }
+
 
         //VALIDACION 2: Ranking?
     }

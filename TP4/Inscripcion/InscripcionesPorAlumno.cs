@@ -11,6 +11,7 @@ namespace TP4
     {
         //public int NInscripcion { get; set; }
         public int NRegistro { get; set; }
+        public int RankingAlumno { get; set; }
         public int CodigoMateria { get; set; }
         public string NombreMateria { get; set; }
         public int CantidadInscriptos { get; set; }
@@ -23,10 +24,10 @@ namespace TP4
         public InscripcionesPorAlumno(string linea)
         {
             var datos = linea.Split('-');
-            //NInscripcion = int.Parse(datos[0]);
             NRegistro = int.Parse(datos[0]);
-            CodigoMateria = int.Parse(datos[1]);
-            NombreMateria = (datos[2]);
+            RankingAlumno = int.Parse(datos[1]);
+            CodigoMateria = int.Parse(datos[2]);
+            NombreMateria = (datos[3]);
         }
 
         public string ObtenerLineaDatosAlumno() => $"{NRegistro}-{CodigoMateria}-{NombreMateria}";
@@ -34,13 +35,13 @@ namespace TP4
         public static List<InscripcionesPorAlumno> inscripcionesPorAlumno = new List<InscripcionesPorAlumno>();
         const string nombreArchivo = "InscripcionesPorAlumnos.txt";
 
-        public static void EscribirInscripcionEnTXT(int numRegistro, int codMateria, string nomMateria)
+        public static void EscribirInscripcionEnTXT(int numRegistro, int codMateria, string nomMateria, int rankingAlumno)
         {
             if (File.Exists(nombreArchivo))
             {
                 using (StreamWriter sw = File.AppendText(nombreArchivo))
                 {
-                        sw.WriteLine("Numero de registro:" + numRegistro + " | Codigo de materia:" + codMateria + " | Nombre de materia:" + nomMateria);
+                        sw.WriteLine( numRegistro + "-" + rankingAlumno + "-" + codMateria + "-" + nomMateria);
                 }
             }
             else
@@ -50,16 +51,17 @@ namespace TP4
         }
 
 
-        public static void AgregarInscripcion(int numRegistro, int codMateria, string nomMateria)
+        public static void AgregarInscripcion(int numRegistro, int codMateria, string nomMateria, int rankingAlumno)
         {
             inscripcionesPorAlumno.Add(new InscripcionesPorAlumno()
             {
                 NRegistro = numRegistro,
                 CodigoMateria = codMateria,
                 NombreMateria = nomMateria, 
+                RankingAlumno = rankingAlumno,
             });
 
-            InscripcionesPorAlumno.EscribirInscripcionEnTXT(numRegistro, codMateria, nomMateria);
+            InscripcionesPorAlumno.EscribirInscripcionEnTXT(numRegistro, codMateria, nomMateria, rankingAlumno);
         }
 
         public static void MostrarInscripciones(int CodigoPersona)

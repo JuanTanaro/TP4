@@ -57,8 +57,6 @@ namespace TP4
                 + " " + $"Nombre: {NombreMateria}" 
                 + " " + $"Horario: {HorarioMateria}" 
                 + " " + $"Profesor: {ProfesorMateria}" 
-                + " " + $"Capacidad: {CapacidadMateria}" 
-                + " " + $"Corte de Ranking: {CorteDeRankingMateria}"
                 + " " + $"{Correlativa1}"
                 + " " + $"{Correlativa2}"
                 + " " + $"{Correlativa3}"

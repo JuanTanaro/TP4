@@ -9,9 +9,33 @@ namespace TP4
     {
         static void Main(string[] args)
         {
-            
+            Console.WriteLine("Escriba 1 si es estudiante y 2 si es administrador");
+            string respuesta = Console.ReadLine();
+            if (respuesta == "1")
+            {
+                BuscoRegistro();
+            }
+            else if (respuesta == "2")
+            {
+                Console.WriteLine("Deseas asignar las materias a los estudiantes?");
+                Console.WriteLine("1 - SI");
+                Console.WriteLine("2 - NO");
+                if (Console.ReadLine() == "1")
+                {
+                    Asignacion.Asignacion.LeerInscripciones();
+                    Asignacion.Asignacion.SumatoriaCantidadInscriptos();
+
+                    foreach (var val in Asignacion.Asignacion.inscriptosPorMateria)
+                    {
+                        Console.WriteLine("Nombre de materia:" + val.NombreMateria + "Cantidad de inscriptos:" + val.CantidadInscriptos);
+                    }
+                    Console.ReadKey();
+
+                    Asignacion.Asignacion.CorteDeRanking();
+                }
+            }
             // Iniciacion del usuario. 
-            BuscoRegistro();
+
         }
 
         private static void BuscoRegistro()
@@ -31,6 +55,7 @@ namespace TP4
                 persona?.Mostrar();
 
                 int CodigoPersona = persona.NRegistro;
+                int rankingAlumno = (int)(persona.Ranking);
 
                 // Seleccionamos la carrera
                 Console.WriteLine("Seleccione su carrera, para luego anotarse a las materias");
@@ -48,22 +73,22 @@ namespace TP4
                 switch (eleccionCarrera)
                 {
                     case "1":
-                        MostrarMaterias(eleccionCarrera, CodigoPersona);
+                        MostrarMaterias(eleccionCarrera, CodigoPersona, rankingAlumno);
                         break;
                     case "2":
-                        MostrarMaterias(eleccionCarrera, CodigoPersona);
+                        MostrarMaterias(eleccionCarrera, CodigoPersona, rankingAlumno);
                         break;
                     case "3":
-                        MostrarMaterias(eleccionCarrera, CodigoPersona);
+                        MostrarMaterias(eleccionCarrera, CodigoPersona, rankingAlumno);
                         break;
                     case "4":
-                        MostrarMaterias(eleccionCarrera, CodigoPersona);
+                        MostrarMaterias(eleccionCarrera, CodigoPersona, rankingAlumno);
                         break;
                     case "5":
-                        MostrarMaterias(eleccionCarrera, CodigoPersona);
+                        MostrarMaterias(eleccionCarrera, CodigoPersona, rankingAlumno);
                         break;
                     case "6":
-                        MostrarMaterias(eleccionCarrera, CodigoPersona);
+                        MostrarMaterias(eleccionCarrera, CodigoPersona, rankingAlumno);
                         break;
                     case "0":
                         salir = true;
@@ -76,46 +101,46 @@ namespace TP4
             } while (!salir);
         }
 
-        private static void MostrarMaterias(string eleccionCarrera, int CodigoPersona)
+        private static void MostrarMaterias(string eleccionCarrera, int CodigoPersona, int rankingAlumno)
         {
             if (eleccionCarrera == "1")
             {
                 Economia.MostrarTXT();
-                Aprobada(eleccionCarrera, CodigoPersona);
+                Aprobada(eleccionCarrera, CodigoPersona, rankingAlumno);
             }
 
             if (eleccionCarrera == "2")
             {
                 Sistemas.MostrarTXT();
-                Aprobada(eleccionCarrera, CodigoPersona);
+                Aprobada(eleccionCarrera, CodigoPersona, rankingAlumno);
             }
 
             if (eleccionCarrera == "3")
             {
                 Contador.MostrarTXT();
-                Aprobada(eleccionCarrera, CodigoPersona);
+                Aprobada(eleccionCarrera, CodigoPersona, rankingAlumno);
             }
 
             if (eleccionCarrera == "4")
             {
                 ActuarioAdministracion.MostrarTXT();
-                Aprobada(eleccionCarrera, CodigoPersona);
+                Aprobada(eleccionCarrera, CodigoPersona, rankingAlumno);
             }
 
             if (eleccionCarrera == "5")
             {
                 ActuarioEconomia.MostrarTXT();
-                Aprobada(eleccionCarrera, CodigoPersona);
+                Aprobada(eleccionCarrera, CodigoPersona, rankingAlumno);
             }
 
             if (eleccionCarrera == "6")
             {
                 Administracion.MostrarTXT();
-                Aprobada(eleccionCarrera, CodigoPersona);
+                Aprobada(eleccionCarrera, CodigoPersona, rankingAlumno);
             }
         }
 
-        private static void Aprobada(string eleccionCarrera, int CodigoPersona)
+        private static void Aprobada(string eleccionCarrera, int CodigoPersona, int rankingAlumno)
         {
             Console.WriteLine("¿Tiene una materia aprobada?");
             Console.WriteLine("1 - SI");
@@ -126,16 +151,16 @@ namespace TP4
             switch (respuesta)
             {
                 case "1":
-                    SeleccionarAprobada(eleccionCarrera, CodigoPersona);
+                    SeleccionarAprobada(eleccionCarrera, CodigoPersona, rankingAlumno);
                     break;
                 case "2":
                     MateriasAprobadasPorAlumno.EscribirAprobadasEnTXT();
-                    AjustesInscripcionMaterias(CodigoPersona, eleccionCarrera);
+                    AjustesInscripcionMaterias(CodigoPersona, eleccionCarrera, rankingAlumno);
                     break;
             }
         }
 
-        private static void SeleccionarAprobada(string eleccionCarrera, int CodigoPersona)
+        private static void SeleccionarAprobada(string eleccionCarrera, int CodigoPersona, int rankingAlumno)
         {
             Console.WriteLine("\nSeleccione las materias que ya realizo escribiendo cada uno de los codigos de materia y luego ENTER");
 
@@ -144,7 +169,7 @@ namespace TP4
                 var materia = Economia.Seleccionar(); //te devuelve el codigo de materia en .int
                 if (materia == null)
                 {
-                    Aprobada(eleccionCarrera, CodigoPersona);
+                    Aprobada(eleccionCarrera, CodigoPersona, rankingAlumno);
                 }
 
                 materia.Mostrar();
@@ -161,7 +186,7 @@ namespace TP4
 
                 }
 
-                otraAprobada(eleccionCarrera, CodigoPersona);
+                otraAprobada(eleccionCarrera, CodigoPersona, rankingAlumno);
 
             }
 
@@ -170,7 +195,7 @@ namespace TP4
                 var materia = Sistemas.Seleccionar(); //te devuelve el codigo de materia en .int
                 if (materia == null)
                 {
-                    Aprobada(eleccionCarrera, CodigoPersona);
+                    Aprobada(eleccionCarrera, CodigoPersona, rankingAlumno);
                 }
 
                 materia.Mostrar();
@@ -187,7 +212,7 @@ namespace TP4
 
                 }
 
-                otraAprobada(eleccionCarrera, CodigoPersona);
+                otraAprobada(eleccionCarrera, CodigoPersona, rankingAlumno);
             }
 
             if (eleccionCarrera == "3")
@@ -195,7 +220,7 @@ namespace TP4
                 var materia = Contador.Seleccionar(); //te devuelve el codigo de materia en .int
                 if (materia == null)
                 {
-                    Aprobada(eleccionCarrera, CodigoPersona);
+                    Aprobada(eleccionCarrera, CodigoPersona, rankingAlumno);
                 }
 
                 materia.Mostrar();
@@ -212,7 +237,7 @@ namespace TP4
 
                 }
 
-                otraAprobada(eleccionCarrera, CodigoPersona);
+                otraAprobada(eleccionCarrera, CodigoPersona, rankingAlumno);
             }
 
             if (eleccionCarrera == "4")
@@ -220,7 +245,7 @@ namespace TP4
                 var materia = ActuarioAdministracion.Seleccionar(); //te devuelve el codigo de materia en .int
                 if (materia == null)
                 {
-                    Aprobada(eleccionCarrera, CodigoPersona);
+                    Aprobada(eleccionCarrera, CodigoPersona, rankingAlumno);
                 }
 
                 materia.Mostrar();
@@ -237,7 +262,7 @@ namespace TP4
 
                 }
 
-                otraAprobada(eleccionCarrera, CodigoPersona);
+                otraAprobada(eleccionCarrera, CodigoPersona, rankingAlumno);
             }
 
             if (eleccionCarrera == "5")
@@ -245,7 +270,7 @@ namespace TP4
                 var materia = ActuarioEconomia.Seleccionar(); //te devuelve el codigo de materia en .int
                 if (materia == null)
                 {
-                    Aprobada(eleccionCarrera, CodigoPersona);
+                    Aprobada(eleccionCarrera, CodigoPersona, rankingAlumno);
                 }
 
                 materia.Mostrar();
@@ -262,7 +287,7 @@ namespace TP4
 
                 }
 
-                otraAprobada(eleccionCarrera, CodigoPersona);
+                otraAprobada(eleccionCarrera, CodigoPersona, rankingAlumno);
             }
 
             if (eleccionCarrera == "6")
@@ -270,7 +295,7 @@ namespace TP4
                 var materia = Administracion.Seleccionar(); //te devuelve el codigo de materia en .int
                 if (materia == null)
                 {
-                    Aprobada(eleccionCarrera, CodigoPersona);
+                    Aprobada(eleccionCarrera, CodigoPersona, rankingAlumno);
                 }
 
                 materia.Mostrar();
@@ -287,11 +312,11 @@ namespace TP4
 
                 }
 
-                otraAprobada(eleccionCarrera, CodigoPersona);
+                otraAprobada(eleccionCarrera, CodigoPersona, rankingAlumno);
             }
         }
 
-        private static void otraAprobada(string eleccionCarrera, int CodigoPersona)
+        private static void otraAprobada(string eleccionCarrera, int CodigoPersona, int rankingAlumno)
         {
             Console.WriteLine("¿Tiene otra materia aprobada?");
             Console.WriteLine("1 - SI");
@@ -302,16 +327,16 @@ namespace TP4
             switch (respuesta)
             {
                 case "1":
-                    SeleccionarAprobada(eleccionCarrera, CodigoPersona);
+                    SeleccionarAprobada(eleccionCarrera, CodigoPersona, rankingAlumno);
                     break;
                 case "2":
                     MateriasAprobadasPorAlumno.EscribirAprobadasEnTXT();
-                    AjustesInscripcionMaterias(CodigoPersona, eleccionCarrera);
+                    AjustesInscripcionMaterias(CodigoPersona, eleccionCarrera, rankingAlumno);
                     break;
             }
         }
 
-        private static void AjustesInscripcionMaterias(int CodigoPersona, string eleccionCarrera)
+        private static void AjustesInscripcionMaterias(int CodigoPersona, string eleccionCarrera, int rankingAlumno)
         {
             Console.WriteLine(" ");
             Console.WriteLine("-------------");
@@ -333,12 +358,12 @@ namespace TP4
                     if ((Economia.CantidadMateriasEcon - countMateriasAprobadasAlumno) <= 4)
                     {
                         CantidadMax = 4;
-                        Inscripciones(CodigoPersona, eleccionCarrera, countMateriasAprobadasAlumno, CantidadMax);
+                        Inscripciones(CodigoPersona, eleccionCarrera, countMateriasAprobadasAlumno, CantidadMax, rankingAlumno);
                     }
                     else
                     {
                         CantidadMax = 3;
-                        Inscripciones(CodigoPersona, eleccionCarrera, countMateriasAprobadasAlumno, CantidadMax);
+                        Inscripciones(CodigoPersona, eleccionCarrera, countMateriasAprobadasAlumno, CantidadMax, rankingAlumno);
                     }
                     break;
 
@@ -346,12 +371,12 @@ namespace TP4
                     if ((Sistemas.CantidadMateriasSist - countMateriasAprobadasAlumno) <= 4)
                     {
                         CantidadMax = 4;
-                        Inscripciones(CodigoPersona, eleccionCarrera, countMateriasAprobadasAlumno, CantidadMax);
+                        Inscripciones(CodigoPersona, eleccionCarrera, countMateriasAprobadasAlumno, CantidadMax, rankingAlumno);
                     }
                     else
                     {
                         CantidadMax = 3;
-                        Inscripciones(CodigoPersona, eleccionCarrera, countMateriasAprobadasAlumno, CantidadMax);
+                        Inscripciones(CodigoPersona, eleccionCarrera, countMateriasAprobadasAlumno, CantidadMax, rankingAlumno);
                     }
                     break;
 
@@ -359,12 +384,12 @@ namespace TP4
                     if ((Contador.CantidadMateriasCont - countMateriasAprobadasAlumno) <= 4)
                     {
                         CantidadMax = 4;
-                        Inscripciones(CodigoPersona, eleccionCarrera, countMateriasAprobadasAlumno, CantidadMax);
+                        Inscripciones(CodigoPersona, eleccionCarrera, countMateriasAprobadasAlumno, CantidadMax, rankingAlumno);
                     }
                     else
                     {
                         CantidadMax = 3;
-                        Inscripciones(CodigoPersona, eleccionCarrera, countMateriasAprobadasAlumno, CantidadMax);
+                        Inscripciones(CodigoPersona, eleccionCarrera, countMateriasAprobadasAlumno, CantidadMax, rankingAlumno);
                     }
                     break;
 
@@ -372,12 +397,12 @@ namespace TP4
                     if ((ActuarioAdministracion.CantidadMateriasActAdm - countMateriasAprobadasAlumno) <= 4)
                     {
                         CantidadMax = 4;
-                        Inscripciones(CodigoPersona, eleccionCarrera, countMateriasAprobadasAlumno, CantidadMax);
+                        Inscripciones(CodigoPersona, eleccionCarrera, countMateriasAprobadasAlumno, CantidadMax, rankingAlumno);
                     }
                     else
                     {
                         CantidadMax = 3;
-                        Inscripciones(CodigoPersona, eleccionCarrera, countMateriasAprobadasAlumno, CantidadMax);
+                        Inscripciones(CodigoPersona, eleccionCarrera, countMateriasAprobadasAlumno, CantidadMax, rankingAlumno);
                     }
                     break;
 
@@ -385,12 +410,12 @@ namespace TP4
                     if ((ActuarioEconomia.CantidadMateriasActEcon - countMateriasAprobadasAlumno) <= 4)
                     {
                         CantidadMax = 4;
-                        Inscripciones(CodigoPersona, eleccionCarrera, countMateriasAprobadasAlumno, CantidadMax);
+                        Inscripciones(CodigoPersona, eleccionCarrera, countMateriasAprobadasAlumno, CantidadMax, rankingAlumno);
                     }
                     else
                     {
                         CantidadMax = 3;
-                        Inscripciones(CodigoPersona, eleccionCarrera, countMateriasAprobadasAlumno, CantidadMax);
+                        Inscripciones(CodigoPersona, eleccionCarrera, countMateriasAprobadasAlumno, CantidadMax, rankingAlumno);
                     }
                     break;
 
@@ -398,12 +423,12 @@ namespace TP4
                     if ((Administracion.CantidadMateriasAdm - countMateriasAprobadasAlumno) <= 4)
                     {
                         CantidadMax = 4;
-                        Inscripciones(CodigoPersona, eleccionCarrera, countMateriasAprobadasAlumno, CantidadMax);
+                        Inscripciones(CodigoPersona, eleccionCarrera, countMateriasAprobadasAlumno, CantidadMax, rankingAlumno);
                     }
                     else
                     {
                         CantidadMax = 3;
-                        Inscripciones(CodigoPersona, eleccionCarrera, countMateriasAprobadasAlumno, CantidadMax);
+                        Inscripciones(CodigoPersona, eleccionCarrera, countMateriasAprobadasAlumno, CantidadMax, rankingAlumno);
                     }
                     break;
             }
@@ -411,7 +436,7 @@ namespace TP4
 
         }
 
-        private static void Inscripciones(int CodigoPersona, string eleccionCarrera, int materiasDisponiblesAlumno, int CantidadMax)
+        private static void Inscripciones(int CodigoPersona, string eleccionCarrera, int materiasDisponiblesAlumno, int CantidadMax, int rankingAlumno)
         {
             switch (eleccionCarrera)
             {
@@ -421,7 +446,7 @@ namespace TP4
                         var materiaEcon = Economia.SeleccionarAsignacion(CantidadMax);
                         if (materiaEcon == null)
                         {
-                            Inscripciones(CodigoPersona, eleccionCarrera, materiasDisponiblesAlumno, CantidadMax);
+                            Inscripciones(CodigoPersona, eleccionCarrera, materiasDisponiblesAlumno, CantidadMax, rankingAlumno);
                         }
 
                         materiaEcon.Mostrar();
@@ -430,10 +455,10 @@ namespace TP4
                         if (keyEcon.Key == ConsoleKey.S)
                         {
                             Console.WriteLine($"Has sido inscripto en {materiaEcon.NombreMateria}");
-                            InscripcionesPorAlumno.AgregarInscripcion(CodigoPersona, materiaEcon.CodigoMateria, materiaEcon.NombreMateria);
+                            InscripcionesPorAlumno.AgregarInscripcion(CodigoPersona, materiaEcon.CodigoMateria, materiaEcon.NombreMateria, rankingAlumno);
                         }
 
-                        otraInscripcion(CodigoPersona, eleccionCarrera, materiasDisponiblesAlumno, CantidadMax);
+                        otraInscripcion(CodigoPersona, eleccionCarrera, materiasDisponiblesAlumno, CantidadMax, rankingAlumno);
                     }
                     else if(CantidadMax == 0)
                     {
@@ -445,7 +470,7 @@ namespace TP4
             }    
         }
 
-        private static void otraInscripcion(int CodigoPersona, string eleccionCarrera, int materiasDisponiblesAlumno, int CantidadMax)
+        private static void otraInscripcion(int CodigoPersona, string eleccionCarrera, int materiasDisponiblesAlumno, int CantidadMax, int rankingAlumno)
         {
             Console.WriteLine("¿Quiere inscribirse a otra materia?");
             Console.WriteLine("1 - SI");
@@ -457,11 +482,11 @@ namespace TP4
             {
                 case "1":
                     CantidadMax = CantidadMax - 1;
-                    Inscripciones(CodigoPersona, eleccionCarrera, materiasDisponiblesAlumno, CantidadMax);
+                    Inscripciones(CodigoPersona, eleccionCarrera, materiasDisponiblesAlumno, CantidadMax, rankingAlumno);
                     break;
                 case "2":
                     CantidadMax = 0;
-                    Inscripciones(CodigoPersona, eleccionCarrera, materiasDisponiblesAlumno, CantidadMax);
+                    Inscripciones(CodigoPersona, eleccionCarrera, materiasDisponiblesAlumno, CantidadMax, rankingAlumno);
                     InscripcionesPorAlumno.MostrarInscripciones(CodigoPersona);
                     break;
             }

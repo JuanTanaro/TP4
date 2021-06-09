@@ -12,10 +12,7 @@ namespace TP4
         public int NRegistro { get; set; }
         public string NombreAlumno { get; set; }
         public string ApellidoAlumno { get; set; }
-        public string CarreraAlumno { get; set; }
-        public int MateriasAprobadas { get; set; }
         public double Ranking { get; set; }
-        public double Promedio { get; set; }
         
 
         public Alumno() { }
@@ -26,10 +23,7 @@ namespace TP4
             NRegistro = int.Parse(datos[0]);
             NombreAlumno = (datos[1]);
             ApellidoAlumno = (datos[2]);
-            CarreraAlumno = (datos[3]);
-            MateriasAprobadas = int.Parse(datos[4]);
-            Ranking = double.Parse(datos[5]);
-            Promedio = double.Parse(datos[6]);
+            Ranking = double.Parse(datos[3]);
         }
         public void Mostrar()
         {
