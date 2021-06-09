@@ -16,7 +16,6 @@ namespace TP4
                 Console.WriteLine("MENU PRINCIPAL");
                 Console.WriteLine("-------------");
 
-             
                 Console.WriteLine("¿Que tipo de usuario es usted?");
                 Console.WriteLine("1 - Administrador");
                 Console.WriteLine("2 - Estudiante");
@@ -136,7 +135,7 @@ namespace TP4
                         salir = true;
                         break;
                     default:
-                        Console.WriteLine("No ha ingresado una opción del menú");
+                        MenuEstudiante();
                         break;
                 }
 
@@ -198,6 +197,9 @@ namespace TP4
                 case "2":
                     MateriasAprobadasPorAlumno.EscribirAprobadasEnTXT();
                     AjustesInscripcionMaterias(CodigoPersona, eleccionCarrera, rankingAlumno);
+                    break;
+                default:
+                    Aprobada(eleccionCarrera, CodigoPersona, rankingAlumno);
                     break;
             }
         }
@@ -375,6 +377,9 @@ namespace TP4
                     MateriasAprobadasPorAlumno.EscribirAprobadasEnTXT();
                     AjustesInscripcionMaterias(CodigoPersona, eleccionCarrera, rankingAlumno);
                     break;
+                default:
+                    otraAprobada(eleccionCarrera, CodigoPersona, rankingAlumno);
+                    break;
             }
         }
 
@@ -530,6 +535,9 @@ namespace TP4
                     CantidadMax = 0;
                     Inscripciones(CodigoPersona, eleccionCarrera, materiasDisponiblesAlumno, CantidadMax, rankingAlumno);
                     InscripcionesPorAlumno.MostrarInscripciones(CodigoPersona);
+                    break;
+                default:
+                    otraInscripcion(CodigoPersona, eleccionCarrera, materiasDisponiblesAlumno, CantidadMax, rankingAlumno);
                     break;
             }
         }
