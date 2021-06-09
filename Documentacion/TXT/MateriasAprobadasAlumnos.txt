@@ -1,7 +1,1 @@
-Numero de registro:5 | Codigo de materia:247 | Nombre de materia: Teoría Contable 
-Numero de registro:6 | Codigo de materia:247 | Nombre de materia: Teoría Contable 
-Numero de registro:7 | Codigo de materia:247 | Nombre de materia: Teoría Contable 
-Numero de registro:8 | Codigo de materia:247 | Nombre de materia: Teoría Contable 
-Numero de registro:9 | Codigo de materia:247 | Nombre de materia: Teoría Contable 
-Numero de registro:10 | Codigo de materia:247 | Nombre de materia: Teoría Contable 
-Numero de registro:11 | Codigo de materia:247 | Nombre de materia: Teoría Contable 
+Numero de registro:882024 | Codigo de materia:252 | Nombre de materia: Administración General 

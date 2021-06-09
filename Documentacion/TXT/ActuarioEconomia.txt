@@ -1,25 +1,25 @@
-247 - Teoría Contable
-248 - Estadística I
-249 - Historia Económica y Social Argentina
-261 - Teoría Política y Derecho Público
-262 - Macroeconomía I
-284 - Análisis Matemático II
-273 - Instituciones del Derecho Privado
-276 - Cálculo Financiero
-279 - Administración Financiera
-283 - Macroeconomía II
-285 - Estadística II
-286 - Microeconomía II
-287 - Geografía Económica
-288 - Matemática para Economistas
-289 - Epistemología de la Economía
-290 - Microeconomía I (para Economistas)
-751 - Estadística Actuarial
-752 - Análisis Numérico
-753 - Biometría Actuarial
-754 - Teoría Actuarial de los Seguros Personales
-755 - Teoría Actuarial de los Seguros Patrimoniales
-756 - Teoría Actuarial de los Fondos y Planes de Jubilaciones, Pensiones y Salud
-757 - Teoría de Equilibrio Actuarial
-758 - Bases Actuariales de las Inversiones y Financiaciones
-759 - Seminario de Integración y Aplicación
+247 - Teoría Contable - Profesor1 - hora - 10 - 200 - 0 - 0 - 0 - 0
+248 - Estadística I - Profesor1 - hora - 10 - 200 - 0 - 0 - 0 - 0
+249 - Historia Económica y Social Argentina - Profesor1 - hora - 10 - 200 - 0 - 0 - 0 - 0
+261 - Teoría Política y Derecho Público - Profesor1 - hora - 10 - 200 - 0 - 0 - 0 - 0
+262 - Macroeconomía I - Profesor1 - hora - 10 - 200 - 0 - 0 - 0 - 0
+284 - Análisis Matemático II - Profesor1 - hora - 10 - 200 - 0 - 0 - 0 - 0
+273 - Instituciones del Derecho Privado - Profesor1 - hora - 10 - 200 - 0 - 0 - 0 - 0
+276 - Cálculo Financiero - Profesor1 - hora - 10 - 200 - 0 - 0 - 0 - 0
+279 - Administración Financiera - Profesor1 - hora - 10 - 200 - 0 - 0 - 0 - 0
+283 - Macroeconomía II - Profesor1 - hora - 10 - 200 - 0 - 0 - 0 - 0
+285 - Estadística II - Profesor1 - hora - 10 - 200 - 0 - 0 - 0 - 0
+286 - Microeconomía II - Profesor1 - hora - 10 - 200 - 0 - 0 - 0 - 0
+287 - Geografía Económica - Profesor1 - hora - 10 - 200 - 0 - 0 - 0 - 0
+288 - Matemática para Economistas - Profesor1 - hora - 10 - 200 - 0 - 0 - 0 - 0
+289 - Epistemología de la Economía - Profesor1 - hora - 10 - 200 - 0 - 0 - 0 - 0
+290 - Microeconomía I (para Economistas) - Profesor1 - hora - 10 - 200 - 0 - 0 - 0 - 0
+751 - Estadística Actuarial - Profesor1 - hora - 10 - 200 - 0 - 0 - 0 - 0
+752 - Análisis Numérico - Profesor1 - hora - 10 - 200 - 0 - 0 - 0 - 0
+753 - Biometría Actuarial - Profesor1 - hora - 10 - 200 - 0 - 0 - 0 - 0
+754 - Teoría Actuarial de los Seguros Personales - Profesor1 - hora - 10 - 200 - 0 - 0 - 0 - 0
+755 - Teoría Actuarial de los Seguros Patrimoniales - Profesor1 - hora - 10 - 200 - 0 - 0 - 0 - 0
+756 - Teoría Actuarial de los Fondos y Planes de Jubilaciones, Pensiones y Salud - Profesor1 - hora - 10 - 200 - 0 - 0 - 0 - 0
+757 - Teoría de Equilibrio Actuarial - Profesor1 - hora - 10 - 200 - 0 - 0 - 0 - 0
+758 - Bases Actuariales de las Inversiones y Financiaciones - Profesor1 - hora - 10 - 200 - 0 - 0 - 0 - 0
+759 - Seminario de Integración y Aplicación - Profesor1 - hora - 10 - 200 - 0 - 0 - 0 - 0
