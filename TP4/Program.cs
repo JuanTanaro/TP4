@@ -9,38 +9,6 @@ namespace TP4
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Escriba 1 si es estudiante y 2 si es administrador");
-            string respuesta = Console.ReadLine();
-            if (respuesta == "1")
-            {
-                BuscoRegistro();
-            }
-            else if (respuesta == "2")
-            {
-                Console.WriteLine("Deseas asignar las materias a los estudiantes?");
-                Console.WriteLine("1 - SI");
-                Console.WriteLine("2 - NO");
-                if (Console.ReadLine() == "1")
-                {
-                    Asignacion.Asignacion.LeerInscripciones();
-
-                    Asignacion.Asignacion.SumatoriaCantidadInscriptos();
-
-                    foreach (var val in Asignacion.Asignacion.inscriptosPorMateria)
-                    {
-                        Console.WriteLine("Nombre de materia:" + val.NombreMateria + "Cantidad de inscriptos:" + val.CantidadInscriptos);
-                    }
-                    Console.ReadKey();
-
-                    Asignacion.Asignacion.CorteDeRanking();
-                }
-            }
-            // Iniciacion del usuario. 
-
-        }
-
-        private static void BuscoRegistro()
-        {
             bool salir = false;
             do
             {
@@ -48,10 +16,81 @@ namespace TP4
                 Console.WriteLine("MENU PRINCIPAL");
                 Console.WriteLine("-------------");
 
+                Console.WriteLine("¿Que tipo de usuario es usted?");
+                Console.WriteLine("1 - Administrador");
+                Console.WriteLine("2 - Estudiante");
+                Console.WriteLine("0 - Salir del sitio");
+                var respuesta = Console.ReadLine();
+                
+
+                switch (respuesta)
+                {
+                    case "1":
+                        Inicio(respuesta);
+                        break;
+                    case "2":
+                        Inicio(respuesta);
+                        break;
+                    case "0":
+                        salir = true;
+                        break;
+                    default:
+                        Console.WriteLine("No ha ingresado una opción del menú");
+                        break;
+                }
+
+            } while (!salir);
+
+        }
+
+        private static void Inicio(string respuesta)
+        {
+            if (respuesta == "1")
+            {
+                MenuAdmin();
+            }
+            else if (respuesta == "2")
+            {
+                MenuEstudiante();
+            }
+        }
+
+        private static void MenuAdmin()
+        {
+            Console.WriteLine();
+            Console.WriteLine("MENU ADMINISTRADOR");
+            Console.WriteLine("-------------");
+            Console.WriteLine("¿Desea asignar las materias a los estudiantes?");
+            Console.WriteLine("1 - SI");
+            Console.WriteLine("2 - NO");
+            if (Console.ReadLine() == "1")
+            {
+                Asignacion.LeerInscripciones();
+                Asignacion.SumatoriaCantidadInscriptos();
+
+                foreach (var val in Asignacion.inscriptosPorMateria)
+                {
+                    Console.WriteLine("Nombre de materia:" + val.NombreMateria + "| Cantidad de inscriptos:" + val.CantidadInscriptos);
+                }
+                Console.ReadKey();
+
+                Asignacion.CorteDeRanking();
+            }
+        }
+
+        private static void MenuEstudiante()
+        {
+            bool salir = false;
+            do
+            {
+                Console.WriteLine();
+                Console.WriteLine("MENU ESTUDIANTE");
+                Console.WriteLine("-------------");
+
                 var persona = Alumno.Seleccionar();
                 if (persona == null)
                 {
-                    BuscoRegistro();
+                    MenuEstudiante();
                 }
                 persona?.Mostrar();
 
@@ -59,14 +98,15 @@ namespace TP4
                 int rankingAlumno = (int)(persona.Ranking);
 
                 // Seleccionamos la carrera
-                Console.WriteLine("Seleccione su carrera, para luego anotarse a las materias");
+                Console.WriteLine("SELECCIONAR CARRERA");
+                Console.WriteLine("Para luego anotarse a las materias");
                 Console.WriteLine("1 - Economia");
                 Console.WriteLine("2 - Sistemas");
                 Console.WriteLine("3 - Contador Publico");
                 Console.WriteLine("4 - Actuario en administracion");
                 Console.WriteLine("5 - Actuario en economia");
                 Console.WriteLine("6 - Administracion de empresas");
-                Console.WriteLine("0 - Salir");
+                Console.WriteLine("0 - Salir del sitio");
 
 
                 var eleccionCarrera = Console.ReadLine();
@@ -95,7 +135,7 @@ namespace TP4
                         salir = true;
                         break;
                     default:
-                        Console.WriteLine("No ha ingresado una opción del menú");
+                        MenuEstudiante();
                         break;
                 }
 
@@ -157,6 +197,9 @@ namespace TP4
                 case "2":
                     MateriasAprobadasPorAlumno.EscribirAprobadasEnTXT();
                     AjustesInscripcionMaterias(CodigoPersona, eleccionCarrera, rankingAlumno);
+                    break;
+                default:
+                    Aprobada(eleccionCarrera, CodigoPersona, rankingAlumno);
                     break;
             }
         }
@@ -334,6 +377,9 @@ namespace TP4
                     MateriasAprobadasPorAlumno.EscribirAprobadasEnTXT();
                     AjustesInscripcionMaterias(CodigoPersona, eleccionCarrera, rankingAlumno);
                     break;
+                default:
+                    otraAprobada(eleccionCarrera, CodigoPersona, rankingAlumno);
+                    break;
             }
         }
 
@@ -490,6 +536,9 @@ namespace TP4
                     CantidadMax = 0;
                     Inscripciones(CodigoPersona, eleccionCarrera, materiasDisponiblesAlumno, CantidadMax, rankingAlumno);
                     InscripcionesPorAlumno.MostrarInscripciones(CodigoPersona);
+                    break;
+                default:
+                    otraInscripcion(CodigoPersona, eleccionCarrera, materiasDisponiblesAlumno, CantidadMax, rankingAlumno);
                     break;
             }
         }
