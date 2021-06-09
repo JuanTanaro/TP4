@@ -10,7 +10,7 @@ namespace TP4
     public class ActuarioEconomia
     {
         public static List<MateriasBase> actuarioEconomia = new List<MateriasBase>();
-
+        public static int CantidadMateriasActEcon = 28;
         const string nombreArchivo = "ActuarioEconomia.txt";
 
         static ActuarioEconomia()

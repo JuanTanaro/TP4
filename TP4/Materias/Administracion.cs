@@ -10,7 +10,7 @@ namespace TP4
     public class Administracion
     {
         public static List<MateriasBase> administracion = new List<MateriasBase>();
-
+        public static int CantidadMateriasAdm = 25;
         const string nombreArchivo = "Administracion.txt";
 
         static Administracion()

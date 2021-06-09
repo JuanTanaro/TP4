@@ -10,7 +10,7 @@ namespace TP4
     public class Economia
     {
         public static List<MateriasBase> economia = new List<MateriasBase>();
-
+        public static int CantidadMateriasEcon = 27;
         const string nombreArchivo = "Economia.txt";
 
         static Economia()
@@ -89,5 +89,6 @@ namespace TP4
             Console.WriteLine("No se ha encontrado una materia que coincida");
             return null;
         }
+
     }
 }

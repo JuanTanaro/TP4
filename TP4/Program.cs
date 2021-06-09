@@ -319,22 +319,96 @@ namespace TP4
             Console.WriteLine("INSCRIPCIONES");
             MateriasAprobadasPorAlumno.MostrarMateriasDisponibles(eleccionCarrera, CodigoPersona);
             Console.WriteLine(" ");
-            int materiasDisponiblesAlumno = MateriasAprobadasPorAlumno.contarMateriasDisponibles(CodigoPersona);
-            Console.WriteLine("Usted tiene " + materiasDisponiblesAlumno + " materias disponibles");
+            int countMateriasAprobadasAlumno = MateriasAprobadasPorAlumno.contarMateriasAprobadas(CodigoPersona);
+            int countMateriasDisponiblesAlumno = MateriasAprobadasPorAlumno.contarMateriasDisp(CodigoPersona);
+            Console.WriteLine("Usted tiene " + countMateriasDisponiblesAlumno + " materias disponibles");
             Console.WriteLine(" ");
             Console.WriteLine("-------------");
 
             int CantidadMax;
-            if (materiasDisponiblesAlumno <= 4)
+
+            switch (eleccionCarrera)
             {
-                CantidadMax = 4;
-                Inscripciones(CodigoPersona, eleccionCarrera, materiasDisponiblesAlumno, CantidadMax);
+                case "1":
+                    if ((Economia.CantidadMateriasEcon - countMateriasAprobadasAlumno) <= 4)
+                    {
+                        CantidadMax = 4;
+                        Inscripciones(CodigoPersona, eleccionCarrera, countMateriasAprobadasAlumno, CantidadMax);
+                    }
+                    else
+                    {
+                        CantidadMax = 3;
+                        Inscripciones(CodigoPersona, eleccionCarrera, countMateriasAprobadasAlumno, CantidadMax);
+                    }
+                    break;
+
+                case "2":
+                    if ((Sistemas.CantidadMateriasSist - countMateriasAprobadasAlumno) <= 4)
+                    {
+                        CantidadMax = 4;
+                        Inscripciones(CodigoPersona, eleccionCarrera, countMateriasAprobadasAlumno, CantidadMax);
+                    }
+                    else
+                    {
+                        CantidadMax = 3;
+                        Inscripciones(CodigoPersona, eleccionCarrera, countMateriasAprobadasAlumno, CantidadMax);
+                    }
+                    break;
+
+                case "3":
+                    if ((Contador.CantidadMateriasCont - countMateriasAprobadasAlumno) <= 4)
+                    {
+                        CantidadMax = 4;
+                        Inscripciones(CodigoPersona, eleccionCarrera, countMateriasAprobadasAlumno, CantidadMax);
+                    }
+                    else
+                    {
+                        CantidadMax = 3;
+                        Inscripciones(CodigoPersona, eleccionCarrera, countMateriasAprobadasAlumno, CantidadMax);
+                    }
+                    break;
+
+                case "4":
+                    if ((ActuarioAdministracion.CantidadMateriasActAdm - countMateriasAprobadasAlumno) <= 4)
+                    {
+                        CantidadMax = 4;
+                        Inscripciones(CodigoPersona, eleccionCarrera, countMateriasAprobadasAlumno, CantidadMax);
+                    }
+                    else
+                    {
+                        CantidadMax = 3;
+                        Inscripciones(CodigoPersona, eleccionCarrera, countMateriasAprobadasAlumno, CantidadMax);
+                    }
+                    break;
+
+                case "5":
+                    if ((ActuarioEconomia.CantidadMateriasActEcon - countMateriasAprobadasAlumno) <= 4)
+                    {
+                        CantidadMax = 4;
+                        Inscripciones(CodigoPersona, eleccionCarrera, countMateriasAprobadasAlumno, CantidadMax);
+                    }
+                    else
+                    {
+                        CantidadMax = 3;
+                        Inscripciones(CodigoPersona, eleccionCarrera, countMateriasAprobadasAlumno, CantidadMax);
+                    }
+                    break;
+
+                case "6":
+                    if ((Administracion.CantidadMateriasAdm - countMateriasAprobadasAlumno) <= 4)
+                    {
+                        CantidadMax = 4;
+                        Inscripciones(CodigoPersona, eleccionCarrera, countMateriasAprobadasAlumno, CantidadMax);
+                    }
+                    else
+                    {
+                        CantidadMax = 3;
+                        Inscripciones(CodigoPersona, eleccionCarrera, countMateriasAprobadasAlumno, CantidadMax);
+                    }
+                    break;
             }
-            else
-            {
-                CantidadMax = 3;
-                Inscripciones(CodigoPersona, eleccionCarrera, materiasDisponiblesAlumno, CantidadMax);
-            }
+            
+
         }
 
         private static void Inscripciones(int CodigoPersona, string eleccionCarrera, int materiasDisponiblesAlumno, int CantidadMax)
@@ -366,7 +440,6 @@ namespace TP4
                         Console.WriteLine("¡No se puede inscribir a más materias, accedera a sus inscripciones hasta el momento!\n");
                         InscripcionesPorAlumno.MostrarInscripciones(CodigoPersona);
                     }
-
                 break;
 
             }    

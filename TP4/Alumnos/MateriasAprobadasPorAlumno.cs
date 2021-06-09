@@ -97,7 +97,6 @@ namespace TP4
                     Console.WriteLine($"Materias disponibles para inscripcion:");
                     foreach (var val in materiasDisponiblesSist)
                     {
-                        //Si no tiene correlativas, la agrego como disponible
                         if (val.Correlativa1 == 0 && val.Correlativa2 == 0 && val.Correlativa3 == 0 && val.Correlativa4 == 0)
                         {
                             Console.WriteLine($"Codigo de materia: " + val.CodigoMateria + $" | Nombre de materia: " + val.NombreMateria);
@@ -117,7 +116,6 @@ namespace TP4
                     Console.WriteLine($"Materias disponibles para inscripcion:");
                     foreach (var val in materiasDisponiblesCont)
                     {
-                        //Si no tiene correlativas, la agrego como disponible
                         if (val.Correlativa1 == 0 && val.Correlativa2 == 0 && val.Correlativa3 == 0 && val.Correlativa4 == 0)
                         {
                             Console.WriteLine($"Codigo de materia: " + val.CodigoMateria + $" | Nombre de materia: " + val.NombreMateria);
@@ -137,7 +135,6 @@ namespace TP4
                     Console.WriteLine($"Materias disponibles para inscripcion:");
                     foreach (var val in materiasDisponiblesActAdm)
                     {
-                        //Si no tiene correlativas, la agrego como disponible
                         if (val.Correlativa1 == 0 && val.Correlativa2 == 0 && val.Correlativa3 == 0 && val.Correlativa4 == 0)
                         {
                             Console.WriteLine($"Codigo de materia: " + val.CodigoMateria + $" | Nombre de materia: " + val.NombreMateria);
@@ -157,7 +154,6 @@ namespace TP4
                     Console.WriteLine($"Materias disponibles para inscripcion:");
                     foreach (var val in materiasDisponiblesActEcon)
                     {
-                        //Si no tiene correlativas, la agrego como disponible
                         if (val.Correlativa1 == 0 && val.Correlativa2 == 0 && val.Correlativa3 == 0 && val.Correlativa4 == 0)
                         {
                             Console.WriteLine($"Codigo de materia: " + val.CodigoMateria + $" | Nombre de materia: " + val.NombreMateria);
@@ -177,7 +173,6 @@ namespace TP4
                     Console.WriteLine($"Materias disponibles para inscripcion:");
                     foreach (var val in materiasDisponiblesAdmin)
                     {
-                        //Si no tiene correlativas, la agrego como disponible
                         if (val.Correlativa1 == 0 && val.Correlativa2 == 0 && val.Correlativa3 == 0 && val.Correlativa4 == 0)
                         {
                             Console.WriteLine($"Codigo de materia: " + val.CodigoMateria + $" | Nombre de materia: " + val.NombreMateria);
@@ -195,17 +190,30 @@ namespace TP4
             }
         }
 
-        public static int contarMateriasDisponibles(int numRegistro)
+        public static int contarMateriasAprobadas(int numRegistro)
         {
-            int intMateriasDisponibles = 0;
-            foreach (var val in materiasDisponibles)
+            int intMateriasAprob = 0;
+            foreach (var val in materiasAprobadas)
             {
                 if(numRegistro == val.NRegistro)
                 {
-                    intMateriasDisponibles++;
+                    intMateriasAprob++;
                 }
             }
-            return intMateriasDisponibles;
+            return intMateriasAprob;
+        }
+
+        public static int contarMateriasDisp(int numRegistro)
+        {
+            int intMateriasDispon = 0;
+            foreach (var val in materiasDisponibles)
+            {
+                if (numRegistro == val.NRegistro)
+                {
+                    intMateriasDispon++;
+                }
+            }
+            return intMateriasDispon;
         }
 
 

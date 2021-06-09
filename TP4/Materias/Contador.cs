@@ -10,7 +10,7 @@ namespace TP4
     public class Contador
     {
         public static List<MateriasBase> contador = new List<MateriasBase>();
-
+        public static int CantidadMateriasCont = 27;
         const string nombreArchivo = "Contador.txt";
 
         static Contador()

@@ -13,6 +13,9 @@ namespace TP4
         public int NRegistro { get; set; }
         public int CodigoMateria { get; set; }
         public string NombreMateria { get; set; }
+        public int CantidadInscriptos { get; set; }
+
+
 
 
         public InscripcionesPorAlumno() { }
@@ -31,22 +34,18 @@ namespace TP4
         public static List<InscripcionesPorAlumno> inscripcionesPorAlumno = new List<InscripcionesPorAlumno>();
         const string nombreArchivo = "InscripcionesPorAlumnos.txt";
 
-        public static void EscribirAprobadasEnTXT()
+        public static void EscribirInscripcionEnTXT(int numRegistro, int codMateria, string nomMateria)
         {
             if (File.Exists(nombreArchivo))
             {
-                using (TextWriter tw = new StreamWriter(nombreArchivo))
+                using (StreamWriter sw = File.AppendText(nombreArchivo))
                 {
-                    foreach (var materiaAprobada in inscripcionesPorAlumno)
-                    {
-                        tw.WriteLine("Numero de registro:" + materiaAprobada.NRegistro + " | Codigo de materia:" + materiaAprobada.CodigoMateria + " | Nombre de materia:" + materiaAprobada.NombreMateria);
-                    }
-
+                        sw.WriteLine("Numero de registro:" + numRegistro + " | Codigo de materia:" + codMateria + " | Nombre de materia:" + nomMateria);
                 }
             }
             else
             {
-                Console.WriteLine("No se ha encontrado el archivo TXT");
+                Console.WriteLine("No se ha encontrado el archivo TXT. El archivo 'InscripcionesPorAlumnos.txt' debe estar en la carpeta Debug");
             }
         }
 
@@ -57,8 +56,10 @@ namespace TP4
             {
                 NRegistro = numRegistro,
                 CodigoMateria = codMateria,
-                NombreMateria = nomMateria,
+                NombreMateria = nomMateria, 
             });
+
+            InscripcionesPorAlumno.EscribirInscripcionEnTXT(numRegistro, codMateria, nomMateria);
         }
 
         public static void MostrarInscripciones(int CodigoPersona)
