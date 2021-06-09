@@ -526,6 +526,7 @@ namespace TP4
                     {
                         Console.WriteLine("¡No se puede inscribir a más materias, accedera a sus inscripciones hasta el momento!\n");
                         InscripcionesPorAlumno.MostrarInscripciones(CodigoPersona);
+
                     }
                     break;
                 case "2":
@@ -550,8 +551,9 @@ namespace TP4
                     }
                     else if (CantidadMax == 0)
                     {
-                        Console.WriteLine("¡Ha finalizado la inscripción, le haremos llegar la confirmación!\n");
+                        Console.WriteLine("¡No se puede inscribir a más materias, accedera a sus inscripciones hasta el momento!\n");
                         InscripcionesPorAlumno.MostrarInscripciones(CodigoPersona);
+
                     }
                     break;
                 case "3":
@@ -576,8 +578,9 @@ namespace TP4
                     }
                     else if (CantidadMax == 0)
                     {
-                        Console.WriteLine("¡Ha finalizado la inscripción, le haremos llegar la confirmación!\n");
+                        Console.WriteLine("¡No se puede inscribir a más materias, accedera a sus inscripciones hasta el momento!\n");
                         InscripcionesPorAlumno.MostrarInscripciones(CodigoPersona);
+
                     }
                     break;
                 case "4":
@@ -602,8 +605,9 @@ namespace TP4
                     }
                     else if (CantidadMax == 0)
                     {
-                        Console.WriteLine("¡Ha finalizado la inscripción, le haremos llegar la confirmación!\n");
+                        Console.WriteLine("¡No se puede inscribir a más materias, accedera a sus inscripciones hasta el momento!\n");
                         InscripcionesPorAlumno.MostrarInscripciones(CodigoPersona);
+
                     }
                     break;
                 case "5":
@@ -628,8 +632,9 @@ namespace TP4
                     }
                     else if (CantidadMax == 0)
                     {
-                        Console.WriteLine("¡Ha finalizado la inscripción, le haremos llegar la confirmación!\n");
+                        Console.WriteLine("¡No se puede inscribir a más materias, accedera a sus inscripciones hasta el momento!\n");
                         InscripcionesPorAlumno.MostrarInscripciones(CodigoPersona);
+
                     }
                     break;
                 case "6":
@@ -654,11 +659,14 @@ namespace TP4
                     }
                     else if (CantidadMax == 0)
                     {
-                        Console.WriteLine("¡Ha finalizado la inscripción, le haremos llegar la confirmación!\n");
+                        Console.WriteLine("¡No se puede inscribir a más materias, accedera a sus inscripciones hasta el momento!\n");
                         InscripcionesPorAlumno.MostrarInscripciones(CodigoPersona);
+
                     }
                     break;
-            }    
+            }
+
+            
         }
 
         private static void otraInscripcion(int CodigoPersona, string eleccionCarrera, int materiasDisponiblesAlumno, int CantidadMax, int rankingAlumno)

@@ -16,9 +16,6 @@ namespace TP4
         public string NombreMateria { get; set; }
         public int CantidadInscriptos { get; set; }
 
-
-
-
         public InscripcionesPorAlumno() { }
 
         public InscripcionesPorAlumno(string linea)
