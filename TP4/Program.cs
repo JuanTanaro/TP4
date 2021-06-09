@@ -658,8 +658,6 @@ namespace TP4
                         InscripcionesPorAlumno.MostrarInscripciones(CodigoPersona);
                     }
                     break;
-
-
             }    
         }
 
