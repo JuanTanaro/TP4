@@ -75,19 +75,19 @@ namespace TP4
             return null;
         }
 
-        //public static MateriasBase SeleccionarAsignacion(int materia)
-        //{
-        //    var modelo = MateriasBase.CrearModeloBusquedaAsignacion(materia);
-        //    foreach (var persona in contador)
-        //    {
-        //        if (persona.CoincideCon(modelo))
-        //        {
-        //            return persona;
-        //        }
-        //    }
+        public static MateriasBase SeleccionarAsignacion(int CantidadMax)
+        {
+            var modelo = MateriasBase.CrearModeloBusquedaAsignacion(CantidadMax);
+            foreach (var persona in contador)
+            {
+                if (persona.CoincideCon(modelo))
+                {
+                    return persona;
+                }
+            }
 
-        //    Console.WriteLine("No se ha encontrado una materia que coincida");
-        //    return null;
-        //}
+            Console.WriteLine("No se ha encontrado una materia que coincida");
+            return null;
+        }
     }
 }
