@@ -23,6 +23,7 @@ namespace TP4
                 if (Console.ReadLine() == "1")
                 {
                     Asignacion.Asignacion.LeerInscripciones();
+
                     Asignacion.Asignacion.SumatoriaCantidadInscriptos();
 
                     foreach (var val in Asignacion.Asignacion.inscriptosPorMateria)
@@ -352,6 +353,7 @@ namespace TP4
 
             int CantidadMax;
 
+            //LOGICA ULTIMAS 4
             switch (eleccionCarrera)
             {
                 case "1":

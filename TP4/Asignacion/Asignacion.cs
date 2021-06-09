@@ -36,14 +36,18 @@ namespace TP4.Asignacion
             }
         }
 
-
-        //VALIDACION 1: Cantidad de inscriptos al curso
         public static void SumatoriaCantidadInscriptos()
         {
-            int contadorMateria = 0;
             foreach (var val in Economia.economia)
             {
-                contadorMateria = Asignacion.inscripcionesAsignacion.Where(x => x.Equals(val.CodigoMateria)).Count();
+                int contadorMateria = 0;
+                foreach (var val2 in inscripcionesAsignacion)
+                {
+                    if(val.CodigoMateria == val2.CodigoMateria)
+                    {
+                        contadorMateria++;
+                    }
+                }
                 inscriptosPorMateria.Add(new InscripcionesPorAlumno()
                 {
                     CodigoMateria = val.CodigoMateria,
