@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.VisualBasic;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -9,15 +10,26 @@ namespace TP4
 {
     public class Economia
     {
+        
+
         public static List<MateriasBase> economia = new List<MateriasBase>();
         public static int CantidadMateriasEcon = 27;
-        const string nombreArchivo = "Economia.txt";
 
         static Economia()
         {
-            if (File.Exists(nombreArchivo))
+            string fileName = "TP4/TXT/Economia.txt";
+            string basePath = Environment.CurrentDirectory;
+            string PathCortada = Strings.Right(basePath, 13);
+            basePath = basePath.Replace(PathCortada, "");
+
+
+
+            string Economia = basePath + fileName;
+
+
+            if (File.Exists(Economia))
             {
-                using (var reader = new StreamReader(nombreArchivo))
+                using (var reader = new StreamReader(Economia))
                 {
                     while (!reader.EndOfStream)
                     {
