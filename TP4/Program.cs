@@ -79,6 +79,7 @@ namespace TP4
                     Console.ReadKey();
 
                     Asignacion.CorteDeRanking();
+                    Asignacion.EscribirAsignacionEnTXT();
                     break;
                 case "2":
                     Inicio(respuesta);

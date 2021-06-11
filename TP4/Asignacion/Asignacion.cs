@@ -12,6 +12,7 @@ namespace TP4
         public static List<InscripcionesPorAlumno> inscripcionesAsignacion = new List<InscripcionesPorAlumno>();
         public static List<InscripcionesPorAlumno> inscriptosPorMateria = new List<InscripcionesPorAlumno>();
         public static List<InscripcionesPorAlumno> cortePorRanking = new List<InscripcionesPorAlumno>();
+        public static List<InscripcionesPorAlumno> cortePorRegistro = new List<InscripcionesPorAlumno>();
         public static List<InscripcionesPorAlumno> asignaciones = new List<InscripcionesPorAlumno>();
         public static void LeerInscripciones()
         {
@@ -65,64 +66,61 @@ namespace TP4
                 {
                     if (val.CodigoMateria == val2.CodigoMateria)
                     {
-                        if(val.CapacidadMateria < val2.CantidadInscriptos)
+                        if (val2.CantidadInscriptos != 0)
                         {
-                            int capacidadRanking = (int)(val.CapacidadMateria * 0.70);
-                            int capacidadRegistro = (int)(val.CapacidadMateria * 0.30);
-                            cortePorRanking = inscripcionesAsignacion.OrderByDescending(o => o.RankingAlumno).ToList();
-                            foreach (var val3 in cortePorRanking.Take(capacidadRanking))
+                            if (val.CapacidadMateria < val2.CantidadInscriptos)
                             {
-                                asignaciones.Add(new InscripcionesPorAlumno()
+                                asignaciones.Clear();
+                                int capacidadRanking = (int)(val.CapacidadMateria * 0.70);
+                                int capacidadRegistro = (int)(val.CapacidadMateria * 0.30);
+                                cortePorRanking = inscripcionesAsignacion.OrderByDescending(o => o.RankingAlumno).ToList();
+                                cortePorRegistro = inscripcionesAsignacion.OrderByDescending(o => o.RankingAlumno).ToList();
+
+                                for (int i = 0; i < capacidadRanking; i++)
                                 {
-                                    NRegistro = val3.NRegistro,
-                                    CodigoMateria = val3.CodigoMateria,
-                                    NombreMateria = val3.NombreMateria,
-                                });
-                                cortePorRanking.Remove(val3);
-                                Asignacion.EscribirAsignacionEnTXT(val3.NRegistro, val3.CodigoMateria, val3.NombreMateria);
+                                    asignaciones.Add(cortePorRanking[i]);
+                                }
+                                cortePorRegistro = Asignacion.inscripcionesAsignacion.Where(inscri => asignaciones.All(asig => asig.NRegistro != inscri.NRegistro)).ToList();
+                                cortePorRegistro = cortePorRegistro.OrderBy(o => o.NRegistro).ToList();
+                                for (int i = 0; i < capacidadRegistro; i++)
+                                {
+                                    asignaciones.Add(cortePorRegistro[i]);
+                                }
                             }
 
-                            cortePorRanking = inscripcionesAsignacion.OrderBy(o => o.NRegistro).ToList();
-                            foreach(var val3 in cortePorRanking.Take(capacidadRegistro))
+                            else
                             {
-                                asignaciones.Add(new InscripcionesPorAlumno()
+                                foreach (var val4 in inscripcionesAsignacion)
                                 {
-                                    NRegistro = val3.NRegistro,
-                                    CodigoMateria = val3.CodigoMateria,
-                                    NombreMateria = val3.NombreMateria,
-                                });
-                                Asignacion.EscribirAsignacionEnTXT(val3.NRegistro, val3.CodigoMateria, val3.NombreMateria);
+                                    asignaciones.Add(new InscripcionesPorAlumno()
+                                    {
+                                        NRegistro = val4.NRegistro,
+                                        CodigoMateria = val4.CodigoMateria,
+                                        NombreMateria = val4.NombreMateria,
+                                    });
+                                }
+
                             }
                         }
-
-                        else
-                        {
-                            foreach(var val4 in inscripcionesAsignacion)
-                            {
-                                asignaciones.Add(new InscripcionesPorAlumno()
-                                {
-                                    NRegistro = val4.NRegistro,
-                                    CodigoMateria = val4.CodigoMateria,
-                                    NombreMateria = val4.NombreMateria,
-                                });
-                                Asignacion.EscribirAsignacionEnTXT(val4.NRegistro, val4.CodigoMateria, val4.NombreMateria);
-                            }
-
-                        }
+                        
                     }
                 }
 
             }
         }
 
-        public static void EscribirAsignacionEnTXT(int numRegistro, int codMateria, string nomMateria)
+        public static void EscribirAsignacionEnTXT()
         {
             string nombreArchivoAsignaciones = "AsignacionesPorAlumnos.txt";
             if (File.Exists(nombreArchivoAsignaciones))
             {
                 using (StreamWriter sw = File.AppendText(nombreArchivoAsignaciones))
                 {
-                    sw.WriteLine("Numero de registro:" + numRegistro + " | Codigo de materia:" + codMateria + " | Nombre de materia:" + nomMateria);
+                    foreach( var val in asignaciones)
+                    {
+                        sw.WriteLine("Numero de registro:" + val.NRegistro + " | Codigo de materia:" + val.CodigoMateria + " | Nombre de materia:" + val.NombreMateria);
+                    }
+
                 }
             }
             else
