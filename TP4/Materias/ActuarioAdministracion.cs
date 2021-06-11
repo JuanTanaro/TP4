@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.VisualBasic;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -11,13 +12,20 @@ namespace TP4
     {
         public static List<MateriasBase> actuarioAdministracion = new List<MateriasBase>();
         public static int CantidadMateriasActAdm = 28;
-        const string nombreArchivo = "ActuarioAdministracion.txt";
 
         static ActuarioAdministracion()
         {
-            if (File.Exists(nombreArchivo))
+            string fileName = "TP4/TXT/ActuarioAdministracion.txt";
+            string basePath = Environment.CurrentDirectory;
+            string PathCortada = Strings.Right(basePath, 13);
+            basePath = basePath.Replace(PathCortada, "");
+
+            string ActuarioAdministracion = basePath + fileName;
+
+
+            if (File.Exists(ActuarioAdministracion))
             {
-                using (var reader = new StreamReader(nombreArchivo))
+                using (var reader = new StreamReader(ActuarioAdministracion))
                 {
                     while (!reader.EndOfStream)
                     {

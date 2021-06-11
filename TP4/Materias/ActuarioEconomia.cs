@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.VisualBasic;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -15,9 +16,16 @@ namespace TP4
 
         static ActuarioEconomia()
         {
-            if (File.Exists(nombreArchivo))
+            string fileName = "TP4/TXT/ActuarioEconomia.txt";
+            string basePath = Environment.CurrentDirectory;
+            string PathCortada = Strings.Right(basePath, 13);
+            basePath = basePath.Replace(PathCortada, "");
+
+            string ActuarioEconomia = basePath + fileName;
+
+            if (File.Exists(ActuarioEconomia))
             {
-                using (var reader = new StreamReader(nombreArchivo))
+                using (var reader = new StreamReader(ActuarioEconomia))
                 {
                     while (!reader.EndOfStream)
                     {
