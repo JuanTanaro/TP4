@@ -12,10 +12,10 @@ namespace TP4.Reclamos
     {
 
         public static List<Reclamos> reclamosAlumnos = new List<Reclamos>();
-        public static int numeroReclamo = 1;
+        public static int variableNReclamo = 0;
 
-        public int NRegistro { get; set; }
         public int NReclamo { get; set; }
+        public int NRegistro { get; set; }
         public string Reclamo { get; set; }
         public string Estado { get; set; }
 
@@ -25,8 +25,8 @@ namespace TP4.Reclamos
         public Reclamos(string linea)
         {
             var datos = linea.Split('-');
-            NRegistro = int.Parse(datos[0]);
-            NReclamo = int.Parse(datos[1]); 
+            NReclamo = int.Parse(datos[0]);
+            NRegistro = int.Parse(datos[1]);
             Reclamo = (datos[1]);
             Estado = (datos[2]);
         }
@@ -49,8 +49,8 @@ namespace TP4.Reclamos
                         var reclamo = new Reclamos(linea);
                         reclamosAlumnos.Add(new Reclamos()
                         {
-                            NRegistro = reclamo.NRegistro,
                             NReclamo = reclamo.NReclamo,
+                            NRegistro = reclamo.NRegistro,
                             Reclamo = reclamo.Reclamo,
                             Estado = reclamo.Estado,
                         });
@@ -60,14 +60,21 @@ namespace TP4.Reclamos
         }
         public static void AgregarReclamo(int NRegistro, string reclamo)
         {
-
+            /*variableNReclamo = 0;
+            foreach (var item in reclamosAlumnos)
+            {
+                variableNReclamo++;
+            }
+            */
             reclamosAlumnos.Add(new Reclamos()
             {
                 NRegistro = NRegistro,
-                NReclamo = numeroReclamo,
+                NReclamo = variableNReclamo+1,
                 Reclamo = reclamo,
                 Estado = "PENDIENTE",
-            }); 
+            });
+            Reclamos.EscribirReclamosEnTXT();
+           
 
         }
 
@@ -75,7 +82,7 @@ namespace TP4.Reclamos
         {
             foreach (var val in reclamosAlumnos)
             {
-                Console.WriteLine("Numero de registro:" + val.NRegistro + " | Descripcion reclamo:" + val.Reclamo + " | Estado:" + val.Estado);
+                Console.WriteLine("Numero de registro: " + val.NRegistro + " | Descripcion reclamo: " + val.Reclamo + " | Estado: " + val.Estado);
             }
             Console.ReadKey();
         }
@@ -85,15 +92,21 @@ namespace TP4.Reclamos
             {
                 if(val.NRegistro == NRegistro)
                 {
-                    Console.WriteLine("Numero de registro:" + val.NRegistro + " | Descripcion reclamo:" + val.Reclamo + " | Estado:" + val.Estado);
+                    Console.WriteLine("Numero de reclamo: " + val.NReclamo + "| Numero de registro: " + val.NRegistro + " | Descripcion reclamo: " + val.Reclamo + " | Estado: " + val.Estado);
                 }
             }
             Console.ReadKey();
         }
 
-        public static void ActualizarEstadoReclamo()
+        public static void ActualizarEstadoReclamo(int NReclamo)
         {
-
+            foreach (var item in reclamosAlumnos)
+            {
+                if(item.NReclamo == NReclamo)
+                {
+                    item.Estado = "SOLUCIONADO";
+                }
+            }
         }
 
         public static void EscribirReclamosEnTXT()
@@ -110,7 +123,7 @@ namespace TP4.Reclamos
                 {
                     foreach (var val in reclamosAlumnos)
                     {
-                        sw.WriteLine("Numero de registro:" + val.NRegistro + " | Descripcion reclamo:" + val.Reclamo + " | Estado:" + val.Estado);
+                        sw.WriteLine("Numero de reclamo" + val.NReclamo + "-Numero de registro:" + val.NRegistro + "-Descripcion reclamo:" + val.Reclamo + "-Estado:" + val.Estado);
                     }
 
                 }

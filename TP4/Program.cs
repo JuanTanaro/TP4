@@ -118,7 +118,8 @@ namespace TP4
                     MenuAdmin();
                     break;
                 case "2":
-                    //Reclamos();
+                    Reclamos.Reclamos.VerReclamosAdministrador();
+                    //ACTUALIZAR ESTADO
                     break;
                 default:
                     Console.WriteLine("No ha ingresado una opción del menú\n");
@@ -138,8 +139,9 @@ namespace TP4
                 Console.WriteLine("-------------");
                 Console.WriteLine("¿Que desea hacer?");
                 Console.WriteLine("1 - Inscribirse a materias");
-                Console.WriteLine("2 - Ver inscripciones");
-                Console.WriteLine("3 - Realizar reclamo");
+                Console.WriteLine("2 - Ver asignaciones");
+                Console.WriteLine("3 - Realizar un reclamo");
+                Console.WriteLine("4 - Ver el estado de mis reclamos");
                 Console.WriteLine("0 - Salir del sitio");
 
                 var eleccion = Console.ReadLine();
@@ -154,7 +156,16 @@ namespace TP4
                         MenuEstudiante(CodigoPersona, rankingAlumno);
                         break;
                     case "3":
-                        //Reclamo();
+                        Console.WriteLine("Cual es el reclamo que desea realizar?");
+                        string reclamo = Console.ReadLine();
+                        Reclamos.Reclamos.AgregarReclamo(CodigoPersona, reclamo);
+                        Console.WriteLine("Reclamo registrado. Puede ver el estado del mismo desde el menu principal");
+                        Console.ReadKey();
+                        break;
+
+                    case "4":
+                        Console.WriteLine("Tiene los siguientes reclamos a su nombre:");
+                        Reclamos.Reclamos.VerReclamosAlumno(CodigoPersona);
                         break;
                     case "0":
                         salir = true;
