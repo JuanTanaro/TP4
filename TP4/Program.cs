@@ -13,9 +13,9 @@ namespace TP4
             do
             {
                 Console.WriteLine();
+                Console.WriteLine("-------------");
                 Console.WriteLine("MENU PRINCIPAL");
                 Console.WriteLine("-------------");
-
                 Console.WriteLine("¿Que tipo de usuario es usted?");
                 Console.WriteLine("1 - Administrador");
                 Console.WriteLine("2 - Estudiante");
@@ -47,24 +47,40 @@ namespace TP4
         {
             if (respuesta == "1")
             {
+                var persona = Administrador.Seleccionar();
+                if (persona == null)
+                {
+                    Inicio(respuesta);
+                }
+                persona?.Mostrar();
+
                 MenuAdmin();
             }
             else if (respuesta == "2")
             {
-                MenuEstudiante();
+                var persona = Alumno.Seleccionar();
+                if (persona == null)
+                {
+                    Inicio(respuesta);
+                }
+                persona?.Mostrar();
+
+                int CodigoPersona = persona.NRegistro;
+                double rankingAlumno = (int)(persona.Ranking);
+
+                MenuEstudiante(CodigoPersona, rankingAlumno);
             }
         }
 
         private static void MenuAdmin()
         {
             Console.WriteLine();
+            Console.WriteLine("-------------");
             Console.WriteLine("MENU ADMINISTRADOR");
             Console.WriteLine("-------------");
-            Console.WriteLine("¿Desea asignar las materias a los estudiantes?");
-            Console.WriteLine("1 - SI");
-            Console.WriteLine("2 - NO");
+            Console.WriteLine("1 - Asignar materias a los alumnos");
+            Console.WriteLine("2 - Ver reclamos");
             var respuesta = Console.ReadLine();
-
 
             switch (respuesta)
             {
@@ -81,9 +97,11 @@ namespace TP4
 
                     Asignacion.CorteDeRanking();
                     Asignacion.EscribirAsignacionEnTXT();
+
+                    MenuAdmin();
                     break;
                 case "2":
-                    Inicio(respuesta);
+                    //Reclamos();
                     break;
                 default:
                     Console.WriteLine("No ha ingresado una opción del menú\n");
@@ -92,28 +110,54 @@ namespace TP4
 
         }
 
-        private static void MenuEstudiante()
+        private static void MenuEstudiante(int CodigoPersona, double rankingAlumno)
         {
             bool salir = false;
             do
             {
                 Console.WriteLine();
+                Console.WriteLine("-------------");
                 Console.WriteLine("MENU ESTUDIANTE");
                 Console.WriteLine("-------------");
+                Console.WriteLine("¿Que desea hacer?");
+                Console.WriteLine("1 - Inscribirse a materias");
+                Console.WriteLine("2 - Ver inscripciones");
+                Console.WriteLine("3 - Realizar reclamo");
+                Console.WriteLine("0 - Salir del sitio");
 
-                var persona = Alumno.Seleccionar();
-                if (persona == null)
+                var eleccion = Console.ReadLine();
+
+                switch (eleccion)
                 {
-                    MenuEstudiante();
+                    case "1":
+                        SeleccionarCarrera(CodigoPersona, rankingAlumno);
+                        break;
+                    case "2":
+                        Asignacion.MostrarAsignaciones(CodigoPersona);
+                        MenuEstudiante(CodigoPersona, rankingAlumno);
+                        break;
+                    case "3":
+                        //Reclamo();
+                        break;
+                    case "0":
+                        salir = true;
+                        break;
+                    default:
+                        Console.WriteLine("No ha ingresado una opción del menú\n");
+                        MenuEstudiante(CodigoPersona, rankingAlumno);
+                        break;
                 }
-                persona?.Mostrar();
 
+            } while (!salir);
+        }
 
-                int CodigoPersona = persona.NRegistro;
-                int rankingAlumno = (int)(persona.Ranking);
-
+        private static void SeleccionarCarrera(int CodigoPersona, double rankingAlumno)
+        {
+            bool salir = false;
+            do
+            {
                 // Seleccionamos la carrera
-                Console.WriteLine("SELECCIONAR CARRERA");
+                Console.WriteLine("\nSELECCIONAR CARRERA");
                 Console.WriteLine("Para luego anotarse a las materias");
                 Console.WriteLine("1 - Economia");
                 Console.WriteLine("2 - Sistemas");
@@ -151,14 +195,14 @@ namespace TP4
                         break;
                     default:
                         Console.WriteLine("No ha ingresado una opción del menú\n");
-                        MenuEstudiante();
+                        SeleccionarCarrera(CodigoPersona, rankingAlumno);
                         break;
                 }
 
-            } while (!salir);
+            } while (!salir) ;
         }
 
-        private static void MostrarMaterias(string eleccionCarrera, int CodigoPersona, int rankingAlumno)
+        private static void MostrarMaterias(string eleccionCarrera, int CodigoPersona, double rankingAlumno)
         {
             if (eleccionCarrera == "1")
             {
@@ -197,7 +241,7 @@ namespace TP4
             }
         }
 
-        private static void Aprobada(string eleccionCarrera, int CodigoPersona, int rankingAlumno)
+        private static void Aprobada(string eleccionCarrera, int CodigoPersona, double rankingAlumno)
         {
             Console.WriteLine("¿Tiene una materia aprobada?");
             Console.WriteLine("1 - SI");
@@ -221,7 +265,7 @@ namespace TP4
             }
         }
 
-        private static void SeleccionarAprobada(string eleccionCarrera, int CodigoPersona, int rankingAlumno)
+        private static void SeleccionarAprobada(string eleccionCarrera, int CodigoPersona, double rankingAlumno)
         {
             Console.WriteLine("\nSeleccione las materias que ya realizo escribiendo cada uno de los codigos de materia y luego ENTER");
 
@@ -377,7 +421,7 @@ namespace TP4
             }
         }
 
-        private static void otraAprobada(string eleccionCarrera, int CodigoPersona, int rankingAlumno)
+        private static void otraAprobada(string eleccionCarrera, int CodigoPersona, double rankingAlumno)
         {
             Console.WriteLine("¿Tiene otra materia aprobada?");
             Console.WriteLine("1 - SI");
@@ -401,7 +445,7 @@ namespace TP4
             }
         }
 
-        private static void AjustesInscripcionMaterias(int CodigoPersona, string eleccionCarrera, int rankingAlumno)
+        private static void AjustesInscripcionMaterias(int CodigoPersona, string eleccionCarrera, double rankingAlumno)
         {
             Console.WriteLine(" ");
             Console.WriteLine("-------------");
@@ -443,7 +487,7 @@ namespace TP4
             
         }
 
-        private static void Inscripciones(int CodigoPersona, string eleccionCarrera, int CantidadMax, int rankingAlumno)
+        private static void Inscripciones(int CodigoPersona, string eleccionCarrera, int CantidadMax, double rankingAlumno)
         {
             switch (eleccionCarrera)
             {
@@ -615,7 +659,7 @@ namespace TP4
             
         }
 
-        private static void otraInscripcion(int CodigoPersona, string eleccionCarrera, int CantidadMax, int rankingAlumno)
+        private static void otraInscripcion(int CodigoPersona, string eleccionCarrera, int CantidadMax, double rankingAlumno)
         {
             Console.WriteLine("\n¿Quiere inscribirse a otra materia?");
             Console.WriteLine("1 - SI");

@@ -216,7 +216,7 @@ namespace TP4
             }
         }
 
-        public static void VerAsignacion(int Nregistro)
+        public static void MostrarAsignaciones(int Nregistro)
         {
             Asignacion.LeerAsignaciones();
             Console.WriteLine("Tenes las siguientes materias asignadas:");

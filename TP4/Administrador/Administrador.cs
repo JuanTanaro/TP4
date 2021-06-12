@@ -8,48 +8,43 @@ using System.Threading.Tasks;
 
 namespace TP4
 {
-    class Alumno
+    class Administrador
     {
-        public int NRegistro { get; set; }
-        public string NombreAlumno { get; set; }
-        public string ApellidoAlumno { get; set; }
-        public double Ranking { get; set; }
+        public int ID { get; set; }
+        public string NombreAdmin { get; set; }
 
-        public Alumno() { }
+        public Administrador() { }
 
-        public Alumno(string linea)
+        public Administrador(string linea)
         {
             var datos = linea.Split('-');
-            NRegistro = int.Parse(datos[0]);
-            NombreAlumno = (datos[1]);
-            ApellidoAlumno = (datos[2]);
-            Ranking = double.Parse(datos[3]);
+            ID = int.Parse(datos[0]);
+            NombreAdmin = (datos[1]);
         }
 
-        public static List<Alumno> alumnos = new List<Alumno>();
+        public static List<Administrador> administrador = new List<Administrador>();
 
-        static Alumno()
+        static Administrador()
         {
-            string fileName = "TP4/TXT/Alumno.txt";
+            string fileName = "TP4/TXT/Administrador.txt";
             string basePath = Environment.CurrentDirectory;
             string PathCortada = Strings.Right(basePath, 13);
             basePath = basePath.Replace(PathCortada, "");
-            string Alumno = basePath + fileName;
 
-            if (File.Exists(Alumno))
+            string Admin = basePath + fileName;
+
+            if (File.Exists(Admin))
             {
-                using (var reader = new StreamReader(Alumno))
+                using (var reader = new StreamReader(Admin))
                 {
                     while (!reader.EndOfStream)
                     {
                         var linea = reader.ReadLine();
-                        var alumno = new Alumno(linea);
-                        alumnos.Add(new Alumno()
+                        var admin = new Administrador(linea);
+                        administrador.Add(new Administrador()
                         {
-                            NRegistro = alumno.NRegistro,
-                            NombreAlumno = alumno.NombreAlumno,
-                            ApellidoAlumno = alumno.ApellidoAlumno,
-                            Ranking = alumno.Ranking,
+                            ID = admin.ID,
+                            NombreAdmin = admin.NombreAdmin,
                         });
                     }
                 }
@@ -59,14 +54,14 @@ namespace TP4
         public void Mostrar()
         {
             Console.WriteLine();
-            Console.WriteLine("Hola! " + $"{NombreAlumno.Trim()}{ApellidoAlumno}");
+            Console.WriteLine("Hola! " + $"{NombreAdmin.Trim()}");
             Console.WriteLine();
         }
 
-        public static Alumno Seleccionar()
+        public static Administrador Seleccionar()
         {
             var modelo = CrearModeloBusqueda();
-            foreach (var persona in alumnos)
+            foreach (var persona in administrador)
             {
                 if (persona.CoincideCon(modelo))
                 {
@@ -74,20 +69,20 @@ namespace TP4
                 }
             }
 
-            Console.WriteLine("No se ha encontrado un alumno que coincida");
+            Console.WriteLine("No se ha encontrado un administrador que coincida");
             return null;
         }
 
-        public static Alumno CrearModeloBusqueda()
+        public static Administrador CrearModeloBusqueda()
         {
-            var modelo = new Alumno();
-            modelo.NRegistro = IngresarRegistro(obligatorio: false);
+            var modelo = new Administrador();
+            modelo.ID = IngresarID(obligatorio: false);
             return modelo;
         }
 
-        public bool CoincideCon(Alumno modelo)
+        public bool CoincideCon(Administrador modelo)
         {
-            if (modelo.NRegistro != 0 && modelo.NRegistro != NRegistro)
+            if (modelo.ID != 0 && modelo.ID != ID)
             {
                 return false;
             }
@@ -97,9 +92,9 @@ namespace TP4
 
         //Validaciones e ingresos
 
-        private static int IngresarRegistro(bool obligatorio = true)
+        private static int IngresarID(bool obligatorio = true)
         {
-            var titulo = "¿Cual es su numero de registro?";
+            var titulo = "¿Cual es su ID?";
 
             do
             {
@@ -116,7 +111,7 @@ namespace TP4
 
                 if (!int.TryParse(ingreso, out var numeroRegistro))
                 {
-                    Console.WriteLine("No ha ingresado un numero de registro válido");
+                    Console.WriteLine("No ha ingresado una ID válida");
                     continue;
                 }
 
