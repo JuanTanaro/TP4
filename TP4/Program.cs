@@ -74,8 +74,16 @@ namespace TP4
                 }
                 persona?.Mostrar();
 
+
                 int CodigoPersona = persona.NRegistro;
                 double rankingAlumno = (int)(persona.Ranking);
+
+                var Verificar = Alumno.VerificarPassword(CodigoPersona);
+                if (Verificar == null)
+                {
+                    Alumno.VerificarPassword(CodigoPersona);
+                }
+
 
                 MenuEstudiante(CodigoPersona, rankingAlumno);
             }

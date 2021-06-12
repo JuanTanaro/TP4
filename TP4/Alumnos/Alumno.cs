@@ -14,6 +14,7 @@ namespace TP4
         public string NombreAlumno { get; set; }
         public string ApellidoAlumno { get; set; }
         public double Ranking { get; set; }
+        public int Password { get; set; }
 
         public Alumno() { }
 
@@ -24,6 +25,7 @@ namespace TP4
             NombreAlumno = (datos[1]);
             ApellidoAlumno = (datos[2]);
             Ranking = double.Parse(datos[3]);
+            Password = int.Parse(datos[4]);
         }
 
         public static List<Alumno> alumnos = new List<Alumno>();
@@ -50,12 +52,14 @@ namespace TP4
                             NombreAlumno = alumno.NombreAlumno,
                             ApellidoAlumno = alumno.ApellidoAlumno,
                             Ranking = alumno.Ranking,
+                            Password = alumno.Password,
                         });
                     }
                 }
             }
         }
 
+        
         public void Mostrar()
         {
             Console.WriteLine();
@@ -63,6 +67,7 @@ namespace TP4
             Console.WriteLine();
         }
 
+        //Registro
         public static Alumno Seleccionar()
         {
             var modelo = CrearModeloBusqueda();
@@ -88,6 +93,59 @@ namespace TP4
         public bool CoincideCon(Alumno modelo)
         {
             if (modelo.NRegistro != 0 && modelo.NRegistro != NRegistro)
+            {
+                return false;
+            }
+            return true;
+
+        }
+
+
+        //Password
+        public static Alumno VerificarPassword(int Id)
+        {
+            Alumno Verificar;
+
+            foreach (var id in alumnos)
+            {
+                if (Id == id.NRegistro)
+                {
+                    bool Check = false;
+                    do
+                    {
+                        Verificar = Contraseña();
+
+                        if (Verificar.Password == id.Password)
+                        {
+                            Check = true;
+                            return Verificar;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Contraseña incorrecta");
+                            Check = false;
+                        }
+
+                    } while (Check == false);
+
+                }
+            }
+
+            Console.WriteLine("Contraseña incorrecta");
+            return null;
+
+
+        }
+
+        public static Alumno Contraseña()
+        {
+            var modelo = new Alumno();
+            modelo.Password = IngresarPassword(obligatorio: true);
+            return modelo;
+        }
+        public bool CoincideConContraseña(Alumno modelo)
+        {
+            if (modelo.Password != 0 && modelo.Password != Password)
             {
                 return false;
             }
@@ -121,6 +179,30 @@ namespace TP4
                 }
 
                 return numeroRegistro;
+
+            } while (true);
+        }
+
+        private static int IngresarPassword(bool obligatorio = true)
+        {
+            var titulo = "Contraseña: ";
+
+            do
+            {
+                Console.WriteLine(titulo);
+                var ingreso = Console.ReadLine();
+                if (!obligatorio && string.IsNullOrWhiteSpace(ingreso))
+                {
+                    return 0;
+                }
+
+                if (!int.TryParse(ingreso, out var Password))
+                {
+                    Console.WriteLine("No ha ingresado una contraseña válida");
+                    continue;
+                }
+
+                return Password;
 
             } while (true);
         }
