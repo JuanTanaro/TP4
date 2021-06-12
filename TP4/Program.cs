@@ -151,10 +151,12 @@ namespace TP4
                     case "1":
                         SeleccionarCarrera(CodigoPersona, rankingAlumno);
                         break;
+
                     case "2":
                         Asignacion.MostrarAsignaciones(CodigoPersona);
                         MenuEstudiante(CodigoPersona, rankingAlumno);
                         break;
+
                     case "3":
                         Console.WriteLine("Cual es el reclamo que desea realizar?");
                         string reclamo = Console.ReadLine();
@@ -167,9 +169,11 @@ namespace TP4
                         Console.WriteLine("Tiene los siguientes reclamos a su nombre:");
                         Reclamos.Reclamos.VerReclamosAlumno(CodigoPersona);
                         break;
+
                     case "0":
                         salir = true;
                         break;
+
                     default:
                         Console.WriteLine("No ha ingresado una opción del menú\n");
                         MenuEstudiante(CodigoPersona, rankingAlumno);
