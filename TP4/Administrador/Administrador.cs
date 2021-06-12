@@ -12,6 +12,8 @@ namespace TP4
     {
         public int ID { get; set; }
         public string NombreAdmin { get; set; }
+        public int Password { get; set; }
+
 
         public Administrador() { }
 
@@ -20,6 +22,7 @@ namespace TP4
             var datos = linea.Split('-');
             ID = int.Parse(datos[0]);
             NombreAdmin = (datos[1]);
+            Password = int.Parse(datos[2]);
         }
 
         public static List<Administrador> administrador = new List<Administrador>();
@@ -45,6 +48,7 @@ namespace TP4
                         {
                             ID = admin.ID,
                             NombreAdmin = admin.NombreAdmin,
+                            Password = admin.Password,
                         });
                     }
                 }
@@ -58,6 +62,8 @@ namespace TP4
             Console.WriteLine();
         }
 
+
+        //ID
         public static Administrador Seleccionar()
         {
             var modelo = CrearModeloBusqueda();
@@ -79,7 +85,6 @@ namespace TP4
             modelo.ID = IngresarID(obligatorio: false);
             return modelo;
         }
-
         public bool CoincideCon(Administrador modelo)
         {
             if (modelo.ID != 0 && modelo.ID != ID)
@@ -89,6 +94,62 @@ namespace TP4
             return true;
 
         }
+
+
+        //Password
+        public static Administrador VerificarPassword(int Id)
+        {
+            Administrador Verificar;
+
+            foreach (var id in administrador)
+            {
+                if (Id == id.ID)
+                {
+                    bool Check = false;
+                    do
+                    {
+                        Verificar = Contraseña();
+
+                        if (Verificar.Password == id.Password)
+                        {
+                            Check = true;
+                            return Verificar;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Contraseña incorrecta");
+                            Check = false;
+                        }
+
+                    } while (Check == false);
+
+                }
+            }
+
+            Console.WriteLine("Contraseña incorrecta");
+            return null;
+
+
+        }
+
+        public static Administrador Contraseña()
+        {
+            var modelo = new Administrador();
+            modelo.Password = IngresarPassword(obligatorio: true);
+            return modelo;
+        }
+        public bool CoincideConContraseña(Administrador modelo)
+        {
+            if (modelo.Password != 0 && modelo.Password != Password)
+            {
+                return false;
+            }
+            return true;
+
+        }
+
+
+
 
         //Validaciones e ingresos
 
@@ -104,9 +165,11 @@ namespace TP4
                 Console.WriteLine("-------------");
                 Console.WriteLine(titulo);
                 var ingreso = Console.ReadLine();
+
                 if (!obligatorio && string.IsNullOrWhiteSpace(ingreso))
                 {
-                    return 0;
+                    Console.WriteLine("No ha ingresado una ID válida");
+                    continue;
                 }
 
                 if (!int.TryParse(ingreso, out var numeroRegistro))
@@ -116,6 +179,30 @@ namespace TP4
                 }
 
                 return numeroRegistro;
+
+            } while (true);
+        }
+
+        private static int IngresarPassword(bool obligatorio = true)
+        {
+            var titulo = "Contraseña: ";
+
+            do
+            {
+                Console.WriteLine(titulo);
+                var ingreso = Console.ReadLine();
+                if (!obligatorio && string.IsNullOrWhiteSpace(ingreso))
+                {
+                    return 0;
+                }
+
+                if (!int.TryParse(ingreso, out var Password))
+                {
+                    Console.WriteLine("No ha ingresado una contraseña válida");
+                    continue;
+                }
+
+                return Password;
 
             } while (true);
         }

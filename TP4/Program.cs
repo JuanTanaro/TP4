@@ -54,6 +54,15 @@ namespace TP4
                 }
                 persona?.Mostrar();
 
+                int ID = persona.ID;
+
+                var Verificar = Administrador.VerificarPassword(ID);
+                if (Verificar == null)
+                {
+                    Administrador.VerificarPassword(ID);
+                }
+
+
                 MenuAdmin();
             }
             else if (respuesta == "2")
