@@ -10,8 +10,6 @@ namespace TP4
 {
     public class Economia
     {
-        
-
         public static List<MateriasBase> economia = new List<MateriasBase>();
 
         static Economia()
