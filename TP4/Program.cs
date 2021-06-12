@@ -97,6 +97,7 @@ namespace TP4
             Console.WriteLine("-------------");
             Console.WriteLine("1 - Asignar materias a los alumnos");
             Console.WriteLine("2 - Ver reclamos");
+            Console.WriteLine("3 - Actualizar estado de reclamos");
             var respuesta = Console.ReadLine();
 
             switch (respuesta)
@@ -121,6 +122,11 @@ namespace TP4
                     Reclamos.Reclamos.VerReclamosAdministrador();
                     //ACTUALIZAR ESTADO
                     break;
+
+                case "3":
+                    Reclamos.Reclamos.ActualizarEstadoReclamo();
+                    break;
+
                 default:
                     Console.WriteLine("No ha ingresado una opción del menú\n");
                     break;
@@ -160,7 +166,9 @@ namespace TP4
                     case "3":
                         Console.WriteLine("Cual es el reclamo que desea realizar?");
                         string reclamo = Console.ReadLine();
-                        Reclamos.Reclamos.AgregarReclamo(CodigoPersona, reclamo);
+                        string estado = "PENDIENTE";
+                        int numeroReclamo = 0;
+                        Reclamos.Reclamos.AgregarReclamo(numeroReclamo, CodigoPersona, reclamo, estado);
                         Console.WriteLine("Reclamo registrado. Puede ver el estado del mismo desde el menu principal");
                         Console.ReadKey();
                         break;

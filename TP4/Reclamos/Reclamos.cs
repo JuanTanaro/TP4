@@ -27,8 +27,8 @@ namespace TP4.Reclamos
             var datos = linea.Split('-');
             NReclamo = int.Parse(datos[0]);
             NRegistro = int.Parse(datos[1]);
-            Reclamo = (datos[1]);
-            Estado = (datos[2]);
+            Reclamo = (datos[2]);
+            Estado = (datos[3]);
         }
 
         static Reclamos()
@@ -58,22 +58,23 @@ namespace TP4.Reclamos
                 }
             }
         }
-        public static void AgregarReclamo(int NRegistro, string reclamo)
+        public static void AgregarReclamo(int NReclamo, int NRegistro, string reclamo, string estado)
         {
-            /*variableNReclamo = 0;
             foreach (var item in reclamosAlumnos)
             {
-                variableNReclamo++;
+                NReclamo++;
             }
-            */
+
+            int numeroReclamo = NReclamo + 1;
+            
             reclamosAlumnos.Add(new Reclamos()
             {
                 NRegistro = NRegistro,
-                NReclamo = variableNReclamo+1,
+                NReclamo = numeroReclamo,
                 Reclamo = reclamo,
-                Estado = "PENDIENTE",
+                Estado = estado,
             });
-            Reclamos.EscribirReclamosEnTXT();
+            Reclamos.EscribirReclamosEnTXT(numeroReclamo, NRegistro, reclamo, estado);
            
 
         }
@@ -82,7 +83,7 @@ namespace TP4.Reclamos
         {
             foreach (var val in reclamosAlumnos)
             {
-                Console.WriteLine("Numero de registro: " + val.NRegistro + " | Descripcion reclamo: " + val.Reclamo + " | Estado: " + val.Estado);
+                Console.WriteLine("Numero de reclamo: " + val.NReclamo + "| Numero de registro: " + val.NRegistro + " | Descripcion reclamo: " + val.Reclamo + " | Estado: " + val.Estado);
             }
             Console.ReadKey();
         }
@@ -98,18 +99,30 @@ namespace TP4.Reclamos
             Console.ReadKey();
         }
 
-        public static void ActualizarEstadoReclamo(int NReclamo)
+        public static void ActualizarEstadoReclamo()
         {
+            VerReclamosAdministrador();
+
+            Console.WriteLine("Cual es el numero de reclamo a actualizar?");
+            // PONER VERIFICACION DE QUE EXISTA Y BUCLE
+            string respuesta = Console.ReadLine();
+            // CAMBIAR POR TRYPARSE Y BUCLE
+
             foreach (var item in reclamosAlumnos)
             {
-                if(item.NReclamo == NReclamo)
+                int Nreclamo = int.Parse(respuesta);
+                if (item.NReclamo == Nreclamo)
                 {
                     item.Estado = "SOLUCIONADO";
+                    Console.WriteLine("Numero de reclamo cambiado con exito.");
+                    EscribirReclamosEnTXT(item.NReclamo, item.NRegistro, item.Reclamo, item.Estado);                   
                 }
             }
+
+            Console.ReadKey();
         }
 
-        public static void EscribirReclamosEnTXT()
+        public static void EscribirReclamosEnTXT(int Nreclamo, int Nregistro, string reclamo, string estado)
         {
             string fileName = "TP4/TXT/Reclamos.txt";
             string basePath = Environment.CurrentDirectory;
@@ -121,10 +134,7 @@ namespace TP4.Reclamos
             {
                 using (StreamWriter sw = File.AppendText(Reclamos))
                 {
-                    foreach (var val in reclamosAlumnos)
-                    {
-                        sw.WriteLine("Numero de reclamo" + val.NReclamo + "-Numero de registro:" + val.NRegistro + "-Descripcion reclamo:" + val.Reclamo + "-Estado:" + val.Estado);
-                    }
+                        sw.WriteLine(Nreclamo + "-" + Nregistro + "-" + reclamo + "-" + estado);
 
                 }
             }
