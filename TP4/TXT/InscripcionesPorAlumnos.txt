@@ -1,7 +1,7 @@
-1-80-261- Teoría Política y Derecho Público 
-1-80-262- Macroeconomía I 
-1-80-284- Análisis Matemático II 
-2-150-250- Microeconomía I 
-2-150-252- Administración General 
-2-150-276- Cálculo Financiero 
-2-150-277- Gestión y Costos 
+1-80-261-Teoría Política y Derecho Público 
+1-80-262-Macroeconomía I 
+1-80-284-Análisis Matemático II 
+2-150-250-Microeconomía I 
+2-150-252-Administración General 
+2-150-276-Cálculo Financiero 
+2-150-277-Gestión y Costos 

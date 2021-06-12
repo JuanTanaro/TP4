@@ -15,8 +15,22 @@ namespace TP4
         public static List<InscripcionesPorAlumno> cortePorRanking = new List<InscripcionesPorAlumno>();
         public static List<InscripcionesPorAlumno> cortePorRegistro = new List<InscripcionesPorAlumno>();
         public static List<InscripcionesPorAlumno> asignaciones = new List<InscripcionesPorAlumno>();
-        public static List<MateriasBase> materiasFCE = new List<MateriasBase>();
+        public static List<Asignacion> materiasFCE = new List<Asignacion>();
 
+        public int CodigoMateria { get; set; }
+        public string NombreMateria { get; set; }
+        public int CapacidadMateria { get; set; }
+        public string HorarioMateria { get; set; }
+        public Asignacion() { }
+
+        public Asignacion(string linea)
+        {
+            var datos = linea.Split('-');
+            CodigoMateria = int.Parse(datos[0]);
+            NombreMateria = (datos[1]);
+            HorarioMateria = (datos[2]);
+            CapacidadMateria = int.Parse(datos[3]);        
+        }
         public static void LeerMateriasFCE()
         {
             string fileName = "TP4/TXT/MateriasFCE.txt";
@@ -32,8 +46,8 @@ namespace TP4
                     while (!reader.EndOfStream)
                     {
                         var linea = reader.ReadLine();
-                        var carrera = new MateriasBase(linea);
-                        materiasFCE.Add(new MateriasBase()
+                        var carrera = new Asignacion(linea);
+                        materiasFCE.Add(new Asignacion()
                         {
                             CodigoMateria = carrera.CodigoMateria,
                             NombreMateria = carrera.NombreMateria,
@@ -72,6 +86,34 @@ namespace TP4
             }
         }
 
+        public static void LeerAsignaciones()
+        {
+            string nombreArchivo = "TP4/TXT/AsignacionesPorAlumnos.txt";
+            string basePath = Environment.CurrentDirectory;
+            string PathCortada = Strings.Right(basePath, 13);
+            basePath = basePath.Replace(PathCortada, "");
+            string AsignacionesPorAlumnos = basePath + nombreArchivo;
+
+            if (File.Exists(AsignacionesPorAlumnos))
+            {
+                using (var reader = new StreamReader(AsignacionesPorAlumnos))
+                {
+                    while (!reader.EndOfStream)
+                    {
+                        var linea = reader.ReadLine();
+                        var carrera = new InscripcionesPorAlumno(linea);
+                        asignaciones.Clear();
+                        asignaciones.Add(new InscripcionesPorAlumno()
+                        {
+                            NRegistro = carrera.NRegistro,
+                            CodigoMateria = carrera.CodigoMateria,
+                            NombreMateria = carrera.NombreMateria,
+                        });
+                    }
+                }
+            }
+        }
+
         public static void SumatoriaCantidadInscriptos()
         {
             foreach (var val in Asignacion.materiasFCE)
@@ -95,6 +137,7 @@ namespace TP4
 
         public static void CorteDeRanking()
         {
+            asignaciones.Clear();
             foreach (var val in Asignacion.materiasFCE)
             {
                 foreach (var val2 in Asignacion.inscriptosPorMateria)
@@ -105,7 +148,6 @@ namespace TP4
                         {
                             if (val.CapacidadMateria < val2.CantidadInscriptos)
                             {
-                                asignaciones.Clear();
                                 int capacidadRanking = (int)(val.CapacidadMateria * 0.70);
                                 int capacidadRegistro = (int)(val.CapacidadMateria * 0.30);
                                 cortePorRanking = inscripcionesAsignacion.OrderByDescending(o => o.RankingAlumno).ToList();
@@ -127,12 +169,15 @@ namespace TP4
                             {
                                 foreach (var val4 in inscripcionesAsignacion)
                                 {
-                                    asignaciones.Add(new InscripcionesPorAlumno()
+                                    if(val4.CodigoMateria == val.CodigoMateria)
                                     {
-                                        NRegistro = val4.NRegistro,
-                                        CodigoMateria = val4.CodigoMateria,
-                                        NombreMateria = val4.NombreMateria,
-                                    });
+                                        asignaciones.Add(new InscripcionesPorAlumno()
+                                        {
+                                            NRegistro = val4.NRegistro,
+                                            CodigoMateria = val4.CodigoMateria,
+                                            NombreMateria = val4.NombreMateria,
+                                        });
+                                    }
                                 }
 
                             }
@@ -148,10 +193,15 @@ namespace TP4
 
         public static void EscribirAsignacionEnTXT()
         {
-            string nombreArchivoAsignaciones = "AsignacionesPorAlumnos.txt";
-            if (File.Exists(nombreArchivoAsignaciones))
+            string fileName = "TP4/TXT/AsignacionesPorAlumnos.txt";
+            string basePath = Environment.CurrentDirectory;
+            string PathCortada = Strings.Right(basePath, 13);
+            basePath = basePath.Replace(PathCortada, "");
+            string AsignacionesPorAlumnos = basePath + fileName;
+
+            if (File.Exists(AsignacionesPorAlumnos))
             {
-                using (StreamWriter sw = File.AppendText(nombreArchivoAsignaciones))
+                using (StreamWriter sw = File.AppendText(AsignacionesPorAlumnos))
                 {
                     foreach( var val in asignaciones)
                     {
@@ -166,7 +216,24 @@ namespace TP4
             }
         }
 
+        public static void VerAsignacion(int Nregistro)
+        {
+            Asignacion.LeerAsignaciones();
+            Console.WriteLine("Tenes las siguientes materias asignadas:");
+            int contador = 0;
+            foreach (var val in asignaciones)
+            {
+                if (val.NRegistro == Nregistro)
+                {
+                    Console.WriteLine("Numero de registro:" + val.NRegistro + " | Codigo de materia:" + val.CodigoMateria + " | Nombre de materia:" + val.NombreMateria);
+                    contador++;
+                }
+            }
+            if (contador == 0)
+            {
+                Console.WriteLine("Aun no tenes materias asignadas");
+            }
 
-        //VALIDACION 2: Ranking?
+        }
     }
 }

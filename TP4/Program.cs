@@ -69,6 +69,7 @@ namespace TP4
             switch (respuesta)
             {
                 case "1":
+                    Asignacion.LeerMateriasFCE();
                     Asignacion.LeerInscripciones();
                     Asignacion.SumatoriaCantidadInscriptos();
 
@@ -106,6 +107,7 @@ namespace TP4
                     MenuEstudiante();
                 }
                 persona?.Mostrar();
+
 
                 int CodigoPersona = persona.NRegistro;
                 int rankingAlumno = (int)(persona.Ranking);
