@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.VisualBasic;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -30,13 +31,18 @@ namespace TP4
         public string ObtenerLineaDatosAlumno() => $"{NRegistro}-{CodigoMateria}-{NombreMateria}";
 
         public static List<InscripcionesPorAlumno> inscripcionesPorAlumno = new List<InscripcionesPorAlumno>();
-        const string nombreArchivo = "InscripcionesPorAlumnos.txt";
 
         public static void EscribirInscripcionEnTXT(int numRegistro, int codMateria, string nomMateria, int rankingAlumno)
         {
-            if (File.Exists(nombreArchivo))
+            string fileName = "TP4/TXT/InscripcionesPorAlumnos.txt";
+            string basePath = Environment.CurrentDirectory;
+            string PathCortada = Strings.Right(basePath, 13);
+            basePath = basePath.Replace(PathCortada, "");
+
+            string InscripcionesPorAlumnos = basePath + fileName;
+            if (File.Exists(InscripcionesPorAlumnos))
             {
-                using (StreamWriter sw = File.AppendText(nombreArchivo))
+                using (StreamWriter sw = File.AppendText(InscripcionesPorAlumnos))
                 {
                         sw.WriteLine( numRegistro + "-" + rankingAlumno + "-" + codMateria + "-" + nomMateria);
                 }

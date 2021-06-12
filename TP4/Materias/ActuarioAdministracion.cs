@@ -11,7 +11,6 @@ namespace TP4
     public class ActuarioAdministracion
     {
         public static List<MateriasBase> actuarioAdministracion = new List<MateriasBase>();
-        public static int CantidadMateriasActAdm = 28;
 
         static ActuarioAdministracion()
         {

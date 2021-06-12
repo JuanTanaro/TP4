@@ -1,0 +1,3 @@
+Numero de registro:1 | Codigo de materia:247 | Nombre de materia: Teoría Contable 
+Numero de registro:1 | Codigo de materia:248 | Nombre de materia: Estadística I 
+Numero de registro:1 | Codigo de materia:249 | Nombre de materia: Historia Económica y Social Argentina 

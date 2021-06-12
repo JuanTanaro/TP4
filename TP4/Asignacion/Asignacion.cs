@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.VisualBasic;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -14,12 +15,46 @@ namespace TP4
         public static List<InscripcionesPorAlumno> cortePorRanking = new List<InscripcionesPorAlumno>();
         public static List<InscripcionesPorAlumno> cortePorRegistro = new List<InscripcionesPorAlumno>();
         public static List<InscripcionesPorAlumno> asignaciones = new List<InscripcionesPorAlumno>();
+        public static List<MateriasBase> materiasFCE = new List<MateriasBase>();
+
+        public static void LeerMateriasFCE()
+        {
+            string fileName = "TP4/TXT/MateriasFCE.txt";
+            string basePath = Environment.CurrentDirectory;
+            string PathCortada = Strings.Right(basePath, 13);
+            basePath = basePath.Replace(PathCortada, "");
+            string MateriasFCE = basePath + fileName ;
+
+            if (File.Exists(MateriasFCE))
+            {
+                using (var reader = new StreamReader(MateriasFCE))
+                {
+                    while (!reader.EndOfStream)
+                    {
+                        var linea = reader.ReadLine();
+                        var carrera = new MateriasBase(linea);
+                        materiasFCE.Add(new MateriasBase()
+                        {
+                            CodigoMateria = carrera.CodigoMateria,
+                            NombreMateria = carrera.NombreMateria,
+                            CapacidadMateria = carrera.CapacidadMateria,
+                        });
+                    }
+                }
+            }
+        }
+
         public static void LeerInscripciones()
         {
-            string nombreArchivo = "InscripcionesPorAlumnos.txt";
-            if (File.Exists(nombreArchivo))
+            string nombreArchivo = "TP4/TXT/InscripcionesPorAlumnos.txt";
+            string basePath = Environment.CurrentDirectory;
+            string PathCortada = Strings.Right(basePath, 13);
+            basePath = basePath.Replace(PathCortada, "");
+            string InscripcionesPorAlumnos = basePath + nombreArchivo;
+
+            if (File.Exists(InscripcionesPorAlumnos))
             {
-                using (var reader = new StreamReader(nombreArchivo))
+                using (var reader = new StreamReader(InscripcionesPorAlumnos))
                 {
                     while (!reader.EndOfStream)
                     {
@@ -39,7 +74,7 @@ namespace TP4
 
         public static void SumatoriaCantidadInscriptos()
         {
-            foreach (var val in Economia.economia)
+            foreach (var val in Asignacion.materiasFCE)
             {
                 int contadorMateria = 0;
                 foreach (var val2 in inscripcionesAsignacion)
@@ -57,12 +92,12 @@ namespace TP4
                 });
             }
         }
-        
+
         public static void CorteDeRanking()
         {
-            foreach(var val in Economia.economia)
+            foreach (var val in Asignacion.materiasFCE)
             {
-                foreach(var val2 in Asignacion.inscriptosPorMateria)
+                foreach (var val2 in Asignacion.inscriptosPorMateria)
                 {
                     if (val.CodigoMateria == val2.CodigoMateria)
                     {
@@ -102,12 +137,14 @@ namespace TP4
 
                             }
                         }
-                        
+
                     }
                 }
 
             }
         }
+            
+        
 
         public static void EscribirAsignacionEnTXT()
         {

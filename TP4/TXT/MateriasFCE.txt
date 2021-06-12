@@ -1,0 +1,83 @@
+247 - Teoría Contable - 10
+248 - Estadística I - 10
+249 - Historia Económica y Social Argentina - 10
+250 - Microeconomía I - 10
+251 - Instituciones de Derecho Público - 10
+252 - Administración General - 10 
+273 - Instituciones del Derecho Privado - 10
+274 - Sistemas Administrativos - 10
+275 - Tecnología de la Información - 10
+276 - Cálculo Financiero - 10
+277 - Gestión y Costos
+278 - Macroeconomía y Política Económica - 10 
+279 - Administración Financiera - 10
+284 - Análisis Matemático II - 10 
+285 - Estadística II - 10
+288 - Matemática para Economistas - 10
+552 - Dinero, Crédito y Bancos - 10
+751 - Estadística Actuarial - 10
+752 - Análisis Numérico - 10
+753 - Biometría Actuarial - 10
+754 - Teoría Actuarial de los Seguros Personales - 10
+755 - Teoría Actuarial de los Seguros Patrimoniales - 10
+756 - Teoría Actuarial de los Fondos y Planes de Jubilaciones, Pensiones y Salud - 10
+757 - Teoría de Equilibrio Actuarial - 10
+758 - Bases Actuariales de las Inversiones y Financiaciones - 10
+759 - Seminario de Integración y Aplicación - 10
+261 - Teoría Política y Derecho Público - 10
+262 - Macroeconomía I - 10
+283 - Macroeconomía II - 10
+286 - Microeconomía II - 10
+287 - Geografía Económica - 10
+289 - Epistemología de la Economía - 10
+290 - Microeconomía I (para Economistas) - 10
+451 - Estadística para Administradores - 10
+452 - Sociología de la Organización - 10 
+453 - Administración de la Producción - 10
+454 - Administración del Personal - 10
+455 - Régimen Tributario - 10
+456 - Comercialización - 10
+457 - Teoría de la Decisión - 10
+458 - Planeamiento a Largo Plazo - 10
+459 - Dirección General - 10
+460 - Seminario de Integración y Aplicación - 10
+351 - Sistemas Contables - 10
+353 - Sistemas de Costos - 10
+354 - Derecho del Trabajo y la Seguridad Social - 10
+355 - Auditoría - 10
+356 - Teoría y Técnica Impositiva I - 10
+357 - Teoría y Técnica Impositiva II - 10
+362 - Gestión y Costos para Contadores - 10
+1330 - Contabilidad Social y Ambiental - 10
+1352 - Contabilidad Financiera - 10
+1359 - Derecho Económico - 10
+1360 - Derecho Crediticio, Bursátil e Insolvencia - 10
+1374 - Contabilidad Gubernamental y Control de Gestión - 10
+1358 - Taller de Actuación Profesional Judicial - 10
+1361 - Taller de Práctica Profesional en Organizaciones - 10
+551 - Econometría - 10
+553 - Historia del Pensamiento Económico - 10
+554 - Crecimiento Económico - 10
+555 - Organización Industrial - 10
+556 - Finanzas Públicas - 10
+557 - Estructura Social Argentina - 10
+558 - Economía Internacional - 10
+559 - Desarrollo Económico - 10
+560 - Estructura Económica Argentina - 10
+561 - Cuentas Nacionales - 10
+562 - Seminario de Integración y Aplicación - 10
+1275 - Introducción a la Tecnología de la Información y las Comunicaciones - Profesor1 - hora - 100 - 200 - 0 - 0 - 0 - 0
+651 - Lógica - 10
+655 - Tecnología de las Comunicaciones - 10
+657 - Sistemas de Datos - 10
+658 - Metodología de los Sistemas de Información - 10
+740 - Redes Informáticas - 10
+1601 - Ingeniería en Software - 10
+1603 - Derecho Informático I - 10
+1604 - Derecho Informático II - 10
+1652 - Teoría de los Lenguajes y Algoritmos - 10
+1653 - Tecnología de los Computadores y Sistemas Operativos - 10
+1654 - Construcción de Aplicaciones Informáticas - 10
+1659 - Auditoría y Seguridad de los Sistemas de Información - 10
+1660 - Actuación Profesional del Licenciado en Sistemas de las Organizaciones - 10
+1799 - Gestión de Recursos Informáticos - 10

@@ -13,7 +13,6 @@ namespace TP4
         
 
         public static List<MateriasBase> economia = new List<MateriasBase>();
-        public static int CantidadMateriasEcon = 27;
 
         static Economia()
         {

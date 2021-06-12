@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.VisualBasic;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -27,13 +28,18 @@ namespace TP4
 
         public static List<MateriasAprobadasPorAlumno> materiasAprobadas = new List<MateriasAprobadasPorAlumno>();
         public static List<MateriasAprobadasPorAlumno> materiasDisponibles = new List<MateriasAprobadasPorAlumno>();
-        const string nombreArchivo = "MateriasAprobadasAlumnos.txt";
 
         public static void EscribirAprobadasEnTXT()
         {
-            if (File.Exists(nombreArchivo))
+            string fileName = "TP4/TXT/MateriasAprobadasAlumnos.txt";
+            string basePath = Environment.CurrentDirectory;
+            string PathCortada = Strings.Right(basePath, 13);
+            basePath = basePath.Replace(PathCortada, "");
+
+            string MateriasAprobadasAlumnos = basePath + fileName;
+            if (File.Exists(MateriasAprobadasAlumnos))
             {
-                using (TextWriter tw = new StreamWriter(nombreArchivo))
+                using (TextWriter tw = new StreamWriter(MateriasAprobadasAlumnos))
                 {
                     foreach (var materiaAprobada in materiasAprobadas)
                     {

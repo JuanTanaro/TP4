@@ -11,7 +11,6 @@ namespace TP4
     public class Sistemas
     {
         public static List<MateriasBase> sistemas = new List<MateriasBase>();
-        public static int CantidadMateriasSist = 28;
 
         static Sistemas()
         {
