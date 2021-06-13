@@ -1,3 +1,5 @@
-1-882022-prueba 1-PENDIENTE
-2-882022-prueba 2 misma sesion-PENDIENTE
+1-882022-prueba 1-SOLUCIONADO
+2-882022-prueba 2 misma sesion-SOLUCIONADO
 3-882021-prueba 2 martin lopez-PENDIENTE
+4-882020-prueba jose lopez-PENDIENTE
+5-882021-prueba 8 martin lopez-PENDIENTE
