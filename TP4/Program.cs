@@ -154,7 +154,15 @@ namespace TP4
             switch (eleccion)
             {
                 case "1":
-                    SeleccionarCarrera(CodigoPersona, rankingAlumno);
+                    bool Estado = InscripcionesPorAlumno.ValidarInscripcionesAlumno(CodigoPersona);
+                    if (Estado == true)
+                    {
+                        SeleccionarCarrera(CodigoPersona, rankingAlumno);
+                    }
+                    else
+                    {
+                        InscripcionesPorAlumno.MostrarInscripciones(CodigoPersona);
+                    }
                     break;
                 case "2":
                     Asignacion.MostrarAsignaciones(CodigoPersona);

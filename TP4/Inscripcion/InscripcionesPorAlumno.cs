@@ -10,7 +10,7 @@ namespace TP4
 {
     public class InscripcionesPorAlumno
     {
-        
+
         public int NRegistro { get; set; }
         public double RankingAlumno { get; set; }
         public int CodigoMateria { get; set; }
@@ -31,6 +31,7 @@ namespace TP4
         public string ObtenerLineaDatosAlumno() => $"{NRegistro}-{CodigoMateria}-{NombreMateria}";
 
         public static List<InscripcionesPorAlumno> inscripcionesPorAlumno = new List<InscripcionesPorAlumno>();
+        public static List<InscripcionesPorAlumno> ValidacionInscripciones = new List<InscripcionesPorAlumno>();
 
         public static void EscribirInscripcionEnTXT(int numRegistro, int codMateria, string nomMateria, double rankingAlumno)
         {
@@ -44,7 +45,7 @@ namespace TP4
             {
                 using (StreamWriter sw = File.AppendText(InscripcionesPorAlumnos))
                 {
-                        sw.WriteLine( numRegistro + "-" + rankingAlumno + "-" + codMateria + "-" + nomMateria);
+                    sw.WriteLine(numRegistro + "-" + rankingAlumno + "-" + codMateria + "-" + nomMateria);
                 }
             }
             else
@@ -60,7 +61,7 @@ namespace TP4
             {
                 NRegistro = numRegistro,
                 CodigoMateria = codMateria,
-                NombreMateria = nomMateria, 
+                NombreMateria = nomMateria,
                 RankingAlumno = rankingAlumno,
             });
 
@@ -70,12 +71,61 @@ namespace TP4
         public static void MostrarInscripciones(int CodigoPersona)
         {
             var materiasInscriptas = inscripcionesPorAlumno.Where(inscripcionesGeneral => inscripcionesPorAlumno.All(inscripto => inscripto.NRegistro == inscripcionesGeneral.NRegistro));
-            Console.WriteLine($"Materias en las que se encuentra inscripto:");   
-            foreach (var val in materiasInscriptas)           
-            {           
-                Console.WriteLine($"Codigo de materia: " + val.CodigoMateria + $" | Nombre de materia: " + val.NombreMateria);           
-            }           
+            Console.WriteLine($"Materias en las que se encuentra inscripto:");
+            foreach (var val in materiasInscriptas)
+            {
+                Console.WriteLine($"Codigo de materia: " + val.CodigoMateria + $" | Nombre de materia: " + val.NombreMateria);
+            }
         }
+
+        public static void LeerAsignaciones()
+        {
+            string nombreArchivo = "TP4/TXT/InscripcionesPorAlumnos.txt";
+            string basePath = Environment.CurrentDirectory;
+            string PathCortada = Strings.Right(basePath, 13);
+            basePath = basePath.Replace(PathCortada, "");
+            string validacionInscripciones = basePath + nombreArchivo;
+
+            if (File.Exists(validacionInscripciones))
+            {
+                using (var reader = new StreamReader(validacionInscripciones))
+                {
+                    while (!reader.EndOfStream)
+                    {
+                        var linea = reader.ReadLine();
+                        var carrera = new InscripcionesPorAlumno(linea);
+                        ValidacionInscripciones.Clear();
+                        ValidacionInscripciones.Add(new InscripcionesPorAlumno()
+                        {
+                            NRegistro = carrera.NRegistro,
+                            RankingAlumno = carrera.RankingAlumno,
+                            CodigoMateria = carrera.CodigoMateria,
+                            NombreMateria = carrera.NombreMateria,
+                        });
+                    }
+                }
+            }
+        }
+
+        public static bool ValidarInscripcionesAlumno(int CodigoPersona)
+        {
+            bool Estado = true;
+
+            foreach (var item in ValidacionInscripciones)
+            {
+                if (item.NRegistro == CodigoPersona)
+                {
+                    Console.WriteLine("No puede avanzar con el registro de inscripcion ya que usted se encuentra inscripto en: ");
+                    MostrarInscripciones(CodigoPersona);
+                    Estado = false;
+                    return Estado;
+                }
+            }
+
+            return Estado;
+        }
+
+
 
     }
 }
