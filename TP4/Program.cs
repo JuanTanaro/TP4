@@ -697,6 +697,7 @@ namespace TP4
                     CantidadMax = -1;
                     Inscripciones(CodigoPersona, eleccionCarrera, CantidadMax, rankingAlumno);
                     InscripcionesPorAlumno.MostrarInscripciones(CodigoPersona);
+                    MenuEstudiante(CodigoPersona, rankingAlumno);
                     break;
                 default:
                     Console.WriteLine("No ha ingresado una opción del menú\n");

@@ -1,46 +1,38 @@
-247 - Teoría Contable - Profesor1 - LuVie 19a21hs - 10 - 200 - 0 - 0 - 0 - 0
-248 - Estadística I - Profesor1 - hora - 10 - 200 - 0 - 0 - 0 - 0
-249 - Historia Económica y Social Argentina - Profesor1 - hora - 10 - 200 - 0 - 0 - 0 - 0
-261 - Teoría Política y Derecho Público - Profesor1 - hora - 10 - 200 - 0 - 0 - 0 - 0
-262 - Macroeconomía I - Profesor1 - hora - 10 - 200 - 0 - 0 - 0 - 0
-284 - Análisis Matemático II - Profesor1 - hora - 10 - 200 - 0 - 0 - 0 - 0
-283 - Macroeconomía II - Profesor1 - hora - 10 - 200 - 262 - 288 - 0 - 0
-285 - Estadística II - Profesor1 - hora - 10 - 200 - 248 - 284 - 0 - 0
-286 - Microeconomía II - Profesor1 - hora - 10 - 200 - 288 - 290 - 0 - 0
-287 - Geografía Económica - Profesor1 - hora - 10 - 200 - 249 - 0 - 0 - 0
-288 - Matemática para Economistas - Profesor1 - hora - 10 - 200 - 284 - 0 - 0 - 0
-289 - Epistemología de la Economía - Profesor1 - hora - 10 - 200 - 262 - 290 - 0 - 0
-290 - Microeconomía I (para Economistas) - Profesor1 - hora - 100 - 200 - 284 - 0 - 0 - 0
-551 - Econometría - Profesor1 - hora - 10 - 200 - 285 - 288 - 0 - 0
-552 - Dinero, Crédito y Bancos - Profesor1 - hora - 10 - 200 - 283 - 286 - 288 - 0
-553 - Historia del Pensamiento Económico - Profesor1 - hora - 10 - 200 - 262 - 290 - 0 - 0
-554 - Crecimiento Económico - Profesor1 - hora - 10 - 200 - 283 - 286 - 288 - 0
-555 - Organización Industrial - Profesor1 - hora - 10 - 200 - 286 - 0 - 0 - 0
-556 - Finanzas Públicas - Profesor1 - hora - 10 - 200 - 261 - 290 - 0 - 0
-557 - Estructura Social Argentina - Profesor1 - hora - 10 - 200 - 249 - 561 - 0 - 0
-558 - Economía Internacional - Profesor1 - hora - 10 - 200 - 283 - 287 - 290 - 0
-559 - Desarrollo Económico - Profesor1 - hora - 10 - 200 - 557 - 560 - 0 - 0
-560 - Estructura Económica Argentina - Profesor1 - hora - 10 - 200 - 287 - 561 - 0 - 0
-561 - Cuentas Nacionales - Profesor1 - hora - 10 - 200 - 247 - 262 - 0 - 0
-562 - Seminario de Integración y Aplicación - Profesor1 - hora - 10 - 200 - 286 - 289 -551 - 558
-721 - Poder Economico y Derechos Humanos (electiva) - Profesor1 - LuJu 9 a 11 - 10 - 200 - 0 - 0 - 0 - 0
-724 - Economía de la Seguridad Social (electiva) - Profesor1 - LuJu 9 a 11 - 10 - 200 - 0 - 0 - 0 - 0
-734 - Sistemas Económicos Comparados (electiva) - Profesor1 - LuJu 9 a 11 - 10 - 200 - 262 - 556 - 0 - 0
-764 - Gestión en la Economía Social  (electiva) - Profesor1 - LuJu 9 a 11 - 10 - 200 - 0 - 0 - 0 - 0
-765 - Economía Ambiental (electiva) - Profesor1 - LuJu 9 a 11 - 10 - 200 - 286 - 0 - 0 - 0
-780 - Economía Agropecuaria (electiva) - Profesor1 - LuJu 9 a 11 - 10 - 200 - 286 - 559 - 0 - 0
-781 - Mercado de Capitales y Elementos de Cálculo Financiero (electiva) - Profesor1 - LuJu 9 a 11 - 10 - 200 - 286 - 0 - 0 - 0
-782 - Economía Laboral (electiva) - Profesor1 - LuJu 9 a 11 - 10 - 200 - 283 - 286 - 0 - 0
-651 - Lógica (optativa) - Profesor1 - LuJu 9 a 11 - 10 - 200 - 0 - 0 - 0 - 0
-276 - Cálculo Financiero (optativa) - Profesor1 - LuJu 9 a 11 - 10 - 200 - 285 - 0 - 0 - 0
-712 - Género y Economía  (optativa) - Profesor1 - LuJu 9 a 11 - 10 - 200 - 0 - 0 - 0 - 0
-713 - Tópicos de Microeconomía (optativa) - Profesor1 - LuJu 9 a 11 - 10 - 200 - 286 - 0 - 0 - 0
-720 - Demografía y Seguridad Social (optativa) - Profesor1 - LuJu 9 a 11 - 10 - 200 - 0 - 0 - 0 - 0
-731 - Econometría II (optativa) - Profesor1 - LuJu 9 a 11 - 10 - 200 - 0 - 0 - 0 - 0
-741 - Elementos de Topología para Economía y Gestión (optativa) - Profesor1 - LuJu 9 a 11 - 10 - 200 - 288 - 0 - 0 - 0
-745 - Economía de la Energía (optativa) - Profesor1 - LuJu 9 a 11 - 10 - 200 - 0 - 0 - 0 - 0
-748 - Evaluación de Proyectos (optativa) - Profesor1 - LuJu 9 a 11 - 10 - 200 - 286 - 556 - 0 - 0
-760 - Prácticas para la Inclusión Social (optativa) - Profesor1 - LuJu 9 a 11 - 10 - 200 - 0 - 0 - 0 - 0
-767 - Economía Marxista (optativa) - Profesor1 - LuJu 9 a 11 - 10 - 200 - 553 - 0 - 0 - 0
-779 - Tópicos de Macroeconomía (optativa) - Profesor1 - LuJu 9 a 11 - 10 - 200 - 552 - 0 - 0 - 0
-783 - Historia del Pensamiento Económico II (optativa) - Profesor1 - LuJu 9 a 11 - 10 - 200 - 553 - 0 - 0 - 0
+247 - Teoría Contable(electiva) - Gandolfi- LuMieVie 19 a 21hs - 10 - 200 - 0 - 0 - 0 - 0
+248 - Estadística I(electiva) - Jares - LuVie 7 a 9 hs- 10 - 200 - 241 - 0 - 0 - 0
+249 - Historia Económica y Social Argentina(electiva) - Fernandez- MaVie 13 a 15hs- 10 - 200 - 242 - 244 - 246 - 0
+261 - Teoría Política y Derecho Público(electiva) - Geris - MieVie 13 a 15hs - 10 - 200 - 0 - 0 - 0 - 0
+262 - Macroeconomía I(electiva) - Gimenez - LuMieVie 21 a 23hs - 10 - 200 - 241 - 242 - 0 - 0
+284 - Análisis Matemático II(electiva) - Gomez - MaJu 15 a 17hs - 10 - 200 - 241 - 245 - 0 - 0
+283 - Macroeconomía II(electiva) - Micera - LuJu 17 a 19hs - 10 - 200 - 262 - 288 - 0 - 0
+285 - Estadística II(electiva) - Salto - MaMie 15 a 17hs - 10 - 200 - 248 - 284 - 0 - 0
+286 - Microeconomía II(electiva) - Tulli - LuVie 19 a 21hs - 10 - 200 - 288 - 290 - 0 - 0
+287 - Geografía Económica(electiva) - Tanaro - LuMieJu 21 a 23hs - 10 - 200 - 249 - 0 - 0 - 0
+288 - Matemática para Economistas(electiva) - Cuellar - MaVie - 10 - 200 - 284 - 0 - 0 - 0
+289 - Epistemología de la Economía(electiva) - Arias - LuVie 7 a 9hs - 10 - 200 - 262 - 290 - 244 - 0
+290 - Microeconomía I (para Economistas)(electiva) - Montiel - MaMie 13 a 15hs - 100 - 200 - 284 - 242 - 0 - 0
+551 - Econometría(electiva) - Martinez - LuMie 15 a 17hs - 10 - 200 - 285 - 288 - 0 - 0
+552 - Dinero, Crédito y Bancos(electiva) - Gerezi - MieVi 17 a 19hs - 10 - 200 - 283 - 286 - 288 - 0
+553 - Historia del Pensamiento Económico(electiva) - Pinola - LuJu 7 a 9hs - 10 - 200 - 262 - 290 - 243 - 244
+554 - Crecimiento Económico(electiva) - Gallardo - MieJu 15 a 17hs - 10 - 200 - 283 - 286 - 288 - 0
+555 - Organización Industrial(electiva) - Pesola - LuVi 9 a 11hs - 10 - 200 - 286 - 0 - 0 - 0
+556 - Finanzas Públicas(electiva) - Lopez - MaMie 17 a 19hs - 10 - 200 - 261 - 290 - 0 - 0
+557 - Estructura Social Argentina (electiva)- Paredes - LuMie 21 a 23hs - 10 - 200 - 249 - 561 - 243 - 0
+558 - Economía Internacional(electiva) - Meza - LuMieJu 19 a 21hs - 10 - 200 - 283 - 287 - 290 - 0
+559 - Desarrollo Económico(electiva) - Barco - MaJu 15 a 17hs - 10 - 200 - 557 - 560 - 0 - 0
+560 - Estructura Económica Argentina(electiva) - Crespo - MieJu 11 a 13hs - 10 - 200 - 287 - 561 - 0 - 0
+561 - Cuentas Nacionales(electiva) - Fernandez - LuJu 13 a 15hs  - 10 - 200 - 247 - 262 - 0 - 0
+562 - Seminario de Integración y Aplicación(electiva) - Morales - MieVie 19 a 21hs - 10 - 200 - 286 - 289 -551 - 558
+651 - Lógica (optativa) - Pedraza - LuJu 9 a 11hs - 10 - 200 - 0 - 0 - 0 - 0
+276 - Calculo Financiero (optativa) - Sanchez - LuJuVie 11 a 13hs - 10 - 200 - 285 - 0 - 0 - 0
+712 - Género y Economia (optativa) - Mendez - LuVie 17 a 19hs - 10 - 200 - 0 - 0 - 0 - 0
+713 - Tópicos de Microeconomia (optativa) - Acuña - LuMaMie 21 a 23hs - 10 - 200 - 286 - 0 - 0 - 0
+720 - Demografía y Seguridad Social (optativa) - Junin - LuJu 17 a 19hs - 10 - 200 - 0 - 0 - 0 - 0
+731 - Econometria II (optativa) - Belgrano - LuVie 9 a 11hs - 10 - 200 - 0 - 0 - 0 - 0
+741 - Elementos de Topología para Economía y Gestión (optativa) - Bustamante - LuMieVie 7 a 9hs - 10 - 200 - 288 - 0 - 0 - 0
+745 - Economía de la Energía (optativa) - Mirasoles - LuJuVie 13 a 15hs - 10 - 200 - 288 - 0 - 0 - 0
+748 - Evaluación de Proyectos (optativa) - Cabezinha - MaJu 9 a 11hs - 10 - 200 - 286 - 556 - 0 - 0
+760 - Prácticas para la Inclusión Social (optativa) - Botti - MaMie 17 a 19hs - 10 - 200 - 0 - 0 - 0 - 0
+767 - Economía Marxista (optativa) - Lenin - LuMieVie 13 a 15hs - 10 - 200 - 553 - 0 - 0 - 0
+779 - Tópicos de Macroeconomía (optativa) - Jaurez - LuJuVie 15 a 17hs - 10 - 200 - 552 - 0 - 0 - 0
+783 - Historia del Pensamiento Económico (optativa) - Damato - MaMierJu 7 a 9hs - 10 - 200 - 553 - 0 - 0 - 0
