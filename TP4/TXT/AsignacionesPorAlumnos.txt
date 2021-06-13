@@ -1,2 +1,5 @@
-Numero de registro:882020 | Codigo de materia:248 | Nombre de materia: Estadística I(electiva) 
-Numero de registro:882022 | Codigo de materia:249 | Nombre de materia: Historia Económica y Social Argentina 
+882022-0-247-Teoría Contable 
+882020-0-248-Estadística I(electiva) 
+882028-0-248-Estadística I(electiva) 
+882022-0-249-Historia Económica y Social Argentina 
+882022-0-250-Microeconomía I 

@@ -99,6 +99,7 @@ namespace TP4
             {
                 case "1":
                     AsignarMaterias();
+                    Console.WriteLine("Materias asignadas con exito! Presione ENTER para volver al menu inicial");
                     MenuAdmin();
                     break;
                 case "2":
@@ -125,12 +126,6 @@ namespace TP4
             Asignacion.LeerMateriasFCE();
             Asignacion.LeerInscripciones();
             Asignacion.SumatoriaCantidadInscriptos();
-
-            foreach (var val in Asignacion.inscriptosPorMateria)
-            {
-                Console.WriteLine("Nombre de materia:" + val.NombreMateria + "| Cantidad de inscriptos:" + val.CantidadInscriptos);
-            }
-
             Asignacion.CorteDeRanking();
             Asignacion.EscribirAsignacionEnTXT();
         }
@@ -165,6 +160,7 @@ namespace TP4
                     }
                     break;
                 case "2":
+                    Asignacion.LeerAsignaciones();
                     Asignacion.MostrarAsignaciones(CodigoPersona);
                     MenuEstudiante(CodigoPersona, rankingAlumno);
                     break;
