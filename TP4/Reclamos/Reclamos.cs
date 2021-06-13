@@ -73,10 +73,12 @@ namespace TP4
             }
             
         }
+
         //VER
         public static void VerReclamosAlumno(int NRegistro)
         {
             Console.WriteLine("Tiene los siguientes reclamos a su nombre: ");
+            int Acum = 0;
 
             foreach (var val in AllreclamosAlumnos)
             {
@@ -85,12 +87,19 @@ namespace TP4
                     if (!string.IsNullOrEmpty(val.Resolucion))
                     {
                         Console.WriteLine("Numero de reclamo: " + val.NReclamo + "| Numero de registro: " + val.NRegistro + " | Resolución del reclamo: " + val.Resolucion + " | Estado: " + val.Estado);
+                        Acum++;
                     }
                     else
                     {
                         Console.WriteLine("Numero de reclamo: " + val.NReclamo + "| Numero de registro: " + val.NRegistro + " | Descripcion reclamo: " + val.Reclamo + " | Estado: " + val.Estado);
+                        Acum++;
                     }
                 }
+            }
+
+            if (Acum == 0)
+            {
+                Console.WriteLine("¡No tiene reclamos a su nombre!");
             }
         }
 

@@ -10,7 +10,7 @@ namespace TP4
 {
     public class InscripcionesPorAlumno
     {
-        //public int NInscripcion { get; set; }
+        
         public int NRegistro { get; set; }
         public double RankingAlumno { get; set; }
         public int CodigoMateria { get; set; }

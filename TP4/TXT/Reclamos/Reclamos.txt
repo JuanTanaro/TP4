@@ -1,3 +1,3 @@
-1-882022-No me puedo inscribir a las materias-SOLUCIONADO-
-2-882021-no me anda el sistema-SOLUCIONADO-Ya funciona
-3-882021-No me funciona la pagina-PENDIENTE-
+1-882021-No me asignaron ninguna materia-SOLUCIONADO-Las materias son asignadas por ranking y los cursos a su vez, dependen de su capacidad.
+2-882021-No me funciona la pagina-PENDIENTE-
+3-882025-No puedo inscribirme debido a que no funciona la pagina-PENDIENTE-
