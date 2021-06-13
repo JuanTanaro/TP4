@@ -64,7 +64,7 @@ namespace TP4
                 RankingAlumno = rankingAlumno,
             });
 
-            InscripcionesPorAlumno.EscribirInscripcionEnTXT(numRegistro, codMateria, nomMateria, rankingAlumno);
+            EscribirInscripcionEnTXT(numRegistro, codMateria, nomMateria, rankingAlumno);
         }
 
         public static void MostrarInscripciones(int CodigoPersona)

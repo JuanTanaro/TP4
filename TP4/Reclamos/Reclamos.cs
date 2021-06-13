@@ -12,7 +12,6 @@ namespace TP4
     {
 
         public static List<Reclamos> AllreclamosAlumnos = new List<Reclamos>();
-        public static List<Reclamos> reclamosAlumnosSolucionados = new List<Reclamos>();
         public static int variableNReclamo = 0;
 
         public int NReclamo { get; set; }
@@ -165,15 +164,20 @@ namespace TP4
             var key = Console.ReadLine();
             if (key.ToUpper() == "S")
             {
+
+                BorrarSolucionadosEnTXT(reclamo.NReclamo, reclamo.NRegistro, reclamo.Reclamo, reclamo.Estado);
                 Console.WriteLine("\nNumero de reclamo: " + $"{reclamo.NReclamo}" + " Numero de registro: " + $"{reclamo.NRegistro}" + " Reclamo: " + $"{reclamo.Reclamo}" + " Estado: " + "SOLUCIONADO");
 
+                
 
                 foreach (var item in AllreclamosAlumnos)
                 {
                     if (item.NReclamo == reclamo.NReclamo)
                     {
                         item.Estado = "SOLUCIONADO";
-                        EscribirReclamosSolucionadosEnTXT(item.NReclamo, item.NRegistro, item.Reclamo, item.Estado);
+                        
+                        EscribirReclamosEnTXT(item.NReclamo, item.NRegistro, item.Reclamo, item.Estado);
+                       
                     }
                 }
 
@@ -208,20 +212,25 @@ namespace TP4
             }
         }
 
-        public static void EscribirReclamosSolucionadosEnTXT(int Nreclamo, int Nregistro, string reclamo, string estado)
+        public static void BorrarSolucionadosEnTXT(int Nreclamo, int Nregistro, string reclamo, string estado)
         {
-            string fileName = "TP4/TXT/Reclamos/ReclamosSolucionados.txt";
+            string fileName = "TP4/TXT/Reclamos/Reclamos.txt";
             string basePath = Environment.CurrentDirectory;
             string PathCortada = Strings.Right(basePath, 13);
             basePath = basePath.Replace(PathCortada, "");
-            string Reclamos = basePath + fileName;
+            string reclamos = basePath + fileName;
 
-            if (File.Exists(Reclamos))
+            if (File.Exists(reclamos))
             {
-                using (StreamWriter sw = File.AppendText(Reclamos))
-                {
-                    sw.WriteLine(Nreclamo + "-" + Nregistro + "-" + reclamo + "-" + estado);
+                string Variable = (Nreclamo + "-" + Nregistro + "-" + reclamo + "-" + estado);
 
+                using (StreamReader sw = new StreamReader(reclamos))
+                {
+                    string s = "";
+                    while ((s = sw.ReadLine()) == Variable)
+                    {
+                      s.Replace(Variable, "");
+                    }
                 }
             }
             else
