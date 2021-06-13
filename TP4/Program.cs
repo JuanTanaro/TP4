@@ -161,9 +161,11 @@ namespace TP4
                     break;
                 case "3":
                     Reclamos.RealizarReclamo(CodigoPersona);
+                    MenuEstudiante(CodigoPersona, rankingAlumno);
                     break;
                 case "4":
                     Reclamos.VerReclamosAlumno(CodigoPersona);
+                    MenuEstudiante(CodigoPersona, rankingAlumno);
                     break;
                 case "0":
                     Environment.Exit(0);

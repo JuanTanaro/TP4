@@ -150,32 +150,39 @@ namespace TP4
 
         }
 
-        public void Mostrar()
-        {
-            Console.WriteLine();
-            Console.WriteLine("\nNumero de reclamo: " + $"{NReclamo}" + " Numero de registro: " + $"{NRegistro}" + " Reclamo: " + $"{Reclamo}" + " Estado: " + $"{Estado}");
-            Console.WriteLine();
-        }
 
         public static void ActualizarEstadoReclamo()
         {
-            var NumeroDeReclamo = Seleccionar();
-            if (NumeroDeReclamo == null)
+            var reclamo = Seleccionar();
+            if (reclamo == null)
             {
                 ActualizarEstadoReclamo();
             }
-            NumeroDeReclamo?.Mostrar();
-            
 
-            foreach (var item in AllreclamosAlumnos)
+            Console.WriteLine("\nNumero de reclamo: " + $"{reclamo.NReclamo}" + " Numero de registro: " + $"{reclamo.NRegistro}" + " Reclamo: " + $"{reclamo.Reclamo}" + " Estado: " + $"{reclamo.Estado}");
+
+            Console.WriteLine($"Presionar S para marcar como solucionado el reclamo {reclamo.NReclamo}, o N para volver al menu\n");
+            var key = Console.ReadLine();
+            if (key.ToUpper() == "S")
             {
-                if (item.NReclamo == NumeroDeReclamo.NReclamo)
+                Console.WriteLine("\nNumero de reclamo: " + $"{reclamo.NReclamo}" + " Numero de registro: " + $"{reclamo.NRegistro}" + " Reclamo: " + $"{reclamo.Reclamo}" + " Estado: " + "SOLUCIONADO");
+
+
+                foreach (var item in AllreclamosAlumnos)
                 {
-                    item.Estado = "SOLUCIONADO";
-                    Console.WriteLine("Numero de reclamo cambiado con exito.");
-                    
-                    EscribirReclamosSolucionadosEnTXT(item.NReclamo, item.NRegistro, item.Reclamo, item.Estado);                   
+                    if (item.NReclamo == reclamo.NReclamo)
+                    {
+                        item.Estado = "SOLUCIONADO";
+                        EscribirReclamosSolucionadosEnTXT(item.NReclamo, item.NRegistro, item.Reclamo, item.Estado);
+                    }
                 }
+
+                Console.WriteLine("\nNumero de reclamo cambiado con exito.");
+            }
+            else
+            {
+                Console.WriteLine($"\n{reclamo.NReclamo} NO ha sido marcado como solucionado");
+
             }
         }
 
