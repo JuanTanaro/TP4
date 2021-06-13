@@ -98,11 +98,12 @@ namespace TP4
             {
                 using (var reader = new StreamReader(AsignacionesPorAlumnos))
                 {
+                    asignaciones.Clear();
                     while (!reader.EndOfStream)
                     {
                         var linea = reader.ReadLine();
                         var carrera = new InscripcionesPorAlumno(linea);
-                        asignaciones.Clear();
+
                         asignaciones.Add(new InscripcionesPorAlumno()
                         {
                             NRegistro = carrera.NRegistro,
@@ -190,7 +191,6 @@ namespace TP4
         }
             
         
-
         public static void EscribirAsignacionEnTXT()
         {
             string fileName = "TP4/TXT/AsignacionesPorAlumnos.txt";
@@ -205,7 +205,7 @@ namespace TP4
                 {
                     foreach( var val in asignaciones)
                     {
-                        sw.WriteLine("Numero de registro:" + val.NRegistro + " | Codigo de materia:" + val.CodigoMateria + " | Nombre de materia:" + val.NombreMateria);
+                        sw.WriteLine(val.NRegistro + "-" + val.RankingAlumno + "-" + val.CodigoMateria + "-" + val.NombreMateria);
                     }
 
                 }
