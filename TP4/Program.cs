@@ -108,6 +108,7 @@ namespace TP4
                 case "3":
                     Reclamos.VerReclamosAdministrador();
                     Reclamos.ActualizarEstadoReclamo();
+                    Reclamos.EscribirReclamosEnTXT();
                     MenuAdmin();
                     break;
                 case "0":
@@ -161,6 +162,7 @@ namespace TP4
                     break;
                 case "3":
                     Reclamos.RealizarReclamo(CodigoPersona);
+                    Reclamos.EscribirReclamosEnTXT();
                     MenuEstudiante(CodigoPersona, rankingAlumno);
                     break;
                 case "4":

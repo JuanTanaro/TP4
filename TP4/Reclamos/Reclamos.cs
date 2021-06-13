@@ -38,6 +38,7 @@ namespace TP4
             string PathCortada = Strings.Right(basePath, 13);
             basePath = basePath.Replace(PathCortada, "");
             string Reclamos = basePath + fileName;
+            AllreclamosAlumnos.Clear();
 
             if (File.Exists(Reclamos))
             {
@@ -47,6 +48,7 @@ namespace TP4
                     {
                         var linea = reader.ReadLine();
                         var reclamo = new Reclamos(linea);
+
                         AllreclamosAlumnos.Add(new Reclamos()
                         {
                             NReclamo = reclamo.NReclamo,
@@ -111,9 +113,6 @@ namespace TP4
                 Reclamo = reclamo,
                 Estado = estado,
             });
-
-            EscribirReclamosEnTXT(numeroReclamo, NRegistro, reclamo, estado);
-
         }
 
         // Reclamos
@@ -164,20 +163,14 @@ namespace TP4
             var key = Console.ReadLine();
             if (key.ToUpper() == "S")
             {
-
-                BorrarSolucionadosEnTXT(reclamo.NReclamo, reclamo.NRegistro, reclamo.Reclamo, reclamo.Estado);
+                //BorrarSolucionadosEnTXT(reclamo.NReclamo, reclamo.NRegistro, reclamo.Reclamo, reclamo.Estado);
                 Console.WriteLine("\nNumero de reclamo: " + $"{reclamo.NReclamo}" + " Numero de registro: " + $"{reclamo.NRegistro}" + " Reclamo: " + $"{reclamo.Reclamo}" + " Estado: " + "SOLUCIONADO");
-
-                
 
                 foreach (var item in AllreclamosAlumnos)
                 {
                     if (item.NReclamo == reclamo.NReclamo)
                     {
                         item.Estado = "SOLUCIONADO";
-                        
-                        EscribirReclamosEnTXT(item.NReclamo, item.NRegistro, item.Reclamo, item.Estado);
-                       
                     }
                 }
 
@@ -186,11 +179,10 @@ namespace TP4
             else
             {
                 Console.WriteLine($"\n{reclamo.NReclamo} NO ha sido marcado como solucionado");
-
             }
         }
 
-        public static void EscribirReclamosEnTXT(int Nreclamo, int Nregistro, string reclamo, string estado)
+        public static void EscribirReclamosEnTXT()
         {
             string fileName = "TP4/TXT/Reclamos/Reclamos.txt";
             string basePath = Environment.CurrentDirectory;
@@ -200,10 +192,13 @@ namespace TP4
 
             if (File.Exists(Reclamos))
             {
-                using (StreamWriter sw = File.AppendText(Reclamos))
+                File.WriteAllText(Reclamos, String.Empty);
+                foreach (var item in AllreclamosAlumnos)
                 {
-                    sw.WriteLine(Nreclamo + "-" + Nregistro + "-" + reclamo + "-" + estado);
-
+                    using (StreamWriter sw = File.AppendText(Reclamos))
+                    {
+                        sw.WriteLine(item.NReclamo + "-" + item.NRegistro + "-" + item.Reclamo + "-" + item.Estado);
+                    }                       
                 }
             }
             else
@@ -212,6 +207,7 @@ namespace TP4
             }
         }
 
+        /*
         public static void BorrarSolucionadosEnTXT(int Nreclamo, int Nregistro, string reclamo, string estado)
         {
             string fileName = "TP4/TXT/Reclamos/Reclamos.txt";
@@ -238,6 +234,7 @@ namespace TP4
                 Console.WriteLine("No se ha encontrado el archivo TXT. El archivo 'Reclamos.txt' debe estar en la carpeta TXT");
             }
         }
+        */
 
 
         // Validaciones
