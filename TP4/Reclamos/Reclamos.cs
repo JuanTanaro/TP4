@@ -18,6 +18,7 @@ namespace TP4
         public int NRegistro { get; set; }
         public string Reclamo { get; set; }
         public string Estado { get; set; }
+        public string Resolucion { get; set; }
 
 
         public Reclamos() { }
@@ -29,6 +30,7 @@ namespace TP4
             NRegistro = int.Parse(datos[1]);
             Reclamo = (datos[2]);
             Estado = (datos[3]);
+            Resolucion = (datos[4]);
         }
 
         static Reclamos()
@@ -55,6 +57,7 @@ namespace TP4
                             NRegistro = reclamo.NRegistro,
                             Reclamo = reclamo.Reclamo,
                             Estado = reclamo.Estado,
+                            Resolucion = reclamo.Resolucion,
                         });
                     }
                 }
@@ -70,7 +73,7 @@ namespace TP4
             }
             
         }
-
+        //VER
         public static void VerReclamosAlumno(int NRegistro)
         {
             Console.WriteLine("Tiene los siguientes reclamos a su nombre: ");
@@ -79,7 +82,14 @@ namespace TP4
             {
                 if(val.NRegistro == NRegistro)
                 {
-                    Console.WriteLine("Numero de reclamo: " + val.NReclamo + "| Numero de registro: " + val.NRegistro + " | Descripcion reclamo: " + val.Reclamo + " | Estado: " + val.Estado);
+                    if (!string.IsNullOrEmpty(val.Resolucion))
+                    {
+                        Console.WriteLine("Numero de reclamo: " + val.NReclamo + "| Numero de registro: " + val.NRegistro + " | Resolución del reclamo: " + val.Resolucion + " | Estado: " + val.Estado);
+                    }
+                    else
+                    {
+                        Console.WriteLine("Numero de reclamo: " + val.NReclamo + "| Numero de registro: " + val.NRegistro + " | Descripcion reclamo: " + val.Reclamo + " | Estado: " + val.Estado);
+                    }
                 }
             }
         }
@@ -115,7 +125,6 @@ namespace TP4
             });
         }
 
-        // Reclamos
         public static Reclamos Seleccionar()
         {
             var modelo = CrearModeloBusqueda();
@@ -157,20 +166,26 @@ namespace TP4
                 ActualizarEstadoReclamo();
             }
 
+            
+
             Console.WriteLine("\nNumero de reclamo: " + $"{reclamo.NReclamo}" + " Numero de registro: " + $"{reclamo.NRegistro}" + " Reclamo: " + $"{reclamo.Reclamo}" + " Estado: " + $"{reclamo.Estado}");
+
+            Console.WriteLine($"\n¿Cual es su respuesta?");
+            string resolucion = Console.ReadLine();
 
             Console.WriteLine($"Presionar S para marcar como solucionado el reclamo {reclamo.NReclamo}, o N para volver al menu\n");
             var key = Console.ReadLine();
             if (key.ToUpper() == "S")
             {
-                //BorrarSolucionadosEnTXT(reclamo.NReclamo, reclamo.NRegistro, reclamo.Reclamo, reclamo.Estado);
                 Console.WriteLine("\nNumero de reclamo: " + $"{reclamo.NReclamo}" + " Numero de registro: " + $"{reclamo.NRegistro}" + " Reclamo: " + $"{reclamo.Reclamo}" + " Estado: " + "SOLUCIONADO");
+
 
                 foreach (var item in AllreclamosAlumnos)
                 {
                     if (item.NReclamo == reclamo.NReclamo)
                     {
                         item.Estado = "SOLUCIONADO";
+                        item.Resolucion = resolucion;
                     }
                 }
 
@@ -197,7 +212,7 @@ namespace TP4
                 {
                     using (StreamWriter sw = File.AppendText(Reclamos))
                     {
-                        sw.WriteLine(item.NReclamo + "-" + item.NRegistro + "-" + item.Reclamo + "-" + item.Estado);
+                        sw.WriteLine(item.NReclamo + "-" + item.NRegistro + "-" + item.Reclamo + "-" + item.Estado + "-" + item.Resolucion);
                     }                       
                 }
             }
@@ -206,35 +221,6 @@ namespace TP4
                 Console.WriteLine("No se ha encontrado el archivo TXT. El archivo 'Reclamos.txt' debe estar en la carpeta TXT");
             }
         }
-
-        /*
-        public static void BorrarSolucionadosEnTXT(int Nreclamo, int Nregistro, string reclamo, string estado)
-        {
-            string fileName = "TP4/TXT/Reclamos/Reclamos.txt";
-            string basePath = Environment.CurrentDirectory;
-            string PathCortada = Strings.Right(basePath, 13);
-            basePath = basePath.Replace(PathCortada, "");
-            string reclamos = basePath + fileName;
-
-            if (File.Exists(reclamos))
-            {
-                string Variable = (Nreclamo + "-" + Nregistro + "-" + reclamo + "-" + estado);
-
-                using (StreamReader sw = new StreamReader(reclamos))
-                {
-                    string s = "";
-                    while ((s = sw.ReadLine()) == Variable)
-                    {
-                      s.Replace(Variable, "");
-                    }
-                }
-            }
-            else
-            {
-                Console.WriteLine("No se ha encontrado el archivo TXT. El archivo 'Reclamos.txt' debe estar en la carpeta TXT");
-            }
-        }
-        */
 
 
         // Validaciones
