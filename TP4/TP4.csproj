@@ -46,7 +46,6 @@
   <ItemGroup>
     <Compile Include="Administrador\Administrador.cs" />
     <Compile Include="Alumnos\Alumno.cs" />
-    <Compile Include="Alumnos\Reclamos.cs" />
     <Compile Include="Asignacion\Asignacion.cs" />
     <Compile Include="Inscripcion\InscripcionesPorAlumno.cs" />
     <Compile Include="Materias\Administracion.cs" />

@@ -210,10 +210,6 @@ namespace TP4
 
                 }
             }
-            else
-            {
-                Console.WriteLine("No se ha encontrado el archivo TXT. El archivo 'InscripcionesPorAlumnos.txt' debe estar en la carpeta Debug");
-            }
         }
 
         public static void MostrarAsignaciones(int Nregistro)

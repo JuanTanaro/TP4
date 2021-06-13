@@ -15,7 +15,7 @@ namespace TP4
 
         static ActuarioEconomia()
         {
-            string fileName = "TP4/TXT/ActuarioEconomia.txt";
+            string fileName = "TP4/TXT/MateriasPorCarrera/ActuarioEconomia.txt";
             string basePath = Environment.CurrentDirectory;
             string PathCortada = Strings.Right(basePath, 13);
             basePath = basePath.Replace(PathCortada, "");

@@ -14,7 +14,7 @@ namespace TP4
 
         static Administracion()
         {
-            string fileName = "TP4/TXT/Administracion.txt";
+            string fileName = "TP4/TXT/MateriasPorCarrera/Administracion.txt";
             string basePath = Environment.CurrentDirectory;
             string PathCortada = Strings.Right(basePath, 13);
             basePath = basePath.Replace(PathCortada, "");

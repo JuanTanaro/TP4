@@ -14,7 +14,7 @@ namespace TP4
 
         static Sistemas()
         {
-            string fileName = "TP4/TXT/Sistemas.txt";
+            string fileName = "TP4/TXT/MateriasPorCarrera/Sistemas.txt";
             string basePath = Environment.CurrentDirectory;
             string PathCortada = Strings.Right(basePath, 13);
             basePath = basePath.Replace(PathCortada, "");

@@ -14,7 +14,7 @@ namespace TP4
 
         static Contador()
         {
-            string fileName = "TP4/TXT/Contador.txt";
+            string fileName = "TP4/TXT/MateriasPorCarrera/Contador.txt";
             string basePath = Environment.CurrentDirectory;
             string PathCortada = Strings.Right(basePath, 13);
             basePath = basePath.Replace(PathCortada, "");

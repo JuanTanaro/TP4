@@ -14,7 +14,7 @@ namespace TP4
 
         static ActuarioAdministracion()
         {
-            string fileName = "TP4/TXT/ActuarioAdministracion.txt";
+            string fileName = "TP4/TXT/MateriasPorCarrera/ActuarioAdministracion.txt";
             string basePath = Environment.CurrentDirectory;
             string PathCortada = Strings.Right(basePath, 13);
             basePath = basePath.Replace(PathCortada, "");

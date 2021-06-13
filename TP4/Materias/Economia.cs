@@ -14,7 +14,7 @@ namespace TP4
 
         static Economia()
         {
-            string fileName = "TP4/TXT/Economia.txt";
+            string fileName = "TP4/TXT/MateriasPorCarrera/Economia.txt";
             string basePath = Environment.CurrentDirectory;
             string PathCortada = Strings.Right(basePath, 13);
             basePath = basePath.Replace(PathCortada, "");
