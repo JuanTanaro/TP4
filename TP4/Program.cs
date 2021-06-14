@@ -150,13 +150,9 @@ namespace TP4
             {
                 case "1":
                     bool Estado = InscripcionesPorAlumno.ValidarInscripcionesAlumno(CodigoPersona);
-                    if (Estado == true)
+                    if (Estado == false)
                     {
                         SeleccionarCarrera(CodigoPersona, rankingAlumno);
-                    }
-                    else
-                    {
-                        InscripcionesPorAlumno.MostrarInscripciones(CodigoPersona);
                     }
                     break;
                 case "2":

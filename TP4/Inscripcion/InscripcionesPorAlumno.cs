@@ -78,7 +78,7 @@ namespace TP4
             }
         }
 
-        public static void LeerAsignaciones()
+        public static void LeerInscripciones()
         {
             string nombreArchivo = "TP4/TXT/InscripcionesPorAlumnos.txt";
             string basePath = Environment.CurrentDirectory;
@@ -109,6 +109,7 @@ namespace TP4
 
         public static bool ValidarInscripcionesAlumno(int CodigoPersona)
         {
+            LeerInscripciones();
             bool Estado = true;
 
             foreach (var item in ValidacionInscripciones)
@@ -116,7 +117,7 @@ namespace TP4
                 if (item.NRegistro == CodigoPersona)
                 {
                     Console.WriteLine("No puede avanzar con el registro de inscripcion ya que usted se encuentra inscripto en: ");
-                    MostrarInscripciones(CodigoPersona);
+                    MostrarInscri(CodigoPersona);
                     Estado = false;
                     return Estado;
                 }
@@ -125,7 +126,18 @@ namespace TP4
             return Estado;
         }
 
-
+        public static void MostrarInscri(int CodigoPersona)
+        {
+            LeerInscripciones();
+            Console.WriteLine($"Materias en las que se encuentra inscripto:");
+            foreach (var val in inscripcionesPorAlumno)
+            {
+                if (val.NRegistro == CodigoPersona)
+                {
+                    Console.WriteLine($"Codigo de materia: " + val.CodigoMateria + $" | Nombre de materia: " + val.NombreMateria);
+                }
+            }
+        }
 
     }
 }

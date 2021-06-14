@@ -107,6 +107,7 @@ namespace TP4
                         asignaciones.Add(new InscripcionesPorAlumno()
                         {
                             NRegistro = carrera.NRegistro,
+                            RankingAlumno = carrera.RankingAlumno,
                             CodigoMateria = carrera.CodigoMateria,
                             NombreMateria = carrera.NombreMateria,
                         });
