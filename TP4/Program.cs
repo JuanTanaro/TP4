@@ -154,6 +154,10 @@ namespace TP4
                     {
                         MenuEstudiante(CodigoPersona, rankingAlumno);
                     }
+                    else
+                    {
+                        SeleccionarCarrera(CodigoPersona, rankingAlumno);
+                    }
                     break;
                 case "2":
                     Asignacion.LeerAsignaciones();

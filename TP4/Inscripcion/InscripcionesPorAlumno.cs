@@ -127,7 +127,6 @@ namespace TP4
 
         public static void MostrarInscri(int CodigoPersona)
         {
-            LeerInscripciones();
             Console.WriteLine($"Materias en las que se encuentra inscripto:");
             foreach (var val in ValidacionInscripciones)
             {
