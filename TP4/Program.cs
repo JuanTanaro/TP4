@@ -152,7 +152,7 @@ namespace TP4
                     bool Estado = InscripcionesPorAlumno.ValidarInscripcionesAlumno(CodigoPersona);
                     if (Estado == false)
                     {
-                        SeleccionarCarrera(CodigoPersona, rankingAlumno);
+                        MenuEstudiante(CodigoPersona, rankingAlumno);
                     }
                     break;
                 case "2":
