@@ -136,5 +136,35 @@ namespace TP4
                 }
             }
         }
+
+        public static bool ValidarMateriaInscripta(int CodigoPersona, int CodigoMateria)
+        {
+            LeerInscripciones();
+            bool Estado = true;
+
+            foreach (var item in ValidacionInscripciones)
+            {
+                if (item.NRegistro == CodigoPersona & item.CodigoMateria == CodigoMateria)
+                {
+                    MostrarMateriaInscri(CodigoPersona, CodigoMateria);
+                    Estado = false;
+                    return Estado;
+                }
+            }
+            return Estado;
+        }
+
+        public static void MostrarMateriaInscri(int CodigoPersona, int CodigoMateria)
+        {
+            Console.WriteLine($"Ya se encuentra inscripto en esta materia:");
+            foreach (var val in ValidacionInscripciones)
+            {
+                if (val.NRegistro == CodigoPersona & val.CodigoMateria == CodigoMateria)
+                {
+                    Console.WriteLine($"Codigo de materia: " + val.CodigoMateria + $" | Nombre de materia: " + val.NombreMateria);
+                }
+            }
+            Console.WriteLine($"\nPor favor seleccione otra");
+        }
     }
 }

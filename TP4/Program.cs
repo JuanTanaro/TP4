@@ -525,17 +525,27 @@ namespace TP4
                         }
 
                         materiaEcon.Mostrar();
-                        Console.WriteLine($"Te has inscripto en {materiaEcon.CodigoMateria}. Está usted seguro? S/N\n");
-                        var keyEcon = Console.ReadKey(intercept: true);
-                        if (keyEcon.Key == ConsoleKey.S)
+
+                        bool Estado = InscripcionesPorAlumno.ValidarMateriaInscripta(CodigoPersona, materiaEcon.CodigoMateria);
+                        if (Estado == false)
                         {
-                            Console.WriteLine($"Has sido inscripto en {materiaEcon.NombreMateria}");
-                            InscripcionesPorAlumno.AgregarInscripcion(CodigoPersona, materiaEcon.CodigoMateria, materiaEcon.NombreMateria, rankingAlumno);
+                            Inscripciones(CodigoPersona, eleccionCarrera, CantidadMax, rankingAlumno);
                         }
+                        else
+                        {
+                            Console.WriteLine($"Te has inscripto en {materiaEcon.CodigoMateria}. Está usted seguro? S/N\n");
 
-                        InscripcionesPorAlumno.MostrarInscripciones(CodigoPersona);
+                            var keyEcon = Console.ReadKey(intercept: true);
+                            if (keyEcon.Key == ConsoleKey.S)
+                            {
+                                Console.WriteLine($"Has sido inscripto en {materiaEcon.NombreMateria}");
+                                InscripcionesPorAlumno.AgregarInscripcion(CodigoPersona, materiaEcon.CodigoMateria, materiaEcon.NombreMateria, rankingAlumno);
+                            }
 
-                        otraInscripcion(CodigoPersona, eleccionCarrera, CantidadMax, rankingAlumno);
+                            InscripcionesPorAlumno.MostrarInscripciones(CodigoPersona);
+
+                            otraInscripcion(CodigoPersona, eleccionCarrera, CantidadMax, rankingAlumno);
+                        }
                     }
                     else if(CantidadMax == -1 )
                     {
@@ -553,15 +563,27 @@ namespace TP4
                         }
 
                         materiaSistemas.Mostrar();
-                        Console.WriteLine($"Te has inscripto en {materiaSistemas.CodigoMateria}. Está usted seguro? S/N\n");
-                        var keyEcon = Console.ReadKey(intercept: true);
-                        if (keyEcon.Key == ConsoleKey.S)
-                        {
-                            Console.WriteLine($"Has sido inscripto en {materiaSistemas.NombreMateria}");
-                            InscripcionesPorAlumno.AgregarInscripcion(CodigoPersona, materiaSistemas.CodigoMateria, materiaSistemas.NombreMateria, rankingAlumno);
-                        }
 
-                        otraInscripcion(CodigoPersona, eleccionCarrera, CantidadMax, rankingAlumno);
+                        bool Estado = InscripcionesPorAlumno.ValidarMateriaInscripta(CodigoPersona, materiaSistemas.CodigoMateria);
+                        if (Estado == false)
+                        {
+                            Inscripciones(CodigoPersona, eleccionCarrera, CantidadMax, rankingAlumno);
+                        }
+                        else
+                        {
+                            Console.WriteLine($"Te has inscripto en {materiaSistemas.CodigoMateria}. Está usted seguro? S/N\n");
+
+                            var keyEcon = Console.ReadKey(intercept: true);
+                            if (keyEcon.Key == ConsoleKey.S)
+                            {
+                                Console.WriteLine($"Has sido inscripto en {materiaSistemas.NombreMateria}");
+                                InscripcionesPorAlumno.AgregarInscripcion(CodigoPersona, materiaSistemas.CodigoMateria, materiaSistemas.NombreMateria, rankingAlumno);
+                            }
+
+                            InscripcionesPorAlumno.MostrarInscripciones(CodigoPersona);
+
+                            otraInscripcion(CodigoPersona, eleccionCarrera, CantidadMax, rankingAlumno);
+                        }
                     }
                     else if (CantidadMax == 0)
                     {
@@ -580,15 +602,28 @@ namespace TP4
                         }
 
                         materiaContador.Mostrar();
-                        Console.WriteLine($"Te has inscripto en {materiaContador.CodigoMateria}. Está usted seguro? S/N\n");
-                        var keyEcon = Console.ReadKey(intercept: true);
-                        if (keyEcon.Key == ConsoleKey.S)
-                        {
-                            Console.WriteLine($"Has sido inscripto en {materiaContador.NombreMateria}");
-                            InscripcionesPorAlumno.AgregarInscripcion(CodigoPersona, materiaContador.CodigoMateria, materiaContador.NombreMateria, rankingAlumno);
-                        }
 
-                        otraInscripcion(CodigoPersona, eleccionCarrera, CantidadMax, rankingAlumno);
+
+                        bool Estado = InscripcionesPorAlumno.ValidarMateriaInscripta(CodigoPersona, materiaContador.CodigoMateria);
+                        if (Estado == false)
+                        {
+                            Inscripciones(CodigoPersona, eleccionCarrera, CantidadMax, rankingAlumno);
+                        }
+                        else
+                        {
+                            Console.WriteLine($"Te has inscripto en {materiaContador.CodigoMateria}. Está usted seguro? S/N\n");
+
+                            var keyEcon = Console.ReadKey(intercept: true);
+                            if (keyEcon.Key == ConsoleKey.S)
+                            {
+                                Console.WriteLine($"Has sido inscripto en {materiaContador.NombreMateria}");
+                                InscripcionesPorAlumno.AgregarInscripcion(CodigoPersona, materiaContador.CodigoMateria, materiaContador.NombreMateria, rankingAlumno);
+                            }
+
+                            InscripcionesPorAlumno.MostrarInscripciones(CodigoPersona);
+
+                            otraInscripcion(CodigoPersona, eleccionCarrera, CantidadMax, rankingAlumno);
+                        }
                     }
                     else if (CantidadMax == 0)
                     {
@@ -607,15 +642,27 @@ namespace TP4
                         }
 
                         materiaActAdmin.Mostrar();
-                        Console.WriteLine($"Te has inscripto en {materiaActAdmin.CodigoMateria}. Está usted seguro? S/N\n");
-                        var keyEcon = Console.ReadKey(intercept: true);
-                        if (keyEcon.Key == ConsoleKey.S)
-                        {
-                            Console.WriteLine($"Has sido inscripto en {materiaActAdmin.NombreMateria}");
-                            InscripcionesPorAlumno.AgregarInscripcion(CodigoPersona, materiaActAdmin.CodigoMateria, materiaActAdmin.NombreMateria, rankingAlumno);
-                        }
 
-                        otraInscripcion(CodigoPersona, eleccionCarrera, CantidadMax, rankingAlumno);
+                        bool Estado = InscripcionesPorAlumno.ValidarMateriaInscripta(CodigoPersona, materiaActAdmin.CodigoMateria);
+                        if (Estado == false)
+                        {
+                            Inscripciones(CodigoPersona, eleccionCarrera, CantidadMax, rankingAlumno);
+                        }
+                        else
+                        {
+                            Console.WriteLine($"Te has inscripto en {materiaActAdmin.CodigoMateria}. Está usted seguro? S/N\n");
+
+                            var keyEcon = Console.ReadKey(intercept: true);
+                            if (keyEcon.Key == ConsoleKey.S)
+                            {
+                                Console.WriteLine($"Has sido inscripto en {materiaActAdmin.NombreMateria}");
+                                InscripcionesPorAlumno.AgregarInscripcion(CodigoPersona, materiaActAdmin.CodigoMateria, materiaActAdmin.NombreMateria, rankingAlumno);
+                            }
+
+                            InscripcionesPorAlumno.MostrarInscripciones(CodigoPersona);
+
+                            otraInscripcion(CodigoPersona, eleccionCarrera, CantidadMax, rankingAlumno);
+                        }
                     }
                     else if (CantidadMax == 0)
                     {
@@ -634,15 +681,27 @@ namespace TP4
                         }
 
                         materiaActEcono.Mostrar();
-                        Console.WriteLine($"Te has inscripto en {materiaActEcono.CodigoMateria}. Está usted seguro? S/N\n");
-                        var keyEcon = Console.ReadKey(intercept: true);
-                        if (keyEcon.Key == ConsoleKey.S)
-                        {
-                            Console.WriteLine($"Has sido inscripto en {materiaActEcono.NombreMateria}");
-                            InscripcionesPorAlumno.AgregarInscripcion(CodigoPersona, materiaActEcono.CodigoMateria, materiaActEcono.NombreMateria, rankingAlumno);
-                        }
 
-                        otraInscripcion(CodigoPersona, eleccionCarrera, CantidadMax, rankingAlumno);
+                        bool Estado = InscripcionesPorAlumno.ValidarMateriaInscripta(CodigoPersona, materiaActEcono.CodigoMateria);
+                        if (Estado == false)
+                        {
+                            Inscripciones(CodigoPersona, eleccionCarrera, CantidadMax, rankingAlumno);
+                        }
+                        else
+                        {
+                            Console.WriteLine($"Te has inscripto en {materiaActEcono.CodigoMateria}. Está usted seguro? S/N\n");
+
+                            var keyEcon = Console.ReadKey(intercept: true);
+                            if (keyEcon.Key == ConsoleKey.S)
+                            {
+                                Console.WriteLine($"Has sido inscripto en {materiaActEcono.NombreMateria}");
+                                InscripcionesPorAlumno.AgregarInscripcion(CodigoPersona, materiaActEcono.CodigoMateria, materiaActEcono.NombreMateria, rankingAlumno);
+                            }
+
+                            InscripcionesPorAlumno.MostrarInscripciones(CodigoPersona);
+
+                            otraInscripcion(CodigoPersona, eleccionCarrera, CantidadMax, rankingAlumno);
+                        }
                     }
                     else if (CantidadMax == 0)
                     {
@@ -661,15 +720,28 @@ namespace TP4
                         }
 
                         materiaAdmEmpresas.Mostrar();
-                        Console.WriteLine($"Te has inscripto en {materiaAdmEmpresas.CodigoMateria}. Está usted seguro? S/N\n");
-                        var keyEcon = Console.ReadKey(intercept: true);
-                        if (keyEcon.Key == ConsoleKey.S)
-                        {
-                            Console.WriteLine($"Has sido inscripto en {materiaAdmEmpresas.NombreMateria}");
-                            InscripcionesPorAlumno.AgregarInscripcion(CodigoPersona, materiaAdmEmpresas.CodigoMateria, materiaAdmEmpresas.NombreMateria, rankingAlumno);
-                        }
 
-                        otraInscripcion(CodigoPersona, eleccionCarrera, CantidadMax, rankingAlumno);
+
+                        bool Estado = InscripcionesPorAlumno.ValidarMateriaInscripta(CodigoPersona, materiaAdmEmpresas.CodigoMateria);
+                        if (Estado == false)
+                        {
+                            Inscripciones(CodigoPersona, eleccionCarrera, CantidadMax, rankingAlumno);
+                        }
+                        else
+                        {
+                            Console.WriteLine($"Te has inscripto en {materiaAdmEmpresas.CodigoMateria}. Está usted seguro? S/N\n");
+
+                            var keyEcon = Console.ReadKey(intercept: true);
+                            if (keyEcon.Key == ConsoleKey.S)
+                            {
+                                Console.WriteLine($"Has sido inscripto en {materiaAdmEmpresas.NombreMateria}");
+                                InscripcionesPorAlumno.AgregarInscripcion(CodigoPersona, materiaAdmEmpresas.CodigoMateria, materiaAdmEmpresas.NombreMateria, rankingAlumno);
+                            }
+
+                            InscripcionesPorAlumno.MostrarInscripciones(CodigoPersona);
+
+                            otraInscripcion(CodigoPersona, eleccionCarrera, CantidadMax, rankingAlumno);
+                        }
                     }
                     else if (CantidadMax == 0)
                     {

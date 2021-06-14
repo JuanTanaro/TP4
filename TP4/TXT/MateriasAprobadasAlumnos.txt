@@ -1,3 +1,1 @@
-Numero de registro:882022 | Codigo de materia:247 | Nombre de materia: Teoría Contable(electiva) 
-Numero de registro:882022 | Codigo de materia:248 | Nombre de materia: Estadística I(electiva) 
-Numero de registro:882022 | Codigo de materia:249 | Nombre de materia: Historia Económica y Social Argentina(electiva) 
+Numero de registro:882027 | Codigo de materia:247 | Nombre de materia: Teoría Contable(electiva) 
