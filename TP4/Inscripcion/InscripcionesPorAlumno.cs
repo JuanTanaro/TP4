@@ -94,7 +94,6 @@ namespace TP4
                     {
                         var linea = reader.ReadLine();
                         var carrera = new InscripcionesPorAlumno(linea);
-                        ValidacionInscripciones.Clear();
                         ValidacionInscripciones.Add(new InscripcionesPorAlumno()
                         {
                             NRegistro = carrera.NRegistro,
@@ -130,7 +129,7 @@ namespace TP4
         {
             LeerInscripciones();
             Console.WriteLine($"Materias en las que se encuentra inscripto:");
-            foreach (var val in inscripcionesPorAlumno)
+            foreach (var val in ValidacionInscripciones)
             {
                 if (val.NRegistro == CodigoPersona)
                 {
@@ -138,6 +137,5 @@ namespace TP4
                 }
             }
         }
-
     }
 }
