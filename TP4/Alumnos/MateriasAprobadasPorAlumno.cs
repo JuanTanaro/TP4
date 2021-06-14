@@ -28,6 +28,7 @@ namespace TP4
 
         public static List<MateriasAprobadasPorAlumno> materiasAprobadas = new List<MateriasAprobadasPorAlumno>();
         public static List<MateriasAprobadasPorAlumno> materiasDisponibles = new List<MateriasAprobadasPorAlumno>();
+        public static List<MateriasAprobadasPorAlumno> ValidacionMateriasAprobadas = new List<MateriasAprobadasPorAlumno>();
 
         public static void EscribirAprobadasEnTXT()
         {
@@ -241,5 +242,63 @@ namespace TP4
             return true;
 
         }
+
+        public static void LeerAprobadas()
+        {
+            string nombreArchivo = "TP4/TXT/MateriasAprobadasAlumnos.txt";
+            string basePath = Environment.CurrentDirectory;
+            string PathCortada = Strings.Right(basePath, 13);
+            basePath = basePath.Replace(PathCortada, "");
+            string validacionAprobadas = basePath + nombreArchivo;
+
+            if (File.Exists(validacionAprobadas))
+            {
+                using (var reader = new StreamReader(validacionAprobadas))
+                {
+                    while (!reader.EndOfStream)
+                    {
+                        var linea = reader.ReadLine();
+                        var carrera = new MateriasAprobadasPorAlumno(linea);
+                        ValidacionMateriasAprobadas.Add(new MateriasAprobadasPorAlumno()
+                        {
+                            NRegistro = carrera.NRegistro,
+                            CodigoMateria = carrera.CodigoMateria,
+                            NombreMateria = carrera.NombreMateria,
+                        });
+                    }
+                }
+            }
+        }
+
+        public static bool ValidarMateriaAprobada(int CodigoPersona, int CodigoMateria)
+        {
+            LeerAprobadas();
+            bool Estado = true;
+
+            foreach (var item in ValidacionMateriasAprobadas)
+            {
+                if (item.NRegistro == CodigoPersona & item.CodigoMateria == CodigoMateria)
+                {
+                    MostrarMateriaApro(CodigoPersona, CodigoMateria);
+                    Estado = false;
+                    return Estado;
+                }
+            }
+            return Estado;
+        }
+
+        public static void MostrarMateriaApro(int CodigoPersona, int CodigoMateria)
+        {
+            Console.WriteLine($"Ya marco como aprobada esta materia:");
+            foreach (var val in ValidacionMateriasAprobadas)
+            {
+                if (val.NRegistro == CodigoPersona & val.CodigoMateria == CodigoMateria)
+                {
+                    Console.WriteLine($"Codigo de materia: " + val.CodigoMateria + $" | Nombre de materia: " + val.NombreMateria);
+                }
+            }
+            Console.WriteLine($"\nPor favor seleccione otra");
+        }
+
     }
 }
