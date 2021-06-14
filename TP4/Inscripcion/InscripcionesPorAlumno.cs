@@ -39,7 +39,6 @@ namespace TP4
             string basePath = Environment.CurrentDirectory;
             string PathCortada = Strings.Right(basePath, 13);
             basePath = basePath.Replace(PathCortada, "");
-
             string InscripcionesPorAlumnos = basePath + fileName;
             if (File.Exists(InscripcionesPorAlumnos))
             {
@@ -94,7 +93,6 @@ namespace TP4
                     {
                         var linea = reader.ReadLine();
                         var carrera = new InscripcionesPorAlumno(linea);
-                        ValidacionInscripciones.Clear();
                         ValidacionInscripciones.Add(new InscripcionesPorAlumno()
                         {
                             NRegistro = carrera.NRegistro,
@@ -122,6 +120,7 @@ namespace TP4
                     return Estado;
                 }
             }
+
 
             return Estado;
         }
