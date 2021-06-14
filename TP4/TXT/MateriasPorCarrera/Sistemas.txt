@@ -25,7 +25,7 @@
 1659 - Auditoría y Seguridad de los Sistemas de Información - Barranco - LuMieJu 21 a 23 - 10 - 200 - 657 - 658 - 0 - 0
 1660 - Actuación Profesional del Licenciado en Sistemas de las Organizaciones - Blasco - MaJuVie 7 a 9 - 10 - 200 - 740 - 1654 - 0 - 0
 1799 - Gestión de Recursos Informáticos - Velazquez - MaJuVie 9 a 11 - 10 - 200 - 1601 - 1659 - 0 - 0
-459 - Dirección General (optativa) - Varela - MaJuVie 11 a 13 - 10 - 200 - 0 - 0 - 0 - 0
+459 - Dirección General (optativa) - Gimenez - LuVie 9 a 11hs - 10 - 200 - 0 - 0 - 0 - 0
 1715 - Gobierno de Datos, Analítica e Inteligencia de Negocios (optativa) - Valdivia - MaJuVie 13 a 15 - 10 - 200 - 0 - 0 - 0 - 0
 716 - Gestión de la Innovación y Tecnología Informática (optativa) - Muriel - MaJuVie 15 a 17 - 10 - 200 - 0 - 0 - 0 - 0
 739 - Comercio Electrónico (optativa) - Guevara - MaJuVie 17 a 19 - 10 - 200 - 0 - 0 - 0 - 0

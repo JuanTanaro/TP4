@@ -99,7 +99,7 @@ namespace TP4
             {
                 case "1":
                     AsignarMaterias();
-                    Console.WriteLine("Materias asignadas con exito! Presione ENTER para volver al menu inicial");
+                    Console.WriteLine("Materias asignadas con exito!");
                     MenuAdmin();
                     break;
                 case "2":
