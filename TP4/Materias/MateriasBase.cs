@@ -39,16 +39,16 @@ namespace TP4
             Correlativa4 = int.Parse(datos[9]);
         }
 
-        public string ObtenerLineaDatos() => $"{CodigoMateria}-" +
-            $"{NombreMateria}-" +
-            $"{ProfesorMateria}-" +
-            $"{HorarioMateria}-" +
-            $"{CapacidadMateria}-" +
-            $"{CorteDeRankingMateria}-" +
-            $"{Correlativa1}-" +
-            $"{Correlativa2}-" +
-            $"{Correlativa3}-" +
-            $"{Correlativa4}";
+        //public string ObtenerLineaDatos() => $"{CodigoMateria}-" +
+        //    $"{NombreMateria}-" +
+        //    $"{ProfesorMateria}-" +
+        //    $"{HorarioMateria}-" +
+        //    $"{CapacidadMateria}-" +
+        //    $"{CorteDeRankingMateria}-" +
+        //    $"{Correlativa1}-" +
+        //    $"{Correlativa2}-" +
+        //    $"{Correlativa3}-" +
+        //    $"{Correlativa4}";
         
         public void Mostrar()
         {

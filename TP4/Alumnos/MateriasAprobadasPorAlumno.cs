@@ -44,7 +44,7 @@ namespace TP4
                 {
                     foreach (var materiaAprobada in materiasAprobadas)
                     {
-                        tw.WriteLine("Numero de registro:" + materiaAprobada.NRegistro + " | Codigo de materia:" + materiaAprobada.CodigoMateria + " | Nombre de materia:" + materiaAprobada.NombreMateria);
+                        tw.WriteLine(materiaAprobada.NRegistro + " - " + materiaAprobada.CodigoMateria + " - " + materiaAprobada.NombreMateria);
                     }
 
                 }

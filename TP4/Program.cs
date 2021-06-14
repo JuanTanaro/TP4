@@ -299,7 +299,7 @@ namespace TP4
                 var materia = Economia.Seleccionar(); //te devuelve el codigo de materia en .int
                 if (materia == null)
                 {
-                    Aprobada(eleccionCarrera, CodigoPersona, rankingAlumno);
+                    otraAprobada(eleccionCarrera, CodigoPersona, rankingAlumno);
                 }
 
                 materia.Mostrar();
@@ -307,7 +307,7 @@ namespace TP4
                 bool Estado = MateriasAprobadasPorAlumno.ValidarMateriaAprobada(CodigoPersona, materia.CodigoMateria);
                 if (Estado == false)
                 {
-                    Aprobada(eleccionCarrera, CodigoPersona, rankingAlumno);
+                    otraAprobada(eleccionCarrera, CodigoPersona, rankingAlumno);
                 }
                 else
                 {
@@ -333,13 +333,13 @@ namespace TP4
                 var materia = Sistemas.Seleccionar(); //te devuelve el codigo de materia en .int
                 if (materia == null)
                 {
-                    Aprobada(eleccionCarrera, CodigoPersona, rankingAlumno);
+                    otraAprobada(eleccionCarrera, CodigoPersona, rankingAlumno);
                 }
 
                 bool Estado = MateriasAprobadasPorAlumno.ValidarMateriaAprobada(CodigoPersona, materia.CodigoMateria);
                 if (Estado == false)
                 {
-                    Aprobada(eleccionCarrera, CodigoPersona, rankingAlumno);
+                    otraAprobada(eleccionCarrera, CodigoPersona, rankingAlumno);
                 }
                 else
                 {
@@ -365,14 +365,14 @@ namespace TP4
                 var materia = Contador.Seleccionar(); //te devuelve el codigo de materia en .int
                 if (materia == null)
                 {
-                    Aprobada(eleccionCarrera, CodigoPersona, rankingAlumno);
+                    otraAprobada(eleccionCarrera, CodigoPersona, rankingAlumno);
                 }
 
                 materia.Mostrar();
                 bool Estado = MateriasAprobadasPorAlumno.ValidarMateriaAprobada(CodigoPersona, materia.CodigoMateria);
                 if (Estado == false)
                 {
-                    Aprobada(eleccionCarrera, CodigoPersona, rankingAlumno);
+                    otraAprobada(eleccionCarrera, CodigoPersona, rankingAlumno);
                 }
                 else
                 {
@@ -398,14 +398,14 @@ namespace TP4
                 var materia = ActuarioAdministracion.Seleccionar(); //te devuelve el codigo de materia en .int
                 if (materia == null)
                 {
-                    Aprobada(eleccionCarrera, CodigoPersona, rankingAlumno);
+                    otraAprobada(eleccionCarrera, CodigoPersona, rankingAlumno);
                 }
 
                 materia.Mostrar();
                 bool Estado = MateriasAprobadasPorAlumno.ValidarMateriaAprobada(CodigoPersona, materia.CodigoMateria);
                 if (Estado == false)
                 {
-                    Aprobada(eleccionCarrera, CodigoPersona, rankingAlumno);
+                    otraAprobada(eleccionCarrera, CodigoPersona, rankingAlumno);
                 }
                 else
                 {
@@ -431,14 +431,14 @@ namespace TP4
                 var materia = ActuarioEconomia.Seleccionar(); //te devuelve el codigo de materia en .int
                 if (materia == null)
                 {
-                    Aprobada(eleccionCarrera, CodigoPersona, rankingAlumno);
+                    otraAprobada(eleccionCarrera, CodigoPersona, rankingAlumno);
                 }
 
                 materia.Mostrar();
                 bool Estado = MateriasAprobadasPorAlumno.ValidarMateriaAprobada(CodigoPersona, materia.CodigoMateria);
                 if (Estado == false)
                 {
-                    Aprobada(eleccionCarrera, CodigoPersona, rankingAlumno);
+                    otraAprobada(eleccionCarrera, CodigoPersona, rankingAlumno);
                 }
                 else
                 {
@@ -464,14 +464,14 @@ namespace TP4
                 var materia = Administracion.Seleccionar(); //te devuelve el codigo de materia en .int
                 if (materia == null)
                 {
-                    Aprobada(eleccionCarrera, CodigoPersona, rankingAlumno);
+                    otraAprobada(eleccionCarrera, CodigoPersona, rankingAlumno);
                 }
 
                 materia.Mostrar();
                 bool Estado = MateriasAprobadasPorAlumno.ValidarMateriaAprobada(CodigoPersona, materia.CodigoMateria);
                 if (Estado == false)
                 {
-                    Aprobada(eleccionCarrera, CodigoPersona, rankingAlumno);
+                    otraAprobada(eleccionCarrera, CodigoPersona, rankingAlumno);
                 }
                 else
                 {
@@ -504,6 +504,7 @@ namespace TP4
             switch (respuesta)
             {
                 case "1":
+                    MateriasAprobadasPorAlumno.EscribirAprobadasEnTXT();
                     SeleccionarAprobada(eleccionCarrera, CodigoPersona, rankingAlumno);
                     break;
                 case "2":
